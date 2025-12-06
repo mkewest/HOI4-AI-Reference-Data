@@ -372,7 +372,7 @@ if = {
 
 ## Trait System
 
-Character traits are defined separately in `common/country_leader/*.txt` and `common/unit_leader/*.txt`. See [Traits](#trait-system) for details.
+Character traits are defined separately in `common/country_leader/*.txt` and `common/unit_leader/*.txt`.
 
 **Trait sprites:** Country leader and advisor traits use `GFX_idea_traits_strip` with frame numbers. The `noOfFrames` attribute must match if the strip image is changed, otherwise frame indexing breaks.
 
