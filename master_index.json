@@ -1,0 +1,1686 @@
+{
+  "version": "1.0",
+  "format": "master_index_router",
+  "domains": {
+    "core": {
+      "path": "/core/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "mod_structure_issue",
+          "description": "Mod installation, descriptor problems, or incorrect file placement/replace_path usage.",
+          "signals": {
+            "keywords": [
+              "descriptor.mod",
+              ".mod file",
+              "mod folder",
+              "mod path",
+              "replace_path",
+              "user directory",
+              "Steam Workshop"
+            ],
+            "file_hint": [
+              "descriptor.mod",
+              "modname.mod"
+            ]
+          },
+          "primary_targets": [
+            "mod_structure.md"
+          ],
+          "secondary_targets": [
+            "load_order.md",
+            "file_syntax.md",
+            "metadata.md"
+          ]
+        },
+        {
+          "intent": "load_order_issue",
+          "description": "Questions or bugs about how files from base game, DLC, and mods override each other.",
+          "signals": {
+            "keywords": [
+              "load order",
+              "override",
+              "same file loaded twice",
+              "duplicate definition",
+              "mod priority"
+            ]
+          },
+          "primary_targets": [
+            "load_order.md"
+          ],
+          "secondary_targets": [
+            "mod_structure.md",
+            "file_syntax.md"
+          ]
+        },
+        {
+          "intent": "file_syntax_error",
+          "description": "Script parse errors, encoding problems, or basic HOI4 scripting syntax issues.",
+          "signals": {
+            "error_log_contains": [
+              "Unexpected token",
+              "Unexpected token:",
+              "ScriptParser",
+              "Malformed token"
+            ],
+            "keywords": [
+              "UTF-8",
+              "UTF-8-BOM",
+              "encoding",
+              "equals sign",
+              "braces",
+              "syntax error"
+            ]
+          },
+          "primary_targets": [
+            "file_syntax.md"
+          ],
+          "secondary_targets": [
+            "mod_structure.md",
+            "scripting_data_types.md"
+          ]
+        },
+        {
+          "intent": "scripting_datatypes_help",
+          "description": "Understanding variables, flags, arrays, event targets, and game variables.",
+          "signals": {
+            "keywords": [
+              "variable",
+              "game_variable",
+              "set_variable",
+              "flag",
+              "array",
+              "event target",
+              "MTTH variable"
+            ]
+          },
+          "primary_targets": [
+            "scripting_data_types.md"
+          ],
+          "secondary_targets": [
+            "console_commands.md"
+          ]
+        },
+        {
+          "intent": "console_commands_help",
+          "description": "How to use console/debug commands for testing, IDs, resources, or scripting.",
+          "signals": {
+            "keywords": [
+              "console command",
+              "debug command",
+              "how to open console",
+              "tdebug",
+              "research_on_icon_click",
+              "nocb",
+              "annex",
+              "observe"
+            ]
+          },
+          "primary_targets": [
+            "console_commands.md"
+          ],
+          "secondary_targets": [
+            "scripting_data_types.md",
+            "debug_tools.md"
+          ]
+        },
+        {
+          "intent": "debug_tools_usage",
+          "description": "Using debug mode, logs, crash data log, or reload features to investigate problems.",
+          "signals": {
+            "keywords": [
+              "debug mode",
+              "-debug",
+              "error.log",
+              "game.log",
+              "crash_data_log",
+              "reload interface",
+              "reload event"
+            ]
+          },
+          "primary_targets": [
+            "debug_tools.md"
+          ],
+          "secondary_targets": [
+            "console_commands.md",
+            "troubleshooting.md"
+          ]
+        },
+        {
+          "intent": "debugging_crash",
+          "description": "Systematic crash diagnosis, binary search, and reading crash-related logs.",
+          "signals": {
+            "keywords": [
+              "game crashes",
+              "CTD",
+              "crash on load",
+              "crash on country select",
+              "mid-game crash",
+              "binary search",
+              "crash pattern"
+            ]
+          },
+          "primary_targets": [
+            "troubleshooting.md"
+          ],
+          "secondary_targets": [
+            "debug_tools.md",
+            "mod_structure.md"
+          ]
+        },
+        {
+          "intent": "nudger_usage",
+          "description": "Using the nudger map editor, understanding its outputs, and avoiding nudger-specific crashes.",
+          "signals": {
+            "keywords": [
+              "nudger",
+              "map editor",
+              "edit map in-game",
+              "nudge tool",
+              "nudger crash",
+              "nudger output"
+            ]
+          },
+          "primary_targets": [
+            "nudger.md"
+          ],
+          "secondary_targets": [
+            "troubleshooting.md"
+          ]
+        },
+        {
+          "intent": "checksum_metadata",
+          "description": "Checksum mismatches, achievement eligibility, and special files like settings.txt or dlc_load.json.",
+          "signals": {
+            "keywords": [
+              "checksum",
+              "multiplayer compatible",
+              "achievements disabled",
+              "ironman achievements",
+              "settings.txt",
+              "dlc_load.json",
+              "launcher-v2.sqlite"
+            ]
+          },
+          "primary_targets": [
+            "metadata.md"
+          ],
+          "secondary_targets": [
+            "mod_structure.md",
+            "load_order.md"
+          ]
+        }
+      ]
+    },
+    "scripting": {
+      "path": "/scripting/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "scope_confusion",
+          "description": "Questions or errors related to scopes (ROOT/THIS/FROM/PREV), invalid event targets, or scope ordering.",
+          "signals": {
+            "keywords": [
+              "ROOT",
+              "THIS",
+              "FROM",
+              "PREV",
+              "scope",
+              "INVALID EVENT TARGET",
+              "scope mismatch",
+              "wrong scope"
+            ]
+          },
+          "primary_targets": [
+            "scopes.md"
+          ],
+          "secondary_targets": [
+            "triggers_core.md",
+            "effects.md"
+          ]
+        },
+        {
+          "intent": "trigger_logic_help",
+          "description": "Help with trigger logic, comparison operators, NOT/AND/OR behavior, or days_since style triggers.",
+          "signals": {
+            "keywords": [
+              "trigger",
+              "if = {",
+              "AND = {",
+              "OR = {",
+              "NOT = {",
+              "count_triggers",
+              "days_since",
+              "scripted trigger"
+            ]
+          },
+          "primary_targets": [
+            "triggers_core.md"
+          ],
+          "secondary_targets": [
+            "triggers_specialized.md",
+            "scopes.md"
+          ]
+        },
+        {
+          "intent": "trigger_reference_lookup",
+          "description": "Looking up specific triggers by scope (country/state/character/etc.) or checking if a trigger exists.",
+          "signals": {
+            "keywords": [
+              "has_",
+              "is_",
+              "trigger list",
+              "what trigger",
+              "which trigger",
+              "country trigger",
+              "state trigger",
+              "division trigger",
+              "peace conference trigger"
+            ]
+          },
+          "primary_targets": [
+            "triggers_specialized.md"
+          ],
+          "secondary_targets": [
+            "triggers_core.md"
+          ]
+        },
+        {
+          "intent": "effect_scripting_help",
+          "description": "Writing effects, loops, random lists, hidden_effect vs effect_tooltip, and flow control.",
+          "signals": {
+            "keywords": [
+              "add_",
+              "set_",
+              "while = {",
+              "for_loop",
+              "random_list",
+              "hidden_effect",
+              "effect_tooltip",
+              "MAX_EFFECT_ITERATION"
+            ]
+          },
+          "primary_targets": [
+            "effects.md"
+          ],
+          "secondary_targets": [
+            "scopes.md",
+            "triggers_core.md"
+          ]
+        },
+        {
+          "intent": "on_actions_help",
+          "description": "Understanding or debugging on_actions (on_daily, on_startup, on_government_change, etc.).",
+          "signals": {
+            "keywords": [
+              "on_action",
+              "on_daily",
+              "on_startup",
+              "on_government_change",
+              "on_war",
+              "random_events",
+              "on capitulation",
+              "peace conference on_action"
+            ]
+          },
+          "primary_targets": [
+            "on_actions_core.md"
+          ],
+          "secondary_targets": [
+            "on_actions_reference.md",
+            "effects.md",
+            "scopes.md"
+          ]
+        },
+        {
+          "intent": "on_actions_reference_lookup",
+          "description": "Finding which on_action fires for a given situation or what scopes an on_action provides.",
+          "signals": {
+            "keywords": [
+              "list of on_actions",
+              "which on_action",
+              "on_actions reference",
+              "on actions reference"
+            ]
+          },
+          "primary_targets": [
+            "on_actions_reference.md"
+          ],
+          "secondary_targets": [
+            "on_actions_core.md"
+          ]
+        },
+        {
+          "intent": "scripted_components_help",
+          "description": "Creating or troubleshooting scripted triggers, scripted effects, and scripted localization.",
+          "signals": {
+            "keywords": [
+              "scripted_trigger",
+              "scripted_effect",
+              "scripted localization",
+              "meta trigger",
+              "diplomacy trigger",
+              "resistance trigger",
+              "override scripted",
+              "parameterized trigger"
+            ]
+          },
+          "primary_targets": [
+            "scripted_triggers_effects.md"
+          ],
+          "secondary_targets": [
+            "triggers_core.md",
+            "effects.md",
+            "scopes.md"
+          ]
+        },
+        {
+          "intent": "defines_tuning",
+          "description": "Changing game balance or behavior via Lua defines, including syntax and partial overrides.",
+          "signals": {
+            "keywords": [
+              "NDefines",
+              "defines.lua",
+              "00_defines.lua",
+              "MAX_EFFECT_ITERATION",
+              "GAME_SPEED_SECONDS",
+              "how to change define"
+            ]
+          },
+          "primary_targets": [
+            "defines.md"
+          ],
+          "secondary_targets": [
+            "effects.md"
+          ]
+        },
+        {
+          "intent": "modifier_system_help",
+          "description": "Understanding how modifiers work (types, scopes, dynamic/static, broken modifiers) as opposed to looking up a specific modifier.",
+          "signals": {
+            "keywords": [
+              "modifier",
+              "dynamic modifier",
+              "static modifier",
+              "zero value",
+              "multiplicative",
+              "idea cost",
+              "opinion modifier",
+              "targeted modifier"
+            ]
+          },
+          "primary_targets": [
+            "modifiers.md"
+          ],
+          "secondary_targets": [
+            "effects.md",
+            "scopes.md"
+          ]
+        }
+      ]
+    },
+    "database": {
+      "path": "/database/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "ideology_system_help",
+          "description": "Understanding or changing ideologies, popularity, government types, and related political rules.",
+          "signals": {
+            "keywords": [
+              "ideology",
+              "ideologies",
+              "popularity",
+              "set_popularities",
+              "fascism",
+              "communism",
+              "democratic",
+              "non_aligned",
+              "subideology",
+              "ideology group"
+            ]
+          },
+          "primary_targets": [
+            "ideologies.md"
+          ],
+          "secondary_targets": [
+            "ideas_core.md",
+            "balance_of_power.md"
+          ]
+        },
+        {
+          "intent": "ideas_system_help",
+          "description": "Designing or debugging national ideas, spirits, advisors, and their slots/categories.",
+          "signals": {
+            "keywords": [
+              "national spirit",
+              "ideas",
+              "idea",
+              "advisor",
+              "idea cost",
+              "on_add",
+              "on_remove",
+              "allowed = {",
+              "visible = {",
+              "available = {",
+              "cancel = {"
+            ]
+          },
+          "primary_targets": [
+            "ideas_core.md"
+          ],
+          "secondary_targets": [
+            "ideas_categories.md",
+            "balance_of_power.md"
+          ]
+        },
+        {
+          "intent": "ideas_gui_help",
+          "description": "Issues with idea slots, advisor categories, and idea GUI layout or icons.",
+          "signals": {
+            "keywords": [
+              "idea slot",
+              "advisor slot",
+              "ideas GUI",
+              "slot_ledger",
+              "zzz_",
+              "noOfFrames",
+              "idea category icon"
+            ]
+          },
+          "primary_targets": [
+            "ideas_categories.md"
+          ],
+          "secondary_targets": [
+            "ideas_core.md"
+          ]
+        },
+        {
+          "intent": "technology_system_help",
+          "description": "Designing tech trees, unlocks, paths/dependencies, and tech effects.",
+          "signals": {
+            "keywords": [
+              "technology",
+              "tech tree",
+              "research cost",
+              "allow_branch",
+              "path =",
+              "xor =",
+              "on_research_complete",
+              "tech category",
+              "doctrine"
+            ]
+          },
+          "primary_targets": [
+            "technologies_core.md"
+          ],
+          "secondary_targets": [
+            "equipment.md",
+            "technologies_gui.md"
+          ]
+        },
+        {
+          "intent": "technology_gui_help",
+          "description": "Techs not appearing in the tree, gridbox/coordinates issues, or doctrine folder problems.",
+          "signals": {
+            "keywords": [
+              "tech doesn't show",
+              "tech not visible",
+              "gridbox",
+              "ignore_for_layout",
+              "LEFT",
+              "UP",
+              "doctrine folder",
+              "tech icon"
+            ]
+          },
+          "primary_targets": [
+            "technologies_gui.md"
+          ],
+          "secondary_targets": [
+            "technologies_core.md"
+          ]
+        },
+        {
+          "intent": "equipment_database_help",
+          "description": "Defining equipment archetypes/variants and their stats (not individual division templates).",
+          "signals": {
+            "keywords": [
+              "equipment",
+              "archetype",
+              "is_buildable",
+              "maximum_speed",
+              "surface_visibility",
+              "sub_visibility",
+              "shore_bombardment",
+              "inherits"
+            ]
+          },
+          "primary_targets": [
+            "equipment.md"
+          ],
+          "secondary_targets": [
+            "technologies_core.md",
+            "resources.md"
+          ]
+        },
+        {
+          "intent": "building_database_help",
+          "description": "Defining buildings, their slots, levels, costs, and map placement.",
+          "signals": {
+            "keywords": [
+              "building",
+              "state building",
+              "shared slots",
+              "province building",
+              "base_cost",
+              "per_level_extra_cost",
+              "state_max_level",
+              "buildings.txt"
+            ]
+          },
+          "primary_targets": [
+            "buildings.md"
+          ],
+          "secondary_targets": [
+            "resources.md",
+            "technologies_core.md"
+          ]
+        },
+        {
+          "intent": "resource_system_help",
+          "description": "Defining resources, fuel behavior, CIC inversion, and resource UI/graphics.",
+          "signals": {
+            "keywords": [
+              "resource",
+              "resources",
+              "FUEL_RESOURCE",
+              "PRODUCTION_MATERIALS_",
+              "GFX_resources_strip",
+              "CIC",
+              "infrastructure bonus"
+            ]
+          },
+          "primary_targets": [
+            "resources.md"
+          ],
+          "secondary_targets": [
+            "buildings.md",
+            "equipment.md"
+          ]
+        },
+        {
+          "intent": "balance_of_power_help",
+          "description": "Working with balance of power sliders, ranges, and their interaction with decisions/modifiers.",
+          "signals": {
+            "keywords": [
+              "balance of power",
+              "BoP",
+              "power balance",
+              "left side",
+              "right side",
+              "range id",
+              "set_default",
+              "power_balance_daily"
+            ]
+          },
+          "primary_targets": [
+            "balance_of_power.md"
+          ],
+          "secondary_targets": [
+            "ideas_core.md",
+            "modifiers.md",
+            "decisions.md"
+          ]
+        },
+        {
+          "intent": "namelists_help",
+          "description": "Creating or fixing division/ship/operative name lists and understanding naming patterns.",
+          "signals": {
+            "keywords": [
+              "namelist",
+              "name list",
+              "division names",
+              "ship names",
+              "operative codename",
+              "NAME_LIST_ID",
+              "unique = {"
+            ]
+          },
+          "primary_targets": [
+            "namelists.md"
+          ],
+          "secondary_targets": [
+            "oob.md"
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "path": "/assets/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "sprite_definition_help",
+          "description": "Defining or troubleshooting GUI sprites, animations, and map text graphics.",
+          "signals": {
+            "keywords": [
+              "spriteType",
+              "frameAnimatedSpriteType",
+              "progressbartype",
+              "corneredTileSpriteType",
+              "maskedShieldType",
+              "sprite",
+              "gfx/interface"
+            ]
+          },
+          "primary_targets": [
+            "sprites.md"
+          ],
+          "secondary_targets": [
+            "interface.md",
+            "localisation.md"
+          ]
+        },
+        {
+          "intent": "gui_layout_help",
+          "description": "Designing or fixing GUI windows, containers, elements, and scrollbars.",
+          "signals": {
+            "keywords": [
+              "containerWindowType",
+              "gui",
+              "windowType",
+              "scrollbar",
+              "clip_children",
+              "drag_scroll",
+              "gui layout"
+            ]
+          },
+          "primary_targets": [
+            "interface.md"
+          ],
+          "secondary_targets": [
+            "sprites.md",
+            "scripted_gui.md"
+          ]
+        },
+        {
+          "intent": "localisation_help",
+          "description": "Writing or debugging localisation, color codes, formatters, and scripted localization.",
+          "signals": {
+            "keywords": [
+              "localisation",
+              "localization",
+              "color codes",
+              "§!",
+              "§Y",
+              "scripted localization",
+              "bindable localization",
+              "text icon",
+              "replace folder"
+            ]
+          },
+          "primary_targets": [
+            "localisation.md"
+          ],
+          "secondary_targets": [
+            "fonts.md",
+            "interface.md"
+          ]
+        },
+        {
+          "intent": "scripted_gui_help",
+          "description": "Using scripted GUI to connect interface with game logic (contexts, lists, triggers/effects).",
+          "signals": {
+            "keywords": [
+              "scripted_gui",
+              "guiContext",
+              "context",
+              "listbox_data",
+              "dynamic list",
+              "dirty = yes",
+              "gui triggers",
+              "gui effects"
+            ]
+          },
+          "primary_targets": [
+            "scripted_gui.md"
+          ],
+          "secondary_targets": [
+            "interface.md",
+            "localisation.md",
+            "effects.md",
+            "triggers_core.md"
+          ]
+        },
+        {
+          "intent": "font_system_help",
+          "description": "Configuring bitmap fonts, spacing, kerning, and language overrides.",
+          "signals": {
+            "keywords": [
+              "bitmapfont",
+              "font",
+              "kerning",
+              "character spacing",
+              "BMFont",
+              "map font",
+              "font size"
+            ]
+          },
+          "primary_targets": [
+            "fonts.md"
+          ],
+          "secondary_targets": [
+            "localisation.md",
+            "interface.md"
+          ]
+        },
+        {
+          "intent": "audio_system_help",
+          "description": "Defining sounds, categories, and compressor behavior for audio.",
+          "signals": {
+            "keywords": [
+              "sound = {",
+              "soundeffect",
+              "sound category",
+              "music",
+              "sfx",
+              "sound file",
+              "compressor"
+            ]
+          },
+          "primary_targets": [
+            "sound.md"
+          ],
+          "secondary_targets": []
+        },
+        {
+          "intent": "portrait_system_help",
+          "description": "Setting up character portraits, pools, ideology-specific portraits, and fallbacks.",
+          "signals": {
+            "keywords": [
+              "portrait",
+              "GFX_portrait",
+              "ideology portrait",
+              "portrait_pool",
+              "female portrait",
+              "male portrait"
+            ]
+          },
+          "primary_targets": [
+            "portraits.md"
+          ],
+          "secondary_targets": [
+            "sprites.md",
+            "ideologies.md",
+            "characters.md"
+          ]
+        },
+        {
+          "intent": "entity_animation_help",
+          "description": "Configuring 3D entities, animation states, inheritance, and particle hooks.",
+          "signals": {
+            "keywords": [
+              "entity = {",
+              "state = {",
+              "animation",
+              "attach",
+              "state_machine",
+              "3d model",
+              "gfx/entities"
+            ]
+          },
+          "primary_targets": [
+            "entities.md"
+          ],
+          "secondary_targets": [
+            "particles.md",
+            "buildings.md",
+            "units.md"
+          ]
+        },
+        {
+          "intent": "particle_system_help",
+          "description": "Using the particle editor and integrating particle effects with entities.",
+          "signals": {
+            "keywords": [
+              "particle",
+              "particle editor",
+              "gfx/particles",
+              "1.11 editor",
+              "effect file"
+            ]
+          },
+          "primary_targets": [
+            "particles.md"
+          ],
+          "secondary_targets": [
+            "entities.md"
+          ]
+        },
+        {
+          "intent": "posteffects_help",
+          "description": "Configuring posteffects, map color grading, volumes, and seasonal variants.",
+          "signals": {
+            "keywords": [
+              "posteffect",
+              "post_effect",
+              "color grading",
+              "volume",
+              "height volume",
+              "seasonal map",
+              "gfx/posteffect"
+            ]
+          },
+          "primary_targets": [
+            "posteffects.md"
+          ],
+          "secondary_targets": [
+            "map/heightmap.md"
+          ]
+        }
+      ]
+    },
+    "military": {
+      "path": "/military/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "oob_help",
+          "description": "Creating or debugging OOB files and initial force setups.",
+          "signals": {
+            "keywords": [
+              "oob",
+              "Order of Battle",
+              "OOB file",
+              "division template in OOB",
+              "load_oob",
+              "instant_oob"
+            ]
+          },
+          "primary_targets": [
+            "oob.md"
+          ],
+          "secondary_targets": [
+            "division_template.md",
+            "units.md",
+            "equipment.md"
+          ]
+        },
+        {
+          "intent": "division_template_help",
+          "description": "Designing division templates, combat width, and division naming.",
+          "signals": {
+            "keywords": [
+              "division template",
+              "regiment",
+              "support company",
+              "combat width",
+              "is_locked",
+              "division naming"
+            ]
+          },
+          "primary_targets": [
+            "division_template.md"
+          ],
+          "secondary_targets": [
+            "units.md",
+            "oob.md"
+          ]
+        },
+        {
+          "intent": "unit_stats_help",
+          "description": "Configuring battalion/support unit stats, equipment needs, and terrain modifiers.",
+          "signals": {
+            "keywords": [
+              "sub_unit",
+              "battalion",
+              "support unit",
+              "soft_attack",
+              "hard_attack",
+              "defense",
+              "breakthrough",
+              "terrain modifier"
+            ]
+          },
+          "primary_targets": [
+            "units.md"
+          ],
+          "secondary_targets": [
+            "equipment.md",
+            "terrain.md"
+          ]
+        },
+        {
+          "intent": "military_equipment_help",
+          "description": "Designing military equipment (tanks, planes, ships, etc.) at the military systems level.",
+          "signals": {
+            "keywords": [
+              "tank equipment",
+              "plane equipment",
+              "ship equipment",
+              "equipment variant",
+              "reliability",
+              "production_cost",
+              "equipment category"
+            ]
+          },
+          "primary_targets": [
+            "equipment.md"
+          ],
+          "secondary_targets": [
+            "units.md",
+            "mios.md"
+          ]
+        },
+        {
+          "intent": "air_wings_help",
+          "description": "Instantiating and configuring air wings in OOB or history files.",
+          "signals": {
+            "keywords": [
+              "air_wings",
+              "wing",
+              "airbase",
+              "air wing size",
+              "aircraft variant",
+              "BBA aircraft"
+            ]
+          },
+          "primary_targets": [
+            "air_wings.md"
+          ],
+          "secondary_targets": [
+            "equipment.md",
+            "oob.md"
+          ]
+        },
+        {
+          "intent": "navies_help",
+          "description": "Setting up naval task forces, fleets, and ship variants.",
+          "signals": {
+            "keywords": [
+              "navy",
+              "fleet",
+              "task force",
+              "pride_of_the_fleet",
+              "ship variant",
+              "MTG hull"
+            ]
+          },
+          "primary_targets": [
+            "navies.md"
+          ],
+          "secondary_targets": [
+            "equipment.md",
+            "oob.md"
+          ]
+        },
+        {
+          "intent": "mios_help",
+          "description": "Creating or tuning Military-Industrial Organizations and their traits/policies.",
+          "signals": {
+            "keywords": [
+              "MIO",
+              "military industrial organization",
+              "trait grid",
+              "initial trait",
+              "organization_bonus",
+              "nsb_mio"
+            ]
+          },
+          "primary_targets": [
+            "mios.md"
+          ],
+          "secondary_targets": [
+            "equipment.md"
+          ]
+        },
+        {
+          "intent": "intel_agencies_help",
+          "description": "Defining intel agencies, icons, and upgrade trees.",
+          "signals": {
+            "keywords": [
+              "intelligence agency",
+              "agency",
+              "LaR agency",
+              "agency icon",
+              "agency upgrade"
+            ]
+          },
+          "primary_targets": [
+            "intel_agencies.md"
+          ],
+          "secondary_targets": []
+        }
+      ]
+    },
+    "map": {
+      "path": "/map/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "map_error",
+          "description": "Crashes or errors related to map files (MAP_ERROR, X4008, no continent, etc.).",
+          "signals": {
+            "error_log_contains": [
+              "MAP_ERROR",
+              "X4008",
+              "no continent",
+              "TOO_LARGE_BOX"
+            ],
+            "keywords": [
+              "map crash",
+              "map errors",
+              "provinces.bmp error",
+              "definition.csv error"
+            ]
+          },
+          "primary_targets": [
+            "troubleshooting.md"
+          ],
+          "secondary_targets": [
+            "provinces.md",
+            "coordinates.md"
+          ]
+        },
+        {
+          "intent": "provinces_help",
+          "description": "Defining provinces in provinces.bmp and definition.csv, continents, and common pitfalls.",
+          "signals": {
+            "keywords": [
+              "provinces.bmp",
+              "definition.csv",
+              "province id",
+              "continent",
+              "no continent",
+              "border limit",
+              "province type"
+            ]
+          },
+          "primary_targets": [
+            "provinces.md"
+          ],
+          "secondary_targets": [
+            "coordinates.md",
+            "troubleshooting.md"
+          ]
+        },
+        {
+          "intent": "terrain_system_help",
+          "description": "Configuring provincial and graphical terrain, atlases, and trees.",
+          "signals": {
+            "keywords": [
+              "terrain.bmp",
+              "graphical terrain",
+              "provincial terrain",
+              "atlas",
+              "trees",
+              "terrain category"
+            ]
+          },
+          "primary_targets": [
+            "terrain.md"
+          ],
+          "secondary_targets": [
+            "heightmap.md"
+          ]
+        },
+        {
+          "intent": "heightmap_help",
+          "description": "Working with heightmap, normal map, and colormap for elevation and lighting.",
+          "signals": {
+            "keywords": [
+              "heightmap",
+              "colormap",
+              "normal map",
+              "city lights",
+              "elevation",
+              "map lighting"
+            ]
+          },
+          "primary_targets": [
+            "heightmap.md"
+          ],
+          "secondary_targets": [
+            "terrain.md",
+            "troubleshooting.md"
+          ]
+        },
+        {
+          "intent": "rivers_help",
+          "description": "Defining rivers, river colormap indices, and performance/railway interactions.",
+          "signals": {
+            "keywords": [
+              "rivers.bmp",
+              "river source",
+              "colormap index",
+              "small river",
+              "large river",
+              "river performance"
+            ]
+          },
+          "primary_targets": [
+            "rivers.md"
+          ],
+          "secondary_targets": [
+            "supply.md"
+          ]
+        },
+        {
+          "intent": "map_buildings_help",
+          "description": "Placing buildings, victory points, and ambient objects on the map.",
+          "signals": {
+            "keywords": [
+              "buildings.txt",
+              "unitstacks.txt",
+              "ambient_object.txt",
+              "victory point position",
+              "naval base crash"
+            ]
+          },
+          "primary_targets": [
+            "buildings.md"
+          ],
+          "secondary_targets": [
+            "coordinates.md",
+            "troubleshooting.md"
+          ]
+        },
+        {
+          "intent": "adjacencies_help",
+          "description": "Creating special province connections (straits, canals) and adjacency rules.",
+          "signals": {
+            "keywords": [
+              "adjacencies.csv",
+              "through",
+              "canal",
+              "strait",
+              "adjacency_rules.txt"
+            ]
+          },
+          "primary_targets": [
+            "adjacencies.md"
+          ],
+          "secondary_targets": [
+            "strategic_regions.md"
+          ]
+        },
+        {
+          "intent": "strategic_regions_help",
+          "description": "Defining strategic regions, weather patterns, and naval terrain.",
+          "signals": {
+            "keywords": [
+              "strategic_region",
+              "weather",
+              "naval terrain",
+              "weather position",
+              "period = {",
+              "between = {"
+            ]
+          },
+          "primary_targets": [
+            "strategic_regions.md"
+          ],
+          "secondary_targets": [
+            "provinces.md",
+            "coordinates.md"
+          ]
+        },
+        {
+          "intent": "supply_system_help",
+          "description": "Designing or debugging supply nodes, railways, and (legacy) supply areas.",
+          "signals": {
+            "keywords": [
+              "supply node",
+              "railway",
+              "supply area",
+              "supply network",
+              "logistics",
+              "supply hub"
+            ]
+          },
+          "primary_targets": [
+            "supply.md"
+          ],
+          "secondary_targets": [
+            "rivers.md",
+            "strategic_regions.md"
+          ]
+        },
+        {
+          "intent": "coordinates_help",
+          "description": "Understanding and debugging map coordinates, rotations, and axis conventions.",
+          "signals": {
+            "keywords": [
+              "x =",
+              "y =",
+              "z =",
+              "position = {",
+              "rotation",
+              "radians",
+              "crossing X error"
+            ]
+          },
+          "primary_targets": [
+            "coordinates.md"
+          ],
+          "secondary_targets": [
+            "buildings.md",
+            "heightmap.md"
+          ]
+        },
+        {
+          "intent": "map_troubleshooting_help",
+          "description": "General debugging of map crashes, BMP issues, and nudger-related problems.",
+          "signals": {
+            "keywords": [
+              "X4008",
+              "MAP_ERROR",
+              "nudger",
+              "bmp",
+              "indexed",
+              "colormap",
+              "map debug"
+            ]
+          },
+          "primary_targets": [
+            "troubleshooting.md"
+          ],
+          "secondary_targets": [
+            "provinces.md",
+            "terrain.md",
+            "heightmap.md",
+            "rivers.md"
+          ]
+        }
+      ]
+    },
+    "content": {
+      "path": "/content/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "events_system_help",
+          "description": "Writing or debugging scripted events, options, MTTH, and event firing.",
+          "signals": {
+            "keywords": [
+              "country_event",
+              "news_event",
+              "state_event",
+              "id =",
+              "title =",
+              "desc =",
+              "option = {",
+              "MTTH",
+              "fire_only_once"
+            ]
+          },
+          "primary_targets": [
+            "events.md"
+          ],
+          "secondary_targets": [
+            "on_actions_core.md",
+            "triggers_core.md",
+            "effects.md",
+            "scopes.md"
+          ]
+        },
+        {
+          "intent": "national_focus_help",
+          "description": "Designing focus trees, prerequisites, bypass, and AI focus selection.",
+          "signals": {
+            "keywords": [
+              "focus_tree",
+              "focus = {",
+              "ai_will_do",
+              "bypass = {",
+              "mutually_exclusive",
+              "continue_if_unavailable",
+              "shared focus",
+              "joint focus"
+            ]
+          },
+          "primary_targets": [
+            "national_focus.md"
+          ],
+          "secondary_targets": [
+            "ai_strategy.md",
+            "ideas_core.md"
+          ]
+        },
+        {
+          "intent": "decisions_system_help",
+          "description": "Creating decisions, missions, targeted decisions, and custom costs/timers.",
+          "signals": {
+            "keywords": [
+              "decision_category",
+              "decision = {",
+              "targeted_decision",
+              "mission = {",
+              "days_remove",
+              "days_mission_timeout",
+              "days_between_re_enable",
+              "war_warning"
+            ]
+          },
+          "primary_targets": [
+            "decisions.md"
+          ],
+          "secondary_targets": [
+            "events.md",
+            "effects.md"
+          ]
+        },
+        {
+          "intent": "ai_strategy_help",
+          "description": "Configuring AI strategies, areas, focus selection, templates, equipment, and peace AI.",
+          "signals": {
+            "keywords": [
+              "ai_strategy",
+              "strategy_plan",
+              "ai_area",
+              "strategy = {",
+              "mtth = {",
+              "peace conference AI",
+              "ai_focus",
+              "ai strategy"
+            ]
+          },
+          "primary_targets": [
+            "ai_strategy.md"
+          ],
+          "secondary_targets": [
+            "national_focus.md",
+            "units.md",
+            "equipment.md",
+            "strategic_regions.md"
+          ]
+        },
+        {
+          "intent": "achievements_help",
+          "description": "Defining custom achievements, icons, and evaluation timing.",
+          "signals": {
+            "keywords": [
+              "achievement = {",
+              "possible = {",
+              "happened = {",
+              "ribbon",
+              "achievement icon"
+            ]
+          },
+          "primary_targets": [
+            "achievements.md"
+          ],
+          "secondary_targets": []
+        },
+        {
+          "intent": "bookmarks_help",
+          "description": "Configuring game start bookmarks, interesting countries, and difficulty/game rules.",
+          "signals": {
+            "keywords": [
+              "bookmark = {",
+              "start_date",
+              "country = {",
+              "interesting_countries",
+              "difficulty_settings",
+              "game_rules",
+              "randomize_weather"
+            ]
+          },
+          "primary_targets": [
+            "bookmarks.md"
+          ],
+          "secondary_targets": [
+            "ideologies.md",
+            "national_focus.md"
+          ]
+        }
+      ]
+    },
+    "entities": {
+      "path": "/entities/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "country_tags_help",
+          "description": "Defining country tags, country files, graphical culture, and colors.",
+          "signals": {
+            "keywords": [
+              "country_tags",
+              "TAG = \"countries/",
+              "dynamic_tags",
+              "graphical_culture",
+              "graphical_culture_2d",
+              "country color"
+            ]
+          },
+          "primary_targets": [
+            "country_tags.md"
+          ],
+          "secondary_targets": [
+            "country_history.md"
+          ]
+        },
+        {
+          "intent": "country_history_help",
+          "description": "Configuring country history files: government, OOB, ideas, advisors, and territories.",
+          "signals": {
+            "keywords": [
+              "history/countries",
+              "set_politics",
+              "add_ideas",
+              "set_country_flag",
+              "capital =",
+              "add_equipment_to_stockpile"
+            ]
+          },
+          "primary_targets": [
+            "country_history.md"
+          ],
+          "secondary_targets": [
+            "country_tags.md",
+            "states.md"
+          ]
+        },
+        {
+          "intent": "states_help",
+          "description": "Defining states, IDs, provinces, categories, and state history.",
+          "signals": {
+            "keywords": [
+              "history/states",
+              "state = {",
+              "state_category",
+              "manpower =",
+              "provinces = {",
+              "victory_points"
+            ]
+          },
+          "primary_targets": [
+            "states.md"
+          ],
+          "secondary_targets": [
+            "provinces.md",
+            "buildings.md"
+          ]
+        },
+        {
+          "intent": "autonomy_system_help",
+          "description": "Working with autonomy states, subject levels, and autonomy point calculations.",
+          "signals": {
+            "keywords": [
+              "autonomy_state = {",
+              "min_freedom_level",
+              "is_puppet",
+              "default = yes",
+              "autonomy_gain",
+              "AUTONOMOUS_TOTAL_SCORE"
+            ]
+          },
+          "primary_targets": [
+            "autonomy.md"
+          ],
+          "secondary_targets": [
+            "factions.md"
+          ]
+        },
+        {
+          "intent": "factions_system_help",
+          "description": "Creating and managing factions and scripted faction behavior.",
+          "signals": {
+            "keywords": [
+              "create_faction",
+              "add_to_faction",
+              "is_in_faction",
+              "leave_faction",
+              "faction_leader"
+            ]
+          },
+          "primary_targets": [
+            "factions.md"
+          ],
+          "secondary_targets": [
+            "autonomy.md"
+          ]
+        },
+        {
+          "intent": "characters_system_help",
+          "description": "Defining and using characters (leaders, advisors, commanders, operatives).",
+          "signals": {
+            "keywords": [
+              "characters = {",
+              "country_leader",
+              "advisor = {",
+              "corps_commander",
+              "field_marshal",
+              "operative"
+            ]
+          },
+          "primary_targets": [
+            "characters.md"
+          ],
+          "secondary_targets": [
+            "portraits.md"
+          ]
+        },
+        {
+          "intent": "cosmetic_tags_help",
+          "description": "Defining cosmetic tags and conditional cosmetic switches for countries.",
+          "signals": {
+            "keywords": [
+              "cosmetic_tag",
+              "set_cosmetic_tag",
+              "cosmetic_tag =",
+              "clone from",
+              "name = \"COSMETIC_"
+            ]
+          },
+          "primary_targets": [
+            "cosmetic_tags.md"
+          ],
+          "secondary_targets": [
+            "country_tags.md",
+            "ideologies.md"
+          ]
+        },
+        {
+          "intent": "country_ideology_setup_help",
+          "description": "Setting up country ideology popularities and parties in history files.",
+          "signals": {
+            "keywords": [
+              "set_popularities",
+              "set_party_name",
+              "ruling_party",
+              "ideology popularity"
+            ]
+          },
+          "primary_targets": [
+            "ideologies.md"
+          ],
+          "secondary_targets": [
+            "ideologies.md",
+            "country_history.md"
+          ]
+        }
+      ]
+    },
+    "modifiers_list": {
+      "path": "/modifiers_list/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "modifier_lookup",
+          "description": "Looking up gameplay modifiers by name or by functional category (what modifiers exist for a given system).",
+          "signals": {
+            "keywords": [
+              "modifier",
+              "_factor",
+              "_bonus",
+              "research_speed_factor",
+              "division_attack",
+              "navy_",
+              "air_",
+              "resource",
+              "compliance",
+              "resistance"
+            ]
+          },
+          "primary_targets": [
+            "00_overview.md"
+          ],
+          "secondary_targets": [
+            "military_land.md",
+            "military_naval.md",
+            "military_air.md",
+            "politics_ideology.md",
+            "economy_production.md",
+            "economy_resources.md",
+            "occupation_autonomy.md",
+            "state_modifiers.md",
+            "equipment.md",
+            "research.md",
+            "ai_modifiers.md",
+            "special_operations.md",
+            "intelligence.md"
+          ]
+        }
+      ]
+    },
+    "defines_list": {
+      "path": "/defines_list/",
+      "overview": "00_overview.md",
+      "routes": [
+        {
+          "intent": "define_lookup",
+          "description": "Looking up specific defines by name or category, or scanning all defines that affect a system.",
+          "signals": {
+            "keywords": [
+              "NDefines",
+              "NGame.",
+              "NMilitary.",
+              "NGraphics.",
+              "define value",
+              "PROVINCE_AREA_LIMIT",
+              "COMBAT_WIDTH",
+              "SUPPLY_NODE_RANGE"
+            ]
+          },
+          "primary_targets": [
+            "00_overview.md"
+          ],
+          "secondary_targets": [
+            "NGame.md",
+            "NMilitary.md",
+            "NGraphics.md",
+            "NDiplomacy.md",
+            "NCountry.md",
+            "NSupply.md",
+            "NAI.md",
+            "NTechnology.md"
+          ]
+        }
+      ]
+    }
+  }
+}
+
+
