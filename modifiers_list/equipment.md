@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: equipment
 version: 1.14+
 requires: [modifiers]
-relates: [equipment_stats, ideas, upgrades]
+relates: [military_land, military_air, military_naval]
 ---
 
 # Equipment Modifiers

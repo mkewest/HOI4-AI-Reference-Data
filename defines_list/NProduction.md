@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NProduction
+version: 1.14+
+requires: [defines]
+relates: [production, equipment]
+---
+
 ```yaml
 MAX_EQUIPMENT_RESOURCES_NEED:
   def: '3'

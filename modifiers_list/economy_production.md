@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: economy_production
 version: 1.14+
 requires: [modifiers]
-relates: [factories, construction, output, economy]
+relates: []
 ---
 
 # Economy Production Modifiers

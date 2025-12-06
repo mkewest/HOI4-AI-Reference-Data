@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: politics_ideology
 version: 1.14+
 requires: [modifiers]
-relates: [government, stability, war_support, ideology]
+relates: [ideologies]
 ---
 
 # Politics Ideology Modifiers

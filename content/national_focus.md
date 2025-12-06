@@ -3,7 +3,7 @@ domain: content
 concept: national_focus
 version: 1.14+
 requires: [triggers, effects, modifiers]
-relates: [ideas, ai_strategy, focus_inlay_windows]
+relates: [ideas_core, ai_strategy]
 ---
 
 # National Focus System

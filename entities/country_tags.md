@@ -2,8 +2,8 @@
 domain: entities
 concept: country_tags
 version: 1.14+
-requires: [file_structure]
-relates: [country_history, flags, colors, localization]
+requires: [file_syntax]
+relates: [country_history, cosmetic_tags, localisation]
 ---
 
 # Country Tag System

@@ -2,8 +2,8 @@
 domain: military
 concept: intel_agencies
 version: 1.14+
-requires: [LaR_DLC]
-relates: [espionage, operatives]
+requires: []
+relates: []
 ---
 
 # Intelligence Agencies

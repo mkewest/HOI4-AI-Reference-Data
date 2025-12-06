@@ -3,7 +3,7 @@ domain: content
 concept: achievements
 version: 1.12.1+
 requires: [triggers]
-relates: [ironman_mode]
+relates: []
 ---
 
 # Custom Achievements
@@ -126,6 +126,7 @@ Each achievement requires two localization keys:
 - `{id}_DESC`: The achievement description explaining requirements
 
 Example:
+
 ```yaml
 l_english:
  conquer_world_NAME: "Master of the World"

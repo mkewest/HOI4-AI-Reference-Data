@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: military_leaders
 version: 1.14+
 requires: [modifiers]
-relates: [leaders, traits, command, experience]
+relates: [characters, military_land]
 ---
 
 # Military Leaders Modifiers

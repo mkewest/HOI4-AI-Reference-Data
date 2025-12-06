@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NSound
+version: 1.14+
+requires: [defines]
+relates: [sound]
+---
+
 ```yaml
 HEIGHT_SOUND_CATEGORY:
   def: '"Atmosphere"'

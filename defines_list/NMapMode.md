@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NMapMode
+version: 1.14+
+requires: [defines]
+relates: [map_mode]
+---
+
 ```yaml
 FABRICATE_CLAIM_SELECTED_SECONDARY_COLOR:
   def: '{ 0, 1, 0, 1 }'

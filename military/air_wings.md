@@ -3,7 +3,7 @@ domain: military
 concept: air_wings
 version: 1.14+
 requires: [equipment, states]
-relates: [airbases, air_combat]
+relates: [oob]
 ---
 
 # Air Wings

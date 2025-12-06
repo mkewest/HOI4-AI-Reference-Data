@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NMapIcons
+version: 1.14+
+requires: [defines]
+relates: [map_icons]
+---
+
 ```yaml
 TOP_MAP_ICON:
   def: '30'

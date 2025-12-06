@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NAir
+version: 1.14+
+requires: [defines]
+relates: [air_wings]
+---
+
 ```yaml
 AIR_WING_FLIGHT_SPEED_MULT:
   def: '0.02'

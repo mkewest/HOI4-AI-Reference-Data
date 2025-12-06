@@ -3,8 +3,7 @@ domain: entities
 concept: autonomy
 version: 1.14+
 requires: [country_tags, ideologies]
-conflicts: [independence_mechanics]
-relates: [factions, diplomacy, subjects, country_history]
+relates: [factions, country_history, ideologies]
 ---
 
 # Autonomy System

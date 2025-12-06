@@ -3,7 +3,7 @@ domain: entities
 concept: ideologies
 version: 1.14+
 requires: [country_tags]
-relates: [characters, politics, localization, country_history]
+relates: [characters, country_history, localisation]
 ---
 
 # Ideology System

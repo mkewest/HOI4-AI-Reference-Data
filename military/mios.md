@@ -2,8 +2,8 @@
 domain: military
 concept: mios
 version: 1.14+
-requires: [equipment, NSB_DLC]
-relates: [production, technology, focuses]
+requires: [equipment]
+relates: [equipment]
 ---
 
 # Military-Industrial Organizations (MIOs)

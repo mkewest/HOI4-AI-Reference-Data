@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: occupation_autonomy
 version: 1.14+
 requires: [modifiers]
-relates: [resistance, compliance, puppets, subjects]
+relates: [autonomy, states]
 ---
 
 # Occupation Autonomy Modifiers

@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NAITheatre
+version: 1.14+
+requires: [defines]
+relates: [ai_strategy]
+---
+
 ```yaml
 AI_THEATRE_GENERATION_HOME_THEATRE_DEPTH_RESTRICTION:
   def: '2'

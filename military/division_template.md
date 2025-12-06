@@ -3,7 +3,7 @@ domain: military
 concept: division_template
 version: 1.14+
 requires: [units]
-relates: [combat_width, manpower, oob]
+relates: [oob, equipment]
 ---
 
 # Division Templates

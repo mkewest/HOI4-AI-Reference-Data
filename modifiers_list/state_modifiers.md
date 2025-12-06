@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: state_modifiers
 version: 1.14+
 requires: [modifiers]
-relates: [states, local_effects, provinces]
+relates: [states]
 ---
 
 # State Modifiers

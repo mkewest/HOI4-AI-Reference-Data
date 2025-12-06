@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: military_air
 version: 1.14+
 requires: [modifiers]
-relates: [aircraft, air_combat, missions, paradrops]
+relates: [air_wings]
 ---
 
 # Military Air Modifiers

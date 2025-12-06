@@ -81,7 +81,7 @@ Kerning data defines spacing between specific character pairs. Some fonts export
 
 If BMFont doesn't generate kerning data automatically, manual addition is required. The `.fnt` format uses:
 
-```
+```text
 kerning first=<char1_id> second=<char2_id> amount=<pixels>
 ```
 

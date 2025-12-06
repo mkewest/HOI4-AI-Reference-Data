@@ -3,7 +3,7 @@ domain: entities
 concept: states
 version: 1.14+
 requires: [provinces, strategic_regions]
-relates: [buildings, victory_points, manpower, state_categories]
+relates: [country_history, buildings]
 ---
 
 # State System

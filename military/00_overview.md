@@ -36,45 +36,45 @@ The military domain contains 8 markdown files covering all aspects of military f
 ### division_template.md (~1400 tokens)
 **Purpose**: Division composition and organization  
 **Covers**: Template structure, regiment coordinate system, combat battalion groups, division naming (direct and ordered), template locking, combat width calculation, priority and obsolescence  
-**Key relationships**: Requires units for battalion types, relates to combat_width and manpower systems  
+**Key relationships**: Requires units for battalion types; relates to oob and equipment  
 **Critical edge cases**: Inverted Y-axis (0,0 at top-left), out-of-bounds coordinates fail silently, group mixing restrictions in columns, mutual exclusion of naming methods
 
 ### units.md (~2200 tokens)
 **Purpose**: Battalion and support company definitions  
 **Covers**: Unit definition structure, groups (implicit creation), type and categories, combat statistics, equipment requirements, unit speed (multiplicative), supply and organization, training and manpower, equipment bonuses, terrain modifiers, unit models and visuals, icons, availability  
-**Key relationships**: Core concept required by division_template and equipment, relates to combat and terrain systems  
+**Key relationships**: Core concept required by division_template and equipment; relates to terrain systems  
 **Critical edge cases**: Speed multiplier behavior, terrain modifiers REPLACE base stats, negative attack values as percentages, icon sprite requirements (all three types), group creation on first reference, equipment need blocks affecting availability
 
 ### equipment.md (~1300 tokens)
 **Purpose**: Equipment archetype hierarchy and variant system  
 **Covers**: Archetype hierarchy (inheritance), parent relationships (upgrade paths), equipment stats, variants, variant requirements by DLC, upgrade modules, production system, production efficiency, equipment behavior in OOB, factory assignment, categories, lend-lease and gifting  
-**Key relationships**: Requires units for type matching, relates to production and technology  
+**Key relationships**: Requires units for type matching; relates to units, oob, and mios  
 **Critical edge cases**: Efficiency as 0-100 not 0.0-1.0, progress as single unit completion, variant name requirements by DLC (NSB/MTG/BBA mandatory), start_equipment_factor spawning from nothing, force_equipment_variants leaving empty slots, ship production efficiency factors having no effect
 
 ### air_wings.md (~500 tokens)
 **Purpose**: Air force instantiation and organization  
 **Covers**: Air wing structure, location requirements, equipment assignment, BBA variant requirement, amount and strength, experience, multiple wings per state, ownership and creator, air wing effects  
-**Key relationships**: Requires equipment variants and states (for airbases), relates to air combat  
+**Key relationships**: Requires equipment variants and states (for airbases); relates to oob  
 **Critical edge cases**: State must have airbase or wing shows error, no validation on capacity vs wing size, BBA requires version_name for aircraft  
 **Note**: Smallest file - focused concept with minimal complexity
 
 ### navies.md (~1200 tokens)
 **Purpose**: Naval fleet organization and ship management  
 **Covers**: Fleet structure (fleet/task force/ship hierarchy), MTG vs non-MTG equipment, ship definition, pride of the fleet, location and naval base, ship experience, equipment variants and creator, production efficiency (lack of), start equipment factor, task force organization  
-**Key relationships**: Requires equipment variants and naval units, relates to naval combat and MTG DLC  
+**Key relationships**: Requires equipment variants; relates to oob  
 **Critical edge cases**: MTG/non-MTG mutual exclusivity (mixing causes crash), MTG ships require version_name, pride of fleet limited to ONE per fleet globally (last-write-wins), ship production efficiency factors have no effect, equipment spawns from nothing
 
 ### mios.md (~2800 tokens)
 **Purpose**: Military-Industrial Organizations system (NSB DLC)  
 **Covers**: MIO definition structure, loading and timing, allowed condition, initial trait (special properties), trait system, trait grid coordinates, relative positioning, visibility and availability, equipment bonuses (trait vs policy differences), organization bonuses (global and additive), production bonuses, mutual exclusion, policy system, name resolution, include system  
-**Key relationships**: Requires equipment types and NSB DLC, relates to production, technology, and focuses  
+**Key relationships**: Requires equipment types; relates to equipment  
 **Critical edge cases**: Load only on new game (not mid-game), check error.log twice (menu access fires visibility), allowed evaluated at game start only, initial trait has no grid position, grid coordinates 10×5 with inverted Y-axis, relative positioning, mutual exclusion must be in ALL traits, trait equipment bonus vs policy equipment bonus differences, organization bonuses cannot be limited by equipment type, research bonus is additive not multiplicative  
 **Note**: Largest file due to complex grid system, visibility mechanics, and bonus type variations
 
 ### intel_agencies.md (~800 tokens)
 **Purpose**: Intelligence agency creation and upgrades (LaR DLC)  
 **Covers**: Agency definition structure, icon system (two-frame split), agency names, name selection behavior, availability trigger, upgrade system, multiple default names, selection effect, AI behavior  
-**Key relationships**: Requires LaR DLC, relates to espionage and operatives  
+**Key relationships**: Requires none beyond base scripting; standalone system  
 **Critical edge cases**: Icon frame split at exactly 117px with noOfFrames=2 required, names list only used without explicit name parameter, available controls icon selection not names list, icon-only definitions still need at least one name entry, selection effect not automatically generated
 
 ## Dependency Graph

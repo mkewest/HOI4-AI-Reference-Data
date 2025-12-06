@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: intelligence
 version: 1.14+
 requires: [modifiers]
-relates: [operatives, operations, intelligence_agency]
+relates: [intel_agencies, special_operations]
 ---
 
 # Intelligence Modifiers

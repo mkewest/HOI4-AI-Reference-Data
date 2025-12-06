@@ -3,7 +3,7 @@ domain: content
 concept: events
 version: 1.14+
 requires: [triggers, effects, scopes]
-relates: [localization, on_actions]
+relates: [localisation, on_actions_core]
 ---
 
 # Events

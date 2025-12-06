@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NGraphics
+version: 1.14+
+requires: [defines]
+relates: [graphics]
+---
+
 ```yaml
 COUNTER_MODE_ALLEGIANCE_OURS:
   def: '{ 0.32, 0.71, 0.39, 1.0 }'

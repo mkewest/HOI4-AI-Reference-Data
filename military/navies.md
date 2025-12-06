@@ -2,8 +2,8 @@
 domain: military
 concept: navies
 version: 1.14+
-requires: [equipment, naval_units]
-relates: [naval_combat, MTG_DLC]
+requires: [equipment]
+relates: [oob]
 ---
 
 # Navies

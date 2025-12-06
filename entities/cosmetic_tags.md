@@ -2,8 +2,8 @@
 domain: entities
 concept: cosmetic_tags
 version: 1.14+
-requires: [country_tags, flags]
-relates: [localization, entities, portraits]
+requires: [country_tags]
+relates: [localisation, autonomy, country_history]
 ---
 
 # Cosmetic Tag System

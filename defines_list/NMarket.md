@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NMarket
+version: 1.14+
+requires: [defines]
+relates: [market, trade]
+---
+
 ```yaml
 PURCHASE_CONTRACT_DELIVERY_TOTAL_DAYS:
   def: '30'

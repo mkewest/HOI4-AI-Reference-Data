@@ -3,7 +3,7 @@ domain: content
 concept: ai_strategy
 version: 1.14+
 requires: [triggers, modifiers, strategic_regions]
-relates: [divisions, equipment, focuses, peace_conference]
+relates: [national_focus, division_template, equipment]
 ---
 
 # AI Strategy System
@@ -142,6 +142,7 @@ Country-specific overrides use the format `ai_focus_<type>_<TAG>` and completely
 ### Default Focus Calculations
 
 Fascist countries have different default values for certain focus types:
+
 - aggressive: 75 (vs 50 for others)
 - war_production: 30 (vs 10 for others)
 
@@ -324,6 +325,7 @@ my_peace_ai = {
 ```
 
 **Scopes**:
+
 - ROOT = winner country
 - FROM = country undergoing the action (may be non-existent for liberation/puppeting)
 - FROM.FROM.FROM = state being affected
@@ -355,6 +357,7 @@ my_peace_ai = {
 Files load in ASCII-sorted order. The first matching `enable` trigger wins at game start. Once assigned, that AI persists for the entire peace conference.
 
 **Scopes**:
+
 - ROOT = winner country
 - FROM = loser country
 

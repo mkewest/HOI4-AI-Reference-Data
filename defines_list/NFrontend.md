@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NFrontend
+version: 1.14+
+requires: [defines]
+relates: [frontend]
+---
+
 ```yaml
 CAMERA_LOOKAT_X:
   def: '2958.0'

@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: military_land
 version: 1.14+
 requires: [modifiers]
-relates: [divisions, combat, units, training]
+relates: [division_template, units]
 ---
 
 # Military Land Modifiers

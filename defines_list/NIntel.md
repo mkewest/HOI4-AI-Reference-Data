@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NIntel
+version: 1.14+
+requires: [defines]
+relates: [intelligence]
+---
+
 ```yaml
 COUNTRY_LEVEL_INTEL_MAXIMUMS:
   def: '{ 100.0, 100.0, 100.0, 100.0 }'

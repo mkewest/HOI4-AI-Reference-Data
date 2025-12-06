@@ -2,8 +2,8 @@
 domain: entities
 concept: country_history
 version: 1.14+
-requires: [country_tags, ideologies, technologies]
-relates: [order_of_battle, politics, characters, diplomacy]
+requires: [country_tags, ideologies, states]
+relates: [characters, autonomy, factions]
 ---
 
 # Country History System

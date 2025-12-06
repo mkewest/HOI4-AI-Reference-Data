@@ -3,7 +3,7 @@ domain: entities
 concept: characters
 version: 1.14+
 requires: [country_tags, ideologies]
-relates: [portraits, traits, advisors, unit_leaders, country_history]
+relates: [portraits, country_history]
 ---
 
 # Character System

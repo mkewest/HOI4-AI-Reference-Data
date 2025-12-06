@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NCareerProfile
+version: 1.14+
+requires: [defines]
+relates: [career_profile]
+---
+
 ```yaml
 MOD_STATISTICS_GROUP:
   def: '""'

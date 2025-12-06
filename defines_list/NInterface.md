@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NInterface
+version: 1.14+
+requires: [defines]
+relates: [interface]
+---
+
 ```yaml
 MAX_NO_FACTION_FILTER_BUTTONS:
   def: '40'

@@ -3,7 +3,7 @@ domain: military
 concept: units
 version: 1.14+
 requires: [equipment]
-relates: [division_template, combat, terrain]
+relates: [division_template, terrain]
 ---
 
 # Units (Battalions and Support Companies)

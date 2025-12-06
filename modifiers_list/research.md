@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: research
 version: 1.14+
 requires: [modifiers]
-relates: [technology, research_speed, doctrine]
+relates: [technologies_core]
 ---
 
 # Research Modifiers

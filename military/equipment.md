@@ -3,7 +3,7 @@ domain: military
 concept: equipment
 version: 1.14+
 requires: [units]
-relates: [production, technology]
+relates: [units, oob, mios]
 ---
 
 # Equipment System

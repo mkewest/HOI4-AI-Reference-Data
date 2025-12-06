@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NCareerProfileGUI
+version: 1.14+
+requires: [defines]
+relates: [career_profile]
+---
+
 ```yaml
 AWARD_POPUP_DURATION:
   def: '8000'

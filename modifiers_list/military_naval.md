@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: military_naval
 version: 1.14+
 requires: [modifiers]
-relates: [ships, naval_combat, admirals, naval_production]
+relates: [navies]
 ---
 
 # Military Naval Modifiers

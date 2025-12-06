@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NDiplomacy
+version: 1.14+
+requires: [defines]
+relates: [diplomacy, factions]
+---
+
 ```yaml
 DIPLOMACY_REQUEST_EXPIRY_DAYS:
   def: '30'

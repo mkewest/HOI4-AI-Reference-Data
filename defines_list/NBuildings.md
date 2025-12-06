@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NBuildings
+version: 1.14+
+requires: [defines]
+relates: [buildings]
+---
+
 ```yaml
 ANTI_AIR_SUPERIORITY_MULT:
   def: '5.0'

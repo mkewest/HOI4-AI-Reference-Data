@@ -82,7 +82,7 @@ The animation system uses a three-level reference chain:
 
 Chain structure:
 
-```
+```text
 .asset: animation { name = "walk_cycle" }
     ↓
 .gfx mesh: animation { type = "walk_cycle" id = "anim_walk" }

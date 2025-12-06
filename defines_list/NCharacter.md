@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NCharacter
+version: 1.14+
+requires: [defines]
+relates: [characters]
+---
+
 ```yaml
 OFFICER_CORP_ADVISOR_ENTRIES_IN_MENU:
   def: '{ "high_command", "theorist", "army_chief", "air_chief", "navy_chief" }'

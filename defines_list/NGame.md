@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NGame
+version: 1.14+
+requires: [defines]
+relates: [game_rules]
+---
+
 ```yaml
 START_DATE:
   def: '"1936.1.1.12"'

@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NFocus
+version: 1.14+
+requires: [defines]
+relates: [national_focus]
+---
+
 ```yaml
 FOCUS_POINT_DAYS:
   def: '7'

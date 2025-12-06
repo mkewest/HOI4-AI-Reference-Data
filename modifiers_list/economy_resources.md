@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: economy_resources
 version: 1.14+
 requires: [modifiers]
-relates: [resources, trade, convoys, fuel]
+relates: [resources]
 ---
 
 # Economy Resources Modifiers

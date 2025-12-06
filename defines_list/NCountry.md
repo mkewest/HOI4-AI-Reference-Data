@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NCountry
+version: 1.14+
+requires: [defines]
+relates: [states, country_history]
+---
+
 ```yaml
 EVENT_PROCESS_OFFSET:
   def: '20'

@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NAirGfx
+version: 1.14+
+requires: [defines]
+relates: [air_graphics]
+---
+
 ```yaml
 AIRPLANES_ANIMATION_GLOBAL_SPEED_PER_GAMESPEED:
   def: '{ 0.22, 0.28, 0.32, 0.38, 0.44, 0.5 }'

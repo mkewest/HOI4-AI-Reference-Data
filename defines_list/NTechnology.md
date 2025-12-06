@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NTechnology
+version: 1.14+
+requires: [defines]
+relates: [technologies_core]
+---
+
 ```yaml
 MAX_SUBTECHS:
   def: '3'

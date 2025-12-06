@@ -195,9 +195,11 @@ Elements relying on internal code (smoothListboxType, listboxType, checkboxType,
 Some element attributes exist in legacy code but have no effect:
 
 **In buttonType/checkboxType:**
+
 - `tooltip`, `tooltipText`, `delayedTooltipText`: Never used. Use `pdx_tooltip` in localization instead.
 
 **In smoothListboxType/listboxType:**
+
 - `textureFile`: Never used
 - `background`: Never used
 

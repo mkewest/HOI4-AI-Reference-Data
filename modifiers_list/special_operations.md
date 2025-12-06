@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: special_operations
 version: 1.14+
 requires: [modifiers]
-relates: [redeployment, nuclear_weapons, exiled_forces]
+relates: []
 ---
 
 # Special Operations Modifiers

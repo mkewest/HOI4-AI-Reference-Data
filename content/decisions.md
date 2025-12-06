@@ -3,7 +3,7 @@ domain: content
 concept: decisions
 version: 1.14+
 requires: [triggers, effects, modifiers]
-relates: [states, targeted_decisions, missions]
+relates: [states, events, national_focus]
 ---
 
 # Decisions
@@ -240,10 +240,12 @@ Temp variables in MTTH blocks require the value-modifying argument to come after
 ## Localization
 
 Standard localization keys:
+
 - `<decision_id>`: Decision name
 - `<decision_id>_desc`: Decision description
 
 For custom cost, three keys required:
+
 - `<custom_cost_text>`: Cost display
 - `<custom_cost_text>_blocked`: Blocked state text
 - `<custom_cost_text>_tooltip`: Tooltip explanation

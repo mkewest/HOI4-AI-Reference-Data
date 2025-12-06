@@ -18,7 +18,7 @@ Particles create visual effects like smoke, fire, explosions, and environmental 
 
 Launch the editor using the `-editor` flag exclusively:
 
-```
+```text
 hoi4.exe -editor
 ```
 

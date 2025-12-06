@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NSupply
+version: 1.14+
+requires: [defines]
+relates: [supply, logistics]
+---
+
 ```yaml
 MAX_RAILWAY_LEVEL:
   def: '5'

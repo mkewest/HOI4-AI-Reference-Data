@@ -2,8 +2,8 @@
 domain: content
 concept: bookmarks
 version: 1.14+
-requires: [countries, focus_trees, ideologies]
-relates: [history, difficulty_modifiers, game_rules]
+requires: [national_focus, ideologies, country_history]
+relates: [decisions, states]
 ---
 
 # Bookmarks
@@ -133,6 +133,7 @@ Date blocks in history files interact with bookmark dates in specific ways:
 > [!CRITICAL] Date blocks in history files execute only if the bookmark start date is strictly later than the block's date. A bookmark dated `1937.1.1` will not execute a history block dated `1937.1.1` - only dates strictly after (like `1937.1.2`) trigger execution. For same-date differences, use the bookmark's `effect` attribute instead.
 
 Example:
+
 ```hoi4
 # In history file:
 1937.1.1 = {

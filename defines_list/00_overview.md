@@ -2,7 +2,8 @@
 domain: defines_list
 concept: overview
 version: 1.14+
-relates: [scripting, core, map, military, database]
+requires: [defines]
+relates: []
 ---
 
 # Defines List Overview

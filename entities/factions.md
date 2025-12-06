@@ -3,7 +3,7 @@ domain: entities
 concept: factions
 version: 1.14+
 requires: [country_tags]
-relates: [diplomacy, war_mechanics, ideologies]
+relates: [autonomy, country_history, ideologies]
 ---
 
 # Faction System

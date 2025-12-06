@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NAI
+version: 1.14+
+requires: [defines]
+relates: [ai_strategy, ai_modifiers]
+---
+
 ```yaml
 GARRISON_FRACTION:
   def: '0.0'

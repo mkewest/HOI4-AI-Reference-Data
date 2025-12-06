@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: ai_modifiers
 version: 1.14+
 requires: [modifiers]
-relates: [ai_behavior, ai_weights]
+relates: [ai_strategy]
 ---
 
 # AI Modifiers

@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NMilitary
+version: 1.14+
+requires: [defines]
+relates: [units, combat]
+---
+
 ```yaml
 COMBAT_VALUE_ORG_IMPORTANCE:
   def: '1'

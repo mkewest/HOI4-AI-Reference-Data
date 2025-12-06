@@ -3,7 +3,7 @@ domain: modifiers_list
 concept: overview
 version: 1.14+
 requires: [modifiers]
-relates: [ideas, dynamic_modifiers, static_modifiers]
+relates: [modifiers]
 ---
 
 # Modifiers List Overview

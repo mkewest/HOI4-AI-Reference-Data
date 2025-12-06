@@ -1,3 +1,11 @@
+---
+domain: defines_list
+concept: NIndustrialOrganisation
+version: 1.14+
+requires: [defines]
+relates: [mios]
+---
+
 ```yaml
 ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY:
   def: '0.1'
