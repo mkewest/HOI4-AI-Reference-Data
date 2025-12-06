@@ -3,7 +3,7 @@ domain: database
 concept: equipment
 version: 1.14+
 requires: [technologies_core]
-relates: [units, production, resources, modifiers_list]
+relates: [units, resources, modifiers_list]
 ---
 
 # Equipment System

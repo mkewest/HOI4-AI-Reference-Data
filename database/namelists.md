@@ -2,8 +2,8 @@
 domain: database
 concept: namelists
 version: 1.14+
-requires: [units, ships]
-relates: [oob_files, operatives, localization]
+requires: [units, navies]
+relates: [oob, localisation]
 ---
 
 # Namelists System

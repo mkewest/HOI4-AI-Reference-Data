@@ -3,7 +3,7 @@ domain: assets
 concept: scripted_gui
 version: 1.14+
 requires: [interface, localisation]
-relates: [effects, triggers, scopes]
+relates: [effects, triggers_core, scopes]
 ---
 
 # Scripted GUI System

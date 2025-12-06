@@ -3,7 +3,7 @@ domain: core
 concept: troubleshooting
 version: 1.14+
 requires: [mod_structure, file_syntax]
-relates: [debug_tools, map_structure, military]
+relates: [debug_tools, provinces, states, military]
 ---
 
 # Troubleshooting
@@ -182,5 +182,5 @@ Use systematic testing to identify silent failures - enable features one at a ti
 - Debug tools and logging: See [Debug Tools](/core/debug_tools.md)
 - Crash data log usage: See [Debug Tools](/core/debug_tools.md#crash-data-log)
 - Map file constraints: See [Provinces](/map/provinces.md)
-- State definitions: See [States](/map/states.md)
+- State definitions: See [States](/entities/states.md)
 - Building system: See [Buildings](/map/buildings.md)

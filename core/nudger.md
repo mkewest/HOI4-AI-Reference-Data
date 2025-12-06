@@ -2,8 +2,8 @@
 domain: core
 concept: nudger
 version: 1.14+
-requires: [debug_tools, map_structure]
-relates: [states, strategic_regions, supply]
+requires: [debug_tools, provinces]
+relates: [states, strategic_regions, supply, buildings]
 ---
 
 # Nudger
@@ -198,7 +198,8 @@ The supply areas system was removed in version 1.11. References to supply areas 
 ## Related Systems
 
 - Debug mode access: See [Debug Tools](/core/debug_tools.md)
-- State definitions: See [States](/map/states.md)
+- State definitions: See [States](/entities/states.md)
 - Strategic regions: See [Strategic Regions](/map/strategic_regions.md)
 - Supply system: See [Supply](/map/supply.md)
+- Building system: See [Buildings](/map/buildings.md)
 - Province definitions: See [Provinces](/map/provinces.md)

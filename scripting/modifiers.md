@@ -3,7 +3,7 @@ domain: scripting
 concept: modifiers
 version: 1.14+
 requires: [scopes, effects]
-relates: [ideas, dynamic_modifiers, static_modifiers, defines]
+relates: [defines, modifiers_list, scopes, effects]
 ---
 
 # Modifier System

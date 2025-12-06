@@ -3,7 +3,7 @@ domain: core
 concept: metadata
 version: 1.14+
 requires: [mod_structure]
-relates: [multiplayer, achievements]
+relates: [load_order, achievements]
 ---
 
 # Metadata
@@ -106,5 +106,6 @@ When the launcher shows "invalid path" errors that persist after fixing mod desc
 ## Related Systems
 
 - Mod structure and descriptors: See [Mod Structure](/core/mod_structure.md)
+- Load order determination: See [Load Order](/core/load_order.md)
 - Load order determination: See [Load Order](/core/load_order.md)
 - Multiplayer considerations: See multiplayer documentation

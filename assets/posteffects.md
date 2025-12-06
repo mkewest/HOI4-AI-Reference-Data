@@ -2,7 +2,8 @@
 domain: assets
 concept: posteffects
 version: 1.14+
-relates: [map, graphics_settings]
+requires: []
+relates: [map]
 ---
 
 # Posteffect System

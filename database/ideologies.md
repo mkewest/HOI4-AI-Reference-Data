@@ -2,8 +2,8 @@
 domain: database
 concept: ideologies
 version: 1.14+
-requires: [localisation_system]
-relates: [country_leaders, ai_peace, factions, static_modifiers]
+requires: [localisation]
+relates: [characters, ai_strategy, factions]
 ---
 
 # Ideology System

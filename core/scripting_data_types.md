@@ -3,7 +3,7 @@ domain: core
 concept: scripting_data_types
 version: 1.14+
 requires: [file_syntax]
-relates: [scripting_effects, console_commands]
+relates: [effects, console_commands]
 ---
 
 # Scripting Data Types

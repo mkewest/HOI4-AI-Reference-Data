@@ -2,7 +2,8 @@
 domain: scripting
 concept: defines
 version: 1.14+
-relates: [effects, triggers, modifiers]
+requires: [file_syntax]
+relates: [effects, triggers_core, modifiers]
 ---
 
 # Defines System
@@ -38,48 +39,56 @@ This is standard Lua syntax, but easy to forget coming from PDXscript.
 Defines are organized into categories by domain:
 
 **Core Game:**
+
 - `NDefines.NGame` - Start/end dates, game speed, iterations
 - `NDefines.NGeography` - Map and terrain constants
 - `NDefines.NGr aphics` - Visual and rendering limits
 
 **Military:**
+
 - `NDefines.NMilitary` - Combat mechanics, organization
 - `NDefines.NAir` - Air combat and missions
 - `NDefines.NNavy` - Naval combat and convoy
 - `NDefines.NUnit` - Unit stats and behavior
 
 **Economy and Production:**
+
 - `NDefines.NProduction` - Factory efficiency, construction
 - `NDefines.NTrade` - Trade and resources
 - `NDefines.NBuildings` - Building costs and effects
 - `NDefines.NSupply` - Supply system constants
 
 **Politics and Diplomacy:**
+
 - `NDefines.NDiplomacy` - Diplomatic actions, wargoals
 - `NDefines.NPolitics` - Stability, war support, government
 - `NDefines.NCountry` - Country-level constants
 
 **Technology and Research:**
+
 - `NDefines.NTechnology` - Research speed, ahead-of-time
 - `NDefines.NFocus` - National focus mechanics
 
 **Intelligence:**
+
 - `NDefines.NIntel` - Intelligence agency mechanics
 - `NDefines.NOperatives` - Operative stats and operations
 - `NDefines.NResistance` - Resistance and compliance
 
 **UI and Interface:**
+
 - `NDefines.NInterface` - UI behavior and limits
 - `NDefines.NSound` - Audio settings
 
 **AI:**
+
 - `NDefines.NAI` - AI behavior weights and thresholds
 
 ## File Loading
 
 Files in `common/defines/` load in **ASCII character ID order**:
 
-```
+```text
 00_defines.lua      # Loads first
 01_custom.lua       # Loads second
 zzz_overrides.lua   # Loads last
@@ -106,6 +115,7 @@ This enables clean modding without copying hundreds of unchanged values.
 > [!CRITICAL] NEVER include 00_defines.lua or 00_graphics.lua in mods. These files change with every game update and including them prevents your mod from receiving balance patches and engine fixes.
 
 Always create new files with different names:
+
 - `01_my_mod.lua` ✓
 - `custom_defines.lua` ✓  
 - `00_defines.lua` ✗ Forbidden
@@ -195,6 +205,7 @@ NDefines.NProduction.FUEL_RESOURCE = "crude_oil"  -- Changed from "oil"
 ```
 
 Must update:
+
 - `FUEL_DAILY_GAIN_FROM_OIL:0` localization key
 - `FUEL_DAILY_GAIN_OIL_ONLY:0` localization key
 - Resource icon references
@@ -214,6 +225,7 @@ NDefines.NGame.MAX_EFFECT_ITERATION = 1000  -- Default
 ```
 
 To extend for complex mods:
+
 ```lua
 NDefines.NGame.MAX_EFFECT_ITERATION = 5000  -- Increased limit
 ```
@@ -225,6 +237,7 @@ Maximum recursion depth for scripted localization: default varies by version.
 > [!CRITICAL] Exceeding this limit causes a game crash. This occurs when scripted localization references itself or creates circular reference chains.
 
 Example crash scenario:
+
 ```hoi4
 defined_text = {
     name = recursive_text
@@ -288,29 +301,35 @@ Timing defines usually express duration in days. Some use hours or months - chec
 ## Key Defines by Domain
 
 ### Game Flow
+
 - `START_DATE` / `END_DATE`: Campaign date boundaries
 - `GAME_SPEED_SECONDS`: Speed settings (5 entries required)
 
 ### Map Limits
+
 - `PROVINCE_AREA_LIMIT`: Maximum map area (13,238,272 px default)
 - `BORDER_LIMIT`: Maximum province borders (65,536 default)
 - `MINIMUM_PROVINCE_SIZE_IN_PIXELS`: Minimum province size (2 px default)
 
 ### Scripting
+
 - `MAX_EFFECT_ITERATION`: Loop iteration limit (1000 default)
 - `MAX_SCRIPTED_LOC_RECURSION`: Localization recursion depth
 
 ### Combat
+
 - `COMBAT_VALUE_ORG_IMPORTANCE`: Organization vs HP weighting
 - `BASE_COMBAT_WIDTH`: Default combat width
 - `RIVER_CROSSING_PENALTY`: Combat penalty for river crossings
 
 ### Economy
+
 - `BASE_FACTORY_COST_IC`: Factory construction cost
 - `FUEL_RESOURCE`: Fuel resource token name
 - `BASE_FUEL_CAPACITY`: Base fuel storage
 
 ### Diplomacy
+
 - `BASE_SURRENDER_LEVEL`: Capitulation threshold (0.0-1.0)
 - `TRUCE_BREAK_COST_PP`: PP cost for breaking truce
 - `GUARANTEE_COST`: PP cost for guarantee
@@ -318,6 +337,7 @@ Timing defines usually express duration in days. Some use hours or months - chec
 ## Related Systems
 
 For complete enumeration of all defines by category, see the defines_list domain files:
+
 - Game Constants: See [NGame](/defines_list/NGame.md)
 - Military Constants: See [NMilitary](/defines_list/NMilitary.md)
 - Diplomacy Constants: See [NDiplomacy](/defines_list/NDiplomacy.md)

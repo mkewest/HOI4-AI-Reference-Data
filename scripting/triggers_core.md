@@ -3,7 +3,7 @@ domain: scripting
 concept: triggers_core
 version: 1.14+
 requires: [scopes]
-relates: [effects, scripted_triggers, on_actions]
+relates: [effects, scripted_triggers_effects, on_actions_core]
 ---
 
 # Core Trigger System

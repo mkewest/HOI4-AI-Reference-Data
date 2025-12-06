@@ -4,7 +4,7 @@ concept: supply
 version: 1.11+
 requires: [provinces]
 conflicts: [supply_areas_pre_1.11]
-relates: [strategic_regions, railways]
+relates: [strategic_regions, rivers]
 ---
 
 # Supply System

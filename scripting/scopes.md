@@ -2,8 +2,8 @@
 domain: scripting
 concept: scopes
 version: 1.14+
-requires: [triggers, effects]
-relates: [on_actions, events, decisions]
+requires: []
+relates: [triggers_core, effects, on_actions_core]
 ---
 
 # Scope System

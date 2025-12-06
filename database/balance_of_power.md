@@ -3,7 +3,7 @@ domain: database
 concept: balance_of_power
 version: 1.13+
 requires: [modifiers_list, decisions]
-relates: [static_modifiers, effects_list]
+relates: [modifiers, decisions]
 ---
 
 # Balance of Power System

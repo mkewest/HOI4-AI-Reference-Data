@@ -2,7 +2,8 @@
 domain: assets
 concept: sound
 version: 1.14+
-relates: [assets]
+requires: []
+relates: [interface]
 ---
 
 # Sound System

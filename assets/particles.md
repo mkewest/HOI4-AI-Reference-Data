@@ -2,7 +2,8 @@
 domain: assets
 concept: particles
 version: 1.14+
-relates: [entities, visual_effects]
+requires: []
+relates: [entities]
 ---
 
 # Particle System

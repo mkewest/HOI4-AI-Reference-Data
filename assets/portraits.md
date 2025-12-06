@@ -3,7 +3,7 @@ domain: assets
 concept: portraits
 version: 1.14+
 requires: [sprites, characters]
-relates: [countries, ideologies]
+relates: [ideologies, entities]
 ---
 
 # Portrait System

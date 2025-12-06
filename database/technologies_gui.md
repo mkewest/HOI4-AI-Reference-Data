@@ -3,7 +3,7 @@ domain: database
 concept: technologies_gui
 version: 1.14+
 requires: [technologies_core]
-relates: [gui_system, sprites]
+relates: [interface, sprites]
 ---
 
 # Technology GUI System

@@ -2,9 +2,9 @@
 domain: core
 concept: mod_structure
 version: 1.14+
-requires: [file_syntax, encoding_rules]
+requires: [file_syntax]
 conflicts: [deprecated_workshop_archives_pre_1.9]
-relates: [load_order, file_structure]
+relates: [load_order]
 ---
 
 # Mod Structure

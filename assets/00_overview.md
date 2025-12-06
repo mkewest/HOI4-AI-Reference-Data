@@ -32,7 +32,7 @@ The assets domain contains 10 markdown files covering all visual, audio, and int
 ### sprites.md (~1800 tokens)
 **Purpose**: Visual asset definitions for GUI elements  
 **Covers**: spriteType, frameAnimatedSpriteType, progressbartype, corneredTileSpriteType, maskedShieldType, animation system, map text  
-**Key relationships**: Required by interface elements, relates to fonts and localization
+**Key relationships**: Relates to interface, localisation, fonts
 
 ### interface.md (~2400 tokens)
 **Purpose**: GUI layout and element rendering  
@@ -42,13 +42,13 @@ The assets domain contains 10 markdown files covering all visual, audio, and int
 ### localisation.md (~2600 tokens)
 **Purpose**: Text translation and dynamic content formatting  
 **Covers**: File structure, color codes, variable formatting, namespaces, nesting, text icons, flags, bindable localization, contextual localization, formatters, scripted localization, replace folders  
-**Key relationships**: Requires scripted_loc, relates to interface, sprites, and scripted_gui  
+**Key relationships**: Requires scripted_loc, relates to interface, sprites, scripted_gui  
 **Note**: Largest file due to high edge case density and feature interaction complexity
 
 ### scripted_gui.md (~1600 tokens)
 **Purpose**: Links interface to game logic  
 **Covers**: Window assignment, parent window integration, context system, effects, triggers, dynamic lists, properties, dirty evaluation, AI system, localization commands  
-**Key relationships**: Requires interface and localisation, relates to effects, triggers, and scopes
+**Key relationships**: Requires interface and localisation, relates to effects, triggers_core, scopes
 
 ### fonts.md (~1400 tokens)
 **Purpose**: Text rendering system  
@@ -58,28 +58,28 @@ The assets domain contains 10 markdown files covering all visual, audio, and int
 ### sound.md (~800 tokens)
 **Purpose**: Audio playback and mixing  
 **Covers**: Sound definitions, audio format requirements, behavior attributes, compressor system (global and category-specific)  
-**Key relationships**: Operates independently, relates to general assets
+**Key relationships**: Relates to interface
 
 ### portraits.md (~700 tokens)
 **Purpose**: Character image display  
 **Covers**: Portrait priority (tag > continent > default), gender fallback, portrait categories, ideology-specific portraits, portrait pools, GFX dependency  
-**Key relationships**: Requires sprites and characters, relates to countries and ideologies
+**Key relationships**: Requires sprites and characters, relates to ideologies and entities
 
 ### entities.md (~1100 tokens)
 **Purpose**: 3D model animation and behavior  
 **Covers**: State availability, state selection, state inheritance, animation reference chain, attachments, events, timing, particle persistence  
-**Key relationships**: Requires animations and particles, relates to units, buildings, and 3d_models
+**Key relationships**: Requires particles, relates to units and buildings
 
 ### particles.md (~500 tokens)
 **Purpose**: Particle effect creation  
 **Covers**: Particle editor version requirement (exactly 1.11), editor access, editing workflow limitations, integration with entities  
-**Key relationships**: Relates to entities and visual_effects  
+**Key relationships**: Relates to entities  
 **Note**: Smallest file - focused on critical editor usage constraints
 
 ### posteffects.md (~800 tokens)
 **Purpose**: Map visual atmosphere  
 **Covers**: Posteffect values, seasonal variants, inheritance, position volumes, height volumes, volume overlap, console commands, coordinate system  
-**Key relationships**: Relates to map and graphics_settings
+**Key relationships**: Relates to map
 
 ## Dependency Graph
 

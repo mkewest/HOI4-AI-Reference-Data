@@ -2,8 +2,8 @@
 domain: assets
 concept: sprites
 version: 1.14+
-requires: [interface_elements]
-relates: [fonts, localisation]
+requires: []
+relates: [interface, localisation, fonts]
 ---
 
 # Sprite System

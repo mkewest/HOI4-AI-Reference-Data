@@ -2,7 +2,7 @@
 domain: database
 concept: resources
 version: 1.14+
-requires: [buildings, production]
+requires: [buildings]
 relates: [sprites, trade, infrastructure]
 ---
 

@@ -3,7 +3,7 @@ domain: database
 concept: technologies_core
 version: 1.14+
 requires: [equipment, buildings, units]
-relates: [ai_focuses, tech_sharing, modifiers_list, technologies_gui]
+relates: [technologies_gui, modifiers_list, equipment]
 ---
 
 # Technology System

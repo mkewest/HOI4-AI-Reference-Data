@@ -3,7 +3,7 @@ domain: map
 concept: terrain
 version: 1.14+
 requires: [provinces]
-relates: [heightmap, colormap, entities]
+relates: [heightmap, entities]
 ---
 
 # Terrain System

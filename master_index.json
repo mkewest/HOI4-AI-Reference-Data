@@ -25,12 +25,12 @@
             ]
           },
           "primary_targets": [
-            "mod_structure.md"
+            "core/mod_structure.md"
           ],
           "secondary_targets": [
-            "load_order.md",
-            "file_syntax.md",
-            "metadata.md"
+            "core/load_order.md",
+            "core/file_syntax.md",
+            "core/metadata.md"
           ]
         },
         {
@@ -46,11 +46,11 @@
             ]
           },
           "primary_targets": [
-            "load_order.md"
+            "core/load_order.md"
           ],
           "secondary_targets": [
-            "mod_structure.md",
-            "file_syntax.md"
+            "core/mod_structure.md",
+            "core/file_syntax.md"
           ]
         },
         {
@@ -73,11 +73,11 @@
             ]
           },
           "primary_targets": [
-            "file_syntax.md"
+            "core/file_syntax.md"
           ],
           "secondary_targets": [
-            "mod_structure.md",
-            "scripting_data_types.md"
+            "core/mod_structure.md",
+            "core/scripting_data_types.md"
           ]
         },
         {
@@ -95,10 +95,10 @@
             ]
           },
           "primary_targets": [
-            "scripting_data_types.md"
+            "core/scripting_data_types.md"
           ],
           "secondary_targets": [
-            "console_commands.md"
+            "core/console_commands.md"
           ]
         },
         {
@@ -117,11 +117,11 @@
             ]
           },
           "primary_targets": [
-            "console_commands.md"
+            "core/console_commands.md"
           ],
           "secondary_targets": [
-            "scripting_data_types.md",
-            "debug_tools.md"
+            "core/scripting_data_types.md",
+            "core/debug_tools.md"
           ]
         },
         {
@@ -139,11 +139,11 @@
             ]
           },
           "primary_targets": [
-            "debug_tools.md"
+            "core/debug_tools.md"
           ],
           "secondary_targets": [
-            "console_commands.md",
-            "troubleshooting.md"
+            "core/console_commands.md",
+            "core/troubleshooting.md"
           ]
         },
         {
@@ -161,11 +161,11 @@
             ]
           },
           "primary_targets": [
-            "troubleshooting.md"
+            "core/troubleshooting.md"
           ],
           "secondary_targets": [
-            "debug_tools.md",
-            "mod_structure.md"
+            "core/debug_tools.md",
+            "core/mod_structure.md"
           ]
         },
         {
@@ -182,10 +182,10 @@
             ]
           },
           "primary_targets": [
-            "nudger.md"
+            "core/nudger.md"
           ],
           "secondary_targets": [
-            "troubleshooting.md"
+            "core/troubleshooting.md"
           ]
         },
         {
@@ -203,11 +203,11 @@
             ]
           },
           "primary_targets": [
-            "metadata.md"
+            "core/metadata.md"
           ],
           "secondary_targets": [
-            "mod_structure.md",
-            "load_order.md"
+            "core/mod_structure.md",
+            "core/load_order.md"
           ]
         }
       ]
@@ -232,11 +232,11 @@
             ]
           },
           "primary_targets": [
-            "scopes.md"
+            "scripting/scopes.md"
           ],
           "secondary_targets": [
-            "triggers_core.md",
-            "effects.md"
+            "scripting/triggers_core.md",
+            "scripting/effects.md"
           ]
         },
         {
@@ -255,11 +255,11 @@
             ]
           },
           "primary_targets": [
-            "triggers_core.md"
+            "scripting/triggers_core.md"
           ],
           "secondary_targets": [
-            "triggers_specialized.md",
-            "scopes.md"
+            "scripting/triggers_specialized.md",
+            "scripting/scopes.md"
           ]
         },
         {
@@ -279,10 +279,10 @@
             ]
           },
           "primary_targets": [
-            "triggers_specialized.md"
+            "scripting/triggers_specialized.md"
           ],
           "secondary_targets": [
-            "triggers_core.md"
+            "scripting/triggers_core.md"
           ]
         },
         {
@@ -301,11 +301,11 @@
             ]
           },
           "primary_targets": [
-            "effects.md"
+            "scripting/effects.md"
           ],
           "secondary_targets": [
-            "scopes.md",
-            "triggers_core.md"
+            "scripting/scopes.md",
+            "scripting/triggers_core.md"
           ]
         },
         {
@@ -324,12 +324,12 @@
             ]
           },
           "primary_targets": [
-            "on_actions_core.md"
+            "scripting/on_actions_core.md"
           ],
           "secondary_targets": [
-            "on_actions_reference.md",
-            "effects.md",
-            "scopes.md"
+            "scripting/on_actions_reference.md",
+            "scripting/effects.md",
+            "scripting/scopes.md"
           ]
         },
         {
@@ -344,10 +344,10 @@
             ]
           },
           "primary_targets": [
-            "on_actions_reference.md"
+            "scripting/on_actions_reference.md"
           ],
           "secondary_targets": [
-            "on_actions_core.md"
+            "scripting/on_actions_core.md"
           ]
         },
         {
@@ -366,12 +366,12 @@
             ]
           },
           "primary_targets": [
-            "scripted_triggers_effects.md"
+            "scripting/scripted_triggers_effects.md"
           ],
           "secondary_targets": [
-            "triggers_core.md",
-            "effects.md",
-            "scopes.md"
+            "scripting/triggers_core.md",
+            "scripting/effects.md",
+            "scripting/scopes.md"
           ]
         },
         {
@@ -388,10 +388,10 @@
             ]
           },
           "primary_targets": [
-            "defines.md"
+            "scripting/defines.md"
           ],
           "secondary_targets": [
-            "effects.md"
+            "scripting/effects.md"
           ]
         },
         {
@@ -410,11 +410,11 @@
             ]
           },
           "primary_targets": [
-            "modifiers.md"
+            "scripting/modifiers.md"
           ],
           "secondary_targets": [
-            "effects.md",
-            "scopes.md"
+            "scripting/effects.md",
+            "scripting/scopes.md"
           ]
         }
       ]
@@ -441,11 +441,11 @@
             ]
           },
           "primary_targets": [
-            "ideologies.md"
+            "database/ideologies.md"
           ],
           "secondary_targets": [
-            "ideas_core.md",
-            "balance_of_power.md"
+            "database/ideas_core.md",
+            "database/balance_of_power.md"
           ]
         },
         {
@@ -467,11 +467,11 @@
             ]
           },
           "primary_targets": [
-            "ideas_core.md"
+            "database/ideas_core.md"
           ],
           "secondary_targets": [
-            "ideas_categories.md",
-            "balance_of_power.md"
+            "database/ideas_categories.md",
+            "database/balance_of_power.md"
           ]
         },
         {
@@ -489,10 +489,10 @@
             ]
           },
           "primary_targets": [
-            "ideas_categories.md"
+            "database/ideas_categories.md"
           ],
           "secondary_targets": [
-            "ideas_core.md"
+            "database/ideas_core.md"
           ]
         },
         {
@@ -512,11 +512,11 @@
             ]
           },
           "primary_targets": [
-            "technologies_core.md"
+            "database/technologies_core.md"
           ],
           "secondary_targets": [
-            "equipment.md",
-            "technologies_gui.md"
+            "database/equipment.md",
+            "database/technologies_gui.md"
           ]
         },
         {
@@ -535,10 +535,10 @@
             ]
           },
           "primary_targets": [
-            "technologies_gui.md"
+            "database/technologies_gui.md"
           ],
           "secondary_targets": [
-            "technologies_core.md"
+            "database/technologies_core.md"
           ]
         },
         {
@@ -557,11 +557,11 @@
             ]
           },
           "primary_targets": [
-            "equipment.md"
+            "database/equipment.md"
           ],
           "secondary_targets": [
-            "technologies_core.md",
-            "resources.md"
+            "database/technologies_core.md",
+            "database/resources.md"
           ]
         },
         {
@@ -580,11 +580,11 @@
             ]
           },
           "primary_targets": [
-            "buildings.md"
+            "database/buildings.md"
           ],
           "secondary_targets": [
-            "resources.md",
-            "technologies_core.md"
+            "database/resources.md",
+            "database/technologies_core.md"
           ]
         },
         {
@@ -602,11 +602,11 @@
             ]
           },
           "primary_targets": [
-            "resources.md"
+            "database/resources.md"
           ],
           "secondary_targets": [
-            "buildings.md",
-            "equipment.md"
+            "database/buildings.md",
+            "database/equipment.md"
           ]
         },
         {
@@ -625,12 +625,12 @@
             ]
           },
           "primary_targets": [
-            "balance_of_power.md"
+            "database/balance_of_power.md"
           ],
           "secondary_targets": [
-            "ideas_core.md",
-            "modifiers.md",
-            "decisions.md"
+            "database/ideas_core.md",
+            "scripting/modifiers.md",
+            "content/decisions.md"
           ]
         },
         {
@@ -648,10 +648,10 @@
             ]
           },
           "primary_targets": [
-            "namelists.md"
+            "database/namelists.md"
           ],
           "secondary_targets": [
-            "oob.md"
+            "military/oob.md"
           ]
         }
       ]
@@ -675,11 +675,11 @@
             ]
           },
           "primary_targets": [
-            "sprites.md"
+            "assets/sprites.md"
           ],
           "secondary_targets": [
-            "interface.md",
-            "localisation.md"
+            "assets/interface.md",
+            "assets/localisation.md"
           ]
         },
         {
@@ -697,11 +697,11 @@
             ]
           },
           "primary_targets": [
-            "interface.md"
+            "assets/interface.md"
           ],
           "secondary_targets": [
-            "sprites.md",
-            "scripted_gui.md"
+            "assets/sprites.md",
+            "assets/scripted_gui.md"
           ]
         },
         {
@@ -721,11 +721,11 @@
             ]
           },
           "primary_targets": [
-            "localisation.md"
+            "assets/localisation.md"
           ],
           "secondary_targets": [
-            "fonts.md",
-            "interface.md"
+            "assets/fonts.md",
+            "assets/interface.md"
           ]
         },
         {
@@ -744,13 +744,13 @@
             ]
           },
           "primary_targets": [
-            "scripted_gui.md"
+            "assets/scripted_gui.md"
           ],
           "secondary_targets": [
-            "interface.md",
-            "localisation.md",
-            "effects.md",
-            "triggers_core.md"
+            "assets/interface.md",
+            "assets/localisation.md",
+            "scripting/effects.md",
+            "scripting/triggers_core.md"
           ]
         },
         {
@@ -768,11 +768,11 @@
             ]
           },
           "primary_targets": [
-            "fonts.md"
+            "assets/fonts.md"
           ],
           "secondary_targets": [
-            "localisation.md",
-            "interface.md"
+            "assets/localisation.md",
+            "assets/interface.md"
           ]
         },
         {
@@ -790,7 +790,7 @@
             ]
           },
           "primary_targets": [
-            "sound.md"
+            "assets/sound.md"
           ],
           "secondary_targets": []
         },
@@ -808,12 +808,12 @@
             ]
           },
           "primary_targets": [
-            "portraits.md"
+            "assets/portraits.md"
           ],
           "secondary_targets": [
-            "sprites.md",
-            "ideologies.md",
-            "characters.md"
+            "assets/sprites.md",
+            "database/ideologies.md",
+            "entities/characters.md"
           ]
         },
         {
@@ -831,12 +831,12 @@
             ]
           },
           "primary_targets": [
-            "entities.md"
+            "assets/entities.md"
           ],
           "secondary_targets": [
-            "particles.md",
-            "buildings.md",
-            "units.md"
+            "assets/particles.md",
+            "map/buildings.md",
+            "military/units.md"
           ]
         },
         {
@@ -852,10 +852,10 @@
             ]
           },
           "primary_targets": [
-            "particles.md"
+            "assets/particles.md"
           ],
           "secondary_targets": [
-            "entities.md"
+            "assets/entities.md"
           ]
         },
         {
@@ -873,7 +873,7 @@
             ]
           },
           "primary_targets": [
-            "posteffects.md"
+            "assets/posteffects.md"
           ],
           "secondary_targets": [
             "map/heightmap.md"
@@ -899,12 +899,12 @@
             ]
           },
           "primary_targets": [
-            "oob.md"
+            "military/oob.md"
           ],
           "secondary_targets": [
-            "division_template.md",
-            "units.md",
-            "equipment.md"
+            "military/division_template.md",
+            "military/units.md",
+            "military/equipment.md"
           ]
         },
         {
@@ -921,11 +921,11 @@
             ]
           },
           "primary_targets": [
-            "division_template.md"
+            "military/division_template.md"
           ],
           "secondary_targets": [
-            "units.md",
-            "oob.md"
+            "military/units.md",
+            "military/oob.md"
           ]
         },
         {
@@ -944,11 +944,11 @@
             ]
           },
           "primary_targets": [
-            "units.md"
+            "military/units.md"
           ],
           "secondary_targets": [
-            "equipment.md",
-            "terrain.md"
+            "military/equipment.md",
+            "map/terrain.md"
           ]
         },
         {
@@ -966,11 +966,11 @@
             ]
           },
           "primary_targets": [
-            "equipment.md"
+            "military/equipment.md"
           ],
           "secondary_targets": [
-            "units.md",
-            "mios.md"
+            "military/units.md",
+            "military/mios.md"
           ]
         },
         {
@@ -987,11 +987,11 @@
             ]
           },
           "primary_targets": [
-            "air_wings.md"
+            "military/air_wings.md"
           ],
           "secondary_targets": [
-            "equipment.md",
-            "oob.md"
+            "military/equipment.md",
+            "military/oob.md"
           ]
         },
         {
@@ -1008,11 +1008,11 @@
             ]
           },
           "primary_targets": [
-            "navies.md"
+            "military/navies.md"
           ],
           "secondary_targets": [
-            "equipment.md",
-            "oob.md"
+            "military/equipment.md",
+            "military/oob.md"
           ]
         },
         {
@@ -1029,10 +1029,10 @@
             ]
           },
           "primary_targets": [
-            "mios.md"
+            "military/mios.md"
           ],
           "secondary_targets": [
-            "equipment.md"
+            "military/equipment.md"
           ]
         },
         {
@@ -1048,7 +1048,7 @@
             ]
           },
           "primary_targets": [
-            "intel_agencies.md"
+            "military/intel_agencies.md"
           ],
           "secondary_targets": []
         }
@@ -1076,11 +1076,11 @@
             ]
           },
           "primary_targets": [
-            "troubleshooting.md"
+            "map/troubleshooting.md"
           ],
           "secondary_targets": [
-            "provinces.md",
-            "coordinates.md"
+            "map/provinces.md",
+            "map/coordinates.md"
           ]
         },
         {
@@ -1098,11 +1098,11 @@
             ]
           },
           "primary_targets": [
-            "provinces.md"
+            "map/provinces.md"
           ],
           "secondary_targets": [
-            "coordinates.md",
-            "troubleshooting.md"
+            "map/coordinates.md",
+            "map/troubleshooting.md"
           ]
         },
         {
@@ -1119,10 +1119,10 @@
             ]
           },
           "primary_targets": [
-            "terrain.md"
+            "map/terrain.md"
           ],
           "secondary_targets": [
-            "heightmap.md"
+            "map/heightmap.md"
           ]
         },
         {
@@ -1139,11 +1139,11 @@
             ]
           },
           "primary_targets": [
-            "heightmap.md"
+            "map/heightmap.md"
           ],
           "secondary_targets": [
-            "terrain.md",
-            "troubleshooting.md"
+            "map/terrain.md",
+            "map/troubleshooting.md"
           ]
         },
         {
@@ -1160,10 +1160,10 @@
             ]
           },
           "primary_targets": [
-            "rivers.md"
+            "map/rivers.md"
           ],
           "secondary_targets": [
-            "supply.md"
+            "map/supply.md"
           ]
         },
         {
@@ -1179,11 +1179,11 @@
             ]
           },
           "primary_targets": [
-            "buildings.md"
+            "map/buildings.md"
           ],
           "secondary_targets": [
-            "coordinates.md",
-            "troubleshooting.md"
+            "map/coordinates.md",
+            "map/troubleshooting.md"
           ]
         },
         {
@@ -1199,10 +1199,10 @@
             ]
           },
           "primary_targets": [
-            "adjacencies.md"
+            "map/adjacencies.md"
           ],
           "secondary_targets": [
-            "strategic_regions.md"
+            "map/strategic_regions.md"
           ]
         },
         {
@@ -1219,11 +1219,11 @@
             ]
           },
           "primary_targets": [
-            "strategic_regions.md"
+            "map/strategic_regions.md"
           ],
           "secondary_targets": [
-            "provinces.md",
-            "coordinates.md"
+            "map/provinces.md",
+            "map/coordinates.md"
           ]
         },
         {
@@ -1240,11 +1240,11 @@
             ]
           },
           "primary_targets": [
-            "supply.md"
+            "map/supply.md"
           ],
           "secondary_targets": [
-            "rivers.md",
-            "strategic_regions.md"
+            "map/rivers.md",
+            "map/strategic_regions.md"
           ]
         },
         {
@@ -1262,11 +1262,11 @@
             ]
           },
           "primary_targets": [
-            "coordinates.md"
+            "map/coordinates.md"
           ],
           "secondary_targets": [
-            "buildings.md",
-            "heightmap.md"
+            "map/buildings.md",
+            "map/heightmap.md"
           ]
         },
         {
@@ -1284,13 +1284,13 @@
             ]
           },
           "primary_targets": [
-            "troubleshooting.md"
+            "map/troubleshooting.md"
           ],
           "secondary_targets": [
-            "provinces.md",
-            "terrain.md",
-            "heightmap.md",
-            "rivers.md"
+            "map/provinces.md",
+            "map/terrain.md",
+            "map/heightmap.md",
+            "map/rivers.md"
           ]
         }
       ]
@@ -1316,13 +1316,13 @@
             ]
           },
           "primary_targets": [
-            "events.md"
+            "content/events.md"
           ],
           "secondary_targets": [
-            "on_actions_core.md",
-            "triggers_core.md",
-            "effects.md",
-            "scopes.md"
+            "scripting/on_actions_core.md",
+            "scripting/triggers_core.md",
+            "scripting/effects.md",
+            "scripting/scopes.md"
           ]
         },
         {
@@ -1341,11 +1341,11 @@
             ]
           },
           "primary_targets": [
-            "national_focus.md"
+            "content/national_focus.md"
           ],
           "secondary_targets": [
-            "ai_strategy.md",
-            "ideas_core.md"
+            "content/ai_strategy.md",
+            "database/ideas_core.md"
           ]
         },
         {
@@ -1364,11 +1364,11 @@
             ]
           },
           "primary_targets": [
-            "decisions.md"
+            "content/decisions.md"
           ],
           "secondary_targets": [
-            "events.md",
-            "effects.md"
+            "content/events.md",
+            "scripting/effects.md"
           ]
         },
         {
@@ -1387,13 +1387,13 @@
             ]
           },
           "primary_targets": [
-            "ai_strategy.md"
+            "content/ai_strategy.md"
           ],
           "secondary_targets": [
-            "national_focus.md",
-            "units.md",
-            "equipment.md",
-            "strategic_regions.md"
+            "content/national_focus.md",
+            "military/units.md",
+            "military/equipment.md",
+            "map/strategic_regions.md"
           ]
         },
         {
@@ -1409,7 +1409,7 @@
             ]
           },
           "primary_targets": [
-            "achievements.md"
+            "content/achievements.md"
           ],
           "secondary_targets": []
         },
@@ -1428,11 +1428,11 @@
             ]
           },
           "primary_targets": [
-            "bookmarks.md"
+            "content/bookmarks.md"
           ],
           "secondary_targets": [
-            "ideologies.md",
-            "national_focus.md"
+            "database/ideologies.md",
+            "content/national_focus.md"
           ]
         }
       ]
@@ -1455,10 +1455,10 @@
             ]
           },
           "primary_targets": [
-            "country_tags.md"
+            "entities/country_tags.md"
           ],
           "secondary_targets": [
-            "country_history.md"
+            "entities/country_history.md"
           ]
         },
         {
@@ -1475,11 +1475,11 @@
             ]
           },
           "primary_targets": [
-            "country_history.md"
+            "entities/country_history.md"
           ],
           "secondary_targets": [
-            "country_tags.md",
-            "states.md"
+            "entities/country_tags.md",
+            "entities/states.md"
           ]
         },
         {
@@ -1496,11 +1496,11 @@
             ]
           },
           "primary_targets": [
-            "states.md"
+            "entities/states.md"
           ],
           "secondary_targets": [
-            "provinces.md",
-            "buildings.md"
+            "map/provinces.md",
+            "map/buildings.md"
           ]
         },
         {
@@ -1517,10 +1517,10 @@
             ]
           },
           "primary_targets": [
-            "autonomy.md"
+            "entities/autonomy.md"
           ],
           "secondary_targets": [
-            "factions.md"
+            "entities/factions.md"
           ]
         },
         {
@@ -1536,10 +1536,10 @@
             ]
           },
           "primary_targets": [
-            "factions.md"
+            "entities/factions.md"
           ],
           "secondary_targets": [
-            "autonomy.md"
+            "entities/autonomy.md"
           ]
         },
         {
@@ -1556,10 +1556,10 @@
             ]
           },
           "primary_targets": [
-            "characters.md"
+            "entities/characters.md"
           ],
           "secondary_targets": [
-            "portraits.md"
+            "assets/portraits.md"
           ]
         },
         {
@@ -1575,11 +1575,11 @@
             ]
           },
           "primary_targets": [
-            "cosmetic_tags.md"
+            "entities/cosmetic_tags.md"
           ],
           "secondary_targets": [
-            "country_tags.md",
-            "ideologies.md"
+            "entities/country_tags.md",
+            "entities/ideologies.md"
           ]
         },
         {
@@ -1594,11 +1594,11 @@
             ]
           },
           "primary_targets": [
-            "ideologies.md"
+            "entities/ideologies.md"
           ],
           "secondary_targets": [
-            "ideologies.md",
-            "country_history.md"
+            "entities/ideologies.md",
+            "entities/country_history.md"
           ]
         }
       ]
@@ -1625,22 +1625,22 @@
             ]
           },
           "primary_targets": [
-            "00_overview.md"
+            "modifiers_list/00_overview.md"
           ],
           "secondary_targets": [
-            "military_land.md",
-            "military_naval.md",
-            "military_air.md",
-            "politics_ideology.md",
-            "economy_production.md",
-            "economy_resources.md",
-            "occupation_autonomy.md",
-            "state_modifiers.md",
-            "equipment.md",
-            "research.md",
-            "ai_modifiers.md",
-            "special_operations.md",
-            "intelligence.md"
+            "modifiers_list/military_land.md",
+            "modifiers_list/military_naval.md",
+            "modifiers_list/military_air.md",
+            "modifiers_list/politics_ideology.md",
+            "modifiers_list/economy_production.md",
+            "modifiers_list/economy_resources.md",
+            "modifiers_list/occupation_autonomy.md",
+            "modifiers_list/state_modifiers.md",
+            "modifiers_list/equipment.md",
+            "modifiers_list/research.md",
+            "modifiers_list/ai_modifiers.md",
+            "modifiers_list/special_operations.md",
+            "modifiers_list/intelligence.md"
           ]
         }
       ]
@@ -1665,17 +1665,17 @@
             ]
           },
           "primary_targets": [
-            "00_overview.md"
+            "defines_list/00_overview.md"
           ],
           "secondary_targets": [
-            "NGame.md",
-            "NMilitary.md",
-            "NGraphics.md",
-            "NDiplomacy.md",
-            "NCountry.md",
-            "NSupply.md",
-            "NAI.md",
-            "NTechnology.md"
+            "defines_list/NGame.md",
+            "defines_list/NMilitary.md",
+            "defines_list/NGraphics.md",
+            "defines_list/NDiplomacy.md",
+            "defines_list/NCountry.md",
+            "defines_list/NSupply.md",
+            "defines_list/NAI.md",
+            "defines_list/NTechnology.md"
           ]
         }
       ]

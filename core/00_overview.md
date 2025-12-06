@@ -31,12 +31,12 @@ The core domain contains 9 markdown files covering fundamental modding concepts,
 ### mod_structure.md (~1500 tokens)
 **Purpose**: Mod installation, descriptors, and file organization
 **Covers**: User directory paths, dual descriptor system, descriptor attributes, encoding requirements, replace_path mechanism, thumbnail system, file loading behavior
-**Key relationships**: Requires file_syntax and encoding_rules, relates to load_order and file_structure
+**Key relationships**: Requires file_syntax, relates to load_order
 
 ### load_order.md (~930 tokens)
 **Purpose**: Content loading priority and evaluation sequence
 **Covers**: Load sequence (base game → DLC → user dir → mods), dependency override, filename dependencies, evaluation order, duplicate attribute handling, tag definition order
-**Key relationships**: Requires mod_structure, relates to file_syntax and duplicates
+**Key relationships**: Requires mod_structure, relates to file_syntax
 
 ### file_syntax.md (~1134 tokens)
 **Purpose**: Core scripting language rules
@@ -46,13 +46,13 @@ The core domain contains 9 markdown files covering fundamental modding concepts,
 ### scripting_data_types.md (~2027 tokens)
 **Purpose**: Dynamic data structures for game logic
 **Covers**: Constants, flags, variables (with scoping and operators), arrays, event targets, token values, country tag aliases, scorers, MTTH variables, game variables, game arrays
-**Key relationships**: Requires file_syntax, relates to scripting_effects and console_commands
+**Key relationships**: Requires file_syntax, relates to effects and console_commands
 **Note**: Largest file due to comprehensive coverage of all scripting data structures and their interactions
 
 ### console_commands.md (~1670 tokens)
 **Purpose**: Interactive debugging and testing commands
 **Covers**: Console access, ID discovery, country switching, resources, equipment, construction, research, focus, decision, training, diplomacy, intel, territory, variables, flags, scripting, AI, debug, reload, camera, special projects, deprecated/broken commands
-**Key relationships**: Requires scripting_data_types, relates to debug_tools and scripting_effects
+**Key relationships**: Requires scripting_data_types, relates to debug_tools and effects
 
 ### debug_tools.md (~1210 tokens)
 **Purpose**: Development and troubleshooting features
@@ -62,12 +62,12 @@ The core domain contains 9 markdown files covering fundamental modding concepts,
 ### nudger.md (~1646 tokens)
 **Purpose**: Map editing interface and output management
 **Covers**: Nudger access methods, output location warnings, states section, strategic regions section, database section, weather section, buildings section, supply section, removed supply areas
-**Key relationships**: Requires debug_tools and map_structure, relates to states, strategic_regions, and supply
+**Key relationships**: Requires debug_tools and provinces, relates to states, strategic_regions, supply, and buildings
 
 ### troubleshooting.md (~1658 tokens)
 **Purpose**: Crash diagnosis and resolution workflows
 **Covers**: Crash types (fatal vs non-fatal), loading phase crashes, country selection crashes, mid-game crashes, specialized crash patterns (ownerless states, AI templates, naval bases, countries limit, bitmap constraints), debugging strategies (binary search, log cleaning), crash data log analysis
-**Key relationships**: Requires mod_structure and file_syntax, relates to debug_tools, map_structure, and military
+**Key relationships**: Requires mod_structure and file_syntax, relates to debug_tools, provinces, states, and military
 
 ### metadata.md (~636 tokens)
 **Purpose**: Game integrity and compatibility systems

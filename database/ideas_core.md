@@ -2,8 +2,8 @@
 domain: database
 concept: ideas_core
 version: 1.14+
-requires: [localisation_system]
-relates: [country_leaders, characters, modifiers_list, ideas_categories]
+requires: [localisation]
+relates: [characters, modifiers_list, ideas_categories]
 ---
 
 # National Ideas System

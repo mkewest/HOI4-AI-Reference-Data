@@ -2,8 +2,8 @@
 domain: assets
 concept: entities
 version: 1.14+
-requires: [animations, particles]
-relates: [units, buildings, 3d_models]
+requires: [particles]
+relates: [units, buildings, particles]
 ---
 
 # Entity System

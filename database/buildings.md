@@ -3,7 +3,7 @@ domain: database
 concept: buildings
 version: 1.14+
 requires: [states, provinces]
-relates: [supply, infrastructure, production, technologies_core]
+relates: [supply, infrastructure, technologies_core]
 ---
 
 # Buildings System

@@ -3,7 +3,7 @@ domain: database
 concept: ideas_categories
 version: 1.14+
 requires: [ideas_core]
-relates: [gui_system, sprites, characters]
+relates: [interface, sprites, characters]
 ---
 
 # Idea Categories System

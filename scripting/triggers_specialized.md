@@ -3,7 +3,7 @@ domain: scripting
 concept: triggers_specialized
 version: 1.14+
 requires: [triggers_core, scopes]
-relates: [peace_conferences, resistance, military, intelligence]
+relates: [effects, on_actions_core, scopes]
 ---
 
 # Specialized Triggers

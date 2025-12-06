@@ -2,8 +2,8 @@
 domain: scripting
 concept: effects
 version: 1.14+
-requires: [scopes, triggers]
-relates: [on_actions, events, decisions, scripted_effects]
+requires: [scopes, triggers_core]
+relates: [on_actions_core, scripted_triggers_effects, events, decisions]
 ---
 
 # Effects System

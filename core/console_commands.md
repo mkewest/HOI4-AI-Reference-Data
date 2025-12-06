@@ -3,7 +3,7 @@ domain: core
 concept: console_commands
 version: 1.14+
 requires: [scripting_data_types]
-relates: [debug_tools, scripting_effects]
+relates: [debug_tools, effects]
 ---
 
 # Console Commands
