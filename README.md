@@ -1,3 +1,7 @@
+# **WIP!** Nowhere near complete.
+Inaccurate and poorly optimized
+
+
 ## HOI4 Modding AI Reference Database
 
 **HOI4-AI-Reference-Data** is a high-density, structured reference for Hearts of Iron IV modding, designed from the ground up for **LLMs and humans** to use together.
