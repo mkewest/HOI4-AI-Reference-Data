@@ -173,6 +173,7 @@ unique = {
 > [!CRITICAL] The `unique` block uses SPACE delimiters, not commas or newlines. Using commas breaks the parser and causes names to fail.
 
 Correct:
+
 ```hoi4
 unique = {
     "Name1" "Name2" "Name3"
@@ -180,6 +181,7 @@ unique = {
 ```
 
 Incorrect:
+
 ```hoi4
 unique = {
     "Name1", "Name2", "Name3"  # Commas break parsing

@@ -13,7 +13,7 @@ The military domain contains 8 markdown files covering all aspects of military f
 
 ## File Structure
 
-```
+```text
 /military/
 ├── oob.md                  - Organization of Battle loading system
 ├── division_template.md    - Division composition and naming
@@ -28,30 +28,35 @@ The military domain contains 8 markdown files covering all aspects of military f
 ## File Descriptions
 
 ### oob.md (~900 tokens)
+
 **Purpose**: Military force loading and initialization system  
 **Covers**: File structure, loading mechanics, DLC handling, division instantiation, equipment assignment, production setup, load timing  
 **Key relationships**: Entry point for military system - requires division_template, units, and equipment concepts  
 **Critical edge cases**: Additive loading behavior (not replacement), explicit loading requirement (no auto-load), DLC conditional branching, equipment spawn behavior (not from reserves)
 
 ### division_template.md (~1400 tokens)
+
 **Purpose**: Division composition and organization  
 **Covers**: Template structure, regiment coordinate system, combat battalion groups, division naming (direct and ordered), template locking, combat width calculation, priority and obsolescence  
 **Key relationships**: Requires units for battalion types; relates to oob and equipment  
 **Critical edge cases**: Inverted Y-axis (0,0 at top-left), out-of-bounds coordinates fail silently, group mixing restrictions in columns, mutual exclusion of naming methods
 
 ### units.md (~2200 tokens)
+
 **Purpose**: Battalion and support company definitions  
 **Covers**: Unit definition structure, groups (implicit creation), type and categories, combat statistics, equipment requirements, unit speed (multiplicative), supply and organization, training and manpower, equipment bonuses, terrain modifiers, unit models and visuals, icons, availability  
 **Key relationships**: Core concept required by division_template and equipment; relates to terrain systems  
 **Critical edge cases**: Speed multiplier behavior, terrain modifiers REPLACE base stats, negative attack values as percentages, icon sprite requirements (all three types), group creation on first reference, equipment need blocks affecting availability
 
 ### equipment.md (~1300 tokens)
+
 **Purpose**: Equipment archetype hierarchy and variant system  
 **Covers**: Archetype hierarchy (inheritance), parent relationships (upgrade paths), equipment stats, variants, variant requirements by DLC, upgrade modules, production system, production efficiency, equipment behavior in OOB, factory assignment, categories, lend-lease and gifting  
 **Key relationships**: Requires units for type matching; relates to units, oob, and mios  
 **Critical edge cases**: Efficiency as 0-100 not 0.0-1.0, progress as single unit completion, variant name requirements by DLC (NSB/MTG/BBA mandatory), start_equipment_factor spawning from nothing, force_equipment_variants leaving empty slots, ship production efficiency factors having no effect
 
 ### air_wings.md (~500 tokens)
+
 **Purpose**: Air force instantiation and organization  
 **Covers**: Air wing structure, location requirements, equipment assignment, BBA variant requirement, amount and strength, experience, multiple wings per state, ownership and creator, air wing effects  
 **Key relationships**: Requires equipment variants and states (for airbases); relates to oob  
@@ -59,12 +64,14 @@ The military domain contains 8 markdown files covering all aspects of military f
 **Note**: Smallest file - focused concept with minimal complexity
 
 ### navies.md (~1200 tokens)
+
 **Purpose**: Naval fleet organization and ship management  
 **Covers**: Fleet structure (fleet/task force/ship hierarchy), MTG vs non-MTG equipment, ship definition, pride of the fleet, location and naval base, ship experience, equipment variants and creator, production efficiency (lack of), start equipment factor, task force organization  
 **Key relationships**: Requires equipment variants; relates to oob  
 **Critical edge cases**: MTG/non-MTG mutual exclusivity (mixing causes crash), MTG ships require version_name, pride of fleet limited to ONE per fleet globally (last-write-wins), ship production efficiency factors have no effect, equipment spawns from nothing
 
 ### mios.md (~2800 tokens)
+
 **Purpose**: Military-Industrial Organizations system (NSB DLC)  
 **Covers**: MIO definition structure, loading and timing, allowed condition, initial trait (special properties), trait system, trait grid coordinates, relative positioning, visibility and availability, equipment bonuses (trait vs policy differences), organization bonuses (global and additive), production bonuses, mutual exclusion, policy system, name resolution, include system  
 **Key relationships**: Requires equipment types; relates to equipment  
@@ -72,6 +79,7 @@ The military domain contains 8 markdown files covering all aspects of military f
 **Note**: Largest file due to complex grid system, visibility mechanics, and bonus type variations
 
 ### intel_agencies.md (~800 tokens)
+
 **Purpose**: Intelligence agency creation and upgrades (LaR DLC)  
 **Covers**: Agency definition structure, icon system (two-frame split), agency names, name selection behavior, availability trigger, upgrade system, multiple default names, selection effect, AI behavior  
 **Key relationships**: Requires none beyond base scripting; standalone system  
@@ -79,7 +87,7 @@ The military domain contains 8 markdown files covering all aspects of military f
 
 ## Dependency Graph
 
-```
+```text
 equipment.md
     ↓ (required by)
 units.md
@@ -99,6 +107,7 @@ LaR_DLC → intel_agencies.md
 ## Semantic Groupings
 
 ### Core Military Stack (interdependent chain)
+
 - equipment.md: Equipment definitions and variants
 - units.md: Battalion/company definitions using equipment
 - division_template.md: Templates composed of units
@@ -107,6 +116,7 @@ LaR_DLC → intel_agencies.md
 These four files form the complete ground forces system and must be understood in order.
 
 ### Force Instantiation
+
 - oob.md: Generic loading system
 - air_wings.md: Air force-specific instantiation
 - navies.md: Naval force-specific instantiation
@@ -114,12 +124,14 @@ These four files form the complete ground forces system and must be understood i
 Each handles different force types with unique organizational requirements.
 
 ### Industrial Systems
+
 - equipment.md: Base equipment system
 - mios.md: Industrial organization bonuses (NSB)
 
 MIOs extend the equipment system with production and research bonuses.
 
 ### Special Systems
+
 - intel_agencies.md: Standalone espionage system (LaR)
 
 Intelligence agencies operate independently from military force systems.
@@ -176,21 +188,26 @@ No separate edge case files exist - all warnings and gotchas appear in context w
 ## Usage Patterns
 
 ### For New Modders
+
 Start with: equipment.md → units.md → division_template.md → oob.md sequence to understand how military forces are created.
 
 ### For OOB Creation
+
 Primary files: oob.md, division_template.md, air_wings.md, navies.md for force composition.
 
 ### For Equipment Design
+
 Focus on: equipment.md (archetypes and variants), units.md (battalion stats), mios.md (production bonuses).
 
 ### For DLC-Specific Content
+
 - **NSB modders**: mios.md for industrial organizations, equipment.md for tank variants
 - **MTG modders**: navies.md for ship hulls and fleet structure
 - **BBA modders**: air_wings.md for aircraft variants
 - **LaR modders**: intel_agencies.md for espionage systems
 
 ### For Balance Work
+
 Key files: units.md (combat stats), equipment.md (equipment stats and costs), division_template.md (combat width).
 
 ## Critical Dependencies
@@ -233,5 +250,3 @@ Edge case density is highest in:
 3. oob.md (4 major edge case categories)
 
 These files require careful attention when modding due to complex behavior and silent failure modes.
-
-

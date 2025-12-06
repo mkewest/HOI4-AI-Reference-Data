@@ -418,6 +418,7 @@ my_effect_name = {
 ```
 
 Usage:
+
 ```hoi4
 my_effect_name = yes
 ```

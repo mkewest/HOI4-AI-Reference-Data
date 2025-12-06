@@ -17,6 +17,7 @@ State modifiers apply only to specific states, providing localized effects. Thes
 ## State-Only Modifiers
 
 All `local_*` and `state_*` prefixed modifiers are state-scoped. Additionally:
+
 - `army_speed_factor_for_controller`
 - `attrition_for_controller`
 - `disable_strategic_redeployment_for_controller`
@@ -57,6 +58,7 @@ Local modifiers override global for that specific state (not additive).
 ## Controller-Specific Modifiers
 
 Modifiers ending in `_for_controller` affect the state's controller specifically:
+
 - `army_speed_factor_for_controller`: Movement speed bonus/penalty in this state
 - `attrition_for_controller`: Attrition rate for controlling nation's forces
 - `disable_strategic_redeployment_for_controller`: Blocks redeployment for controller

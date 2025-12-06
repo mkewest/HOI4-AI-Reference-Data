@@ -43,10 +43,12 @@ GER_mauser_organization = {
 > [!CRITICAL] MIOs and policies load ONLY when creating a new game. They cannot be injected into ongoing games through OOB files, effects, or any other mechanism.
 
 Trait modifications (bonuses, icons, localization) can be changed in mod files without starting a new game. However:
+
 - Adding new traits works mid-game
 - Removing existing traits causes errors mid-game
 
 When validating MIO files, check `error.log` TWICE:
+
 1. Immediately after game start
 2. After browsing MIO menus in-game (visibility filters fire on menu access, potentially revealing errors not present at load time)
 
@@ -91,6 +93,7 @@ initial_trait = {
 ```
 
 Initial traits have NO position on the trait grid, NO icon, and NO player decision point. Only these attributes are meaningful:
+
 - `name` (for localization)
 - `limit_to_equipment_type`
 - `equipment_bonus`
@@ -328,14 +331,17 @@ Policies have costs (political power) and durations. They can trigger effects on
 MIO and trait names use fallback localization chains:
 
 **MIO name:** Tries `<tag>_<name>`, then `<name>`
+
 - `GER_mauser_organization` → tries `GER_mauser_organization`, then `mauser_organization`
 
 **Trait name:** Tries `<tag>_<trait_name>`, then `<mio_name>_<trait_token>`
+
 - Trait in `GER_mauser_organization` with token `improved_quality` tries:
   1. `GER_improved_quality`
   2. `mauser_organization_improved_quality`
 
 **Initial trait default:** `<mio_name>_initial_trait`
+
 - `mauser_organization_initial_trait`
 
 **Policy name:** Uses scripted localization in country scope, allowing dynamic text based on conditions.

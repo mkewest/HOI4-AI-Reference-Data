@@ -17,6 +17,7 @@ The `map/heightmap.bmp` file defines terrain elevation as an 8-bit grayscale or 
 ### Height Scale
 
 The heightmap uses a linear scale where:
+
 - Black (0) = Y:0.0
 - White (255) = Y:25.5
 - Water level = Y:9.5 (value 95/255)
@@ -38,16 +39,19 @@ The `map/world_normal.bmp` file defines surface normals for lighting calculation
 ### Channel Mapping
 
 **Red channel:** X vector component
+
 - 0 = -1 (west)
 - 128 = 0 (perpendicular)
 - 255 = 1 (east)
 
 **Green channel:** Y vector component  
+
 - 0 = -1 (south)
 - 128 = 0 (perpendicular)
 - 255 = 1 (north)
 
 **Blue channel:** Z vector component
+
 - 128 = perpendicular to surface (not 0)
 - 255 = toward viewer
 - Range is 0 to -1 (not -1 to 1 like X/Y)

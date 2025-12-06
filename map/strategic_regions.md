@@ -96,6 +96,7 @@ Multiple period blocks define weather across the year. Each period covers a date
 ### Date Format
 
 The `between` attribute uses zero-indexed day.month format:
+
 - 0.0 = January 1st
 - 30.0 = January 31st
 - 0.1 = February 1st
@@ -136,6 +137,7 @@ A state with weight 50 is twice as likely to occur as weight 25. The game normal
 ### Available Weather States
 
 Weather states are defined in `common/weather.txt`:
+
 - no_phenomenon
 - rain_light
 - rain_heavy
@@ -165,6 +167,7 @@ RegionID;X;Y;Z;size
 ## Design Patterns
 
 Strategic regions typically follow geographic or strategic groupings:
+
 - Naval regions encompass sea areas with similar weather (North Atlantic, Mediterranean)
 - Land regions group provinces by climate zones or strategic importance
 - Island provinces usually belong to the surrounding sea region's strategic region

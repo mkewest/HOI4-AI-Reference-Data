@@ -236,5 +236,3 @@ Recommended usage:
 1. **Conceptual questions / safety** → read `/scripting/defines.md`.
 2. **Find or inspect a specific define** → search in the appropriate `/defines_list/NCategory.md` file.
 3. **Cross-domain references** → when other domains mention a define, verify the exact name and value in `defines_list` and the behavior constraints in `defines.md`.
-
-

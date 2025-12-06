@@ -145,6 +145,7 @@ faction_influence_rank < 3
 ```
 
 These triggers check a country's influence standing:
+
 - `faction_influence_score`: Absolute influence points
 - `faction_influence_ratio`: Percentage of total faction influence (0.0 to 1.0)
 - `faction_influence_rank`: Rank position within faction (1 = highest influence)
@@ -206,6 +207,7 @@ set_faction_rule = {
 ```
 
 Rules are defined in `common/factions/rules/*.txt` and can enable or restrict various actions such as:
+
 - Declaring war without faction leader approval
 - Kicking members from the faction
 - Inviting new members

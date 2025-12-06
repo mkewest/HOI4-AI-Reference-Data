@@ -81,6 +81,7 @@ Operations use the pattern `operation_<n>_<param>` where parameters are `cost`, 
 > [!CRITICAL] The `target_sabotage` operation uses `factor` instead of `outcome` in the middle parameter (inconsistent naming). All operations take decimals: 2 format.
 
 Available operations for pattern generation:
+
 - `operation` (generic)
 - `fake_intel`
 - `rescue_operative`
@@ -98,6 +99,7 @@ Available operations for pattern generation:
 - `targeted_sabotage_resources`
 
 Example modifiers:
+
 ```hoi4
 operation_infiltrate_cost = -0.15        # -15% infiltrate operation cost
 operation_steal_tech_outcome = 0.20      # +20% steal tech effectiveness

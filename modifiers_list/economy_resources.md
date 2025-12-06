@@ -177,6 +177,7 @@ trade_opinion_factor:
 > [!CRITICAL] `max_fuel` displays as "(K)" meaning thousands. `max_fuel_building` also displays as thousands. `base_fuel_gain` affects fuel from all sources. `fuel_gain_from_states` affects ONLY refineries, not base production.
 
 Examples:
+
 ```hoi4
 max_fuel = 50         # +50,000 fuel capacity (displayed as "50K")
 base_fuel_gain = 0.10  # +10% fuel gain from all sources
@@ -194,18 +195,21 @@ Three types control resource availability:
 **country_resource_<resource>:** Adds to national stockpile regardless of location
 
 Resource consumption modifiers:
+
 - `state_resource_cost_<resource>`: Changes consumption rate for state
 - `country_resource_cost_<resource>`: Changes national consumption rate
 
 ## License Patterns
 
 > [!CRITICAL] License modifiers use two patterns:
+>
 > - `license_<archetype>_purchase_cost`: Broad category (infantry, naval, air, armor)
 > - `license_<eq_type>_eq_cost_factor`: Specific equipment type (infantry_eq, artillery_eq, etc.)
 >
 > Specific overrides archetype if both present. `license_tech_difference_speed` affects ALL license production, not per-type.
 
 Examples:
+
 ```hoi4
 license_infantry_purchase_cost = -0.10     # -10% all infantry equipment licenses
 license_infantry_eq_cost_factor = -0.15    # -15% infantry_equipment specifically (overrides above)
@@ -215,12 +219,14 @@ license_tech_difference_speed = 0.25       # +25% production speed for all licen
 ## Autonomy Gain Sources
 
 > [!CRITICAL] Autonomy gain uses layered system:
+>
 > - `autonomy_gain`: Daily baseline autonomy progress
 > - `autonomy_gain_trade`, `autonomy_gain_warscore`, `autonomy_gain_ll_*`: Source-specific additions
 > - `autonomy_gain_global_factor`: Multiplies ALL autonomy gain regardless of source
 > - Source-specific factors (e.g., `autonomy_gain_trade_factor`) only multiply that specific source
 
 Example calculation:
+
 ```hoi4
 # Base gains
 autonomy_gain = 0.5

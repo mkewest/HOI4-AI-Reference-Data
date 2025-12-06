@@ -58,6 +58,7 @@ States without these attributes fail to load or cause errors during initializati
 > [!CRITICAL] State IDs must be sequential starting from 1 with no gaps. Missing or skipped IDs cause the game to crash on load in non-debug mode. The crash occurs during state initialization before the main menu.
 
 When deleting states from a mod:
+
 1. Renumber all remaining states to fill gaps
 2. Search and replace all references to renumbered states across the entire mod
 3. Check history files, events, decisions, focuses, and scripted effects
@@ -195,6 +196,7 @@ history = {
 ```
 
 Buildings inside datestamp blocks follow special rules:
+
 - Undefined buildings keep their current value (they do not reset to 0)
 - Defined buildings set to their specified value
 - This allows incremental building changes between scenarios
@@ -204,6 +206,7 @@ Buildings inside datestamp blocks follow special rules:
 > [!CRITICAL] The `map/buildings.txt` file defines 3D model positions for buildings separately from state definitions. Mismatches between state building definitions and building position files create errors in the log and can cause crashes.
 
 Required consistency with map files:
+
 - `map/buildings.txt`: Building 3D model positions
 - `map/airports.txt`: Airport positions and connectivity
 - `map/rocketsites.txt`: Rocket site positions
@@ -313,6 +316,7 @@ State scope enables localized effects, building construction, and ownership chan
 **Symptom:** Game crashes before main menu with no error log.
 
 **Causes:**
+
 - State IDs are non-sequential or have gaps
 - `map/airports.txt` is missing or has incorrect entries
 - `map/rocketsites.txt` is missing or has incorrect entries

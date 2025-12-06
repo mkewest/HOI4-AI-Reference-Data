@@ -97,6 +97,7 @@ ship = {
 ```
 
 Common definitions include:
+
 - `battleship` - Capital ships
 - `battle_cruiser` - Fast battleships
 - `heavy_cruiser` - Heavy cruisers

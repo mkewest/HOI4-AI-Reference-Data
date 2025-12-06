@@ -33,7 +33,7 @@ StateID;BuildingID;X;Y;Z;Rotation;AdjacentSeaProvince
 ### Critical Requirements
 
 > [!CRITICAL] A completely empty buildings.txt file causes the game to crash. The file must contain at least one building definition or be omitted entirely.
-
+>
 > [!CRITICAL] Missing definitions for naval_base or floating_harbor buildings cause crashes several hours into gameplay. The crash manifests as a RAM/CPU-eating infinite loop with `client_ping` or `hourly_ping` appearing in crash logs.
 
 This bug occurs because the building definition is incorrectly used for both 3D model assignment and sea province assignment logic. The workaround is to either turn off AI (which triggers the pathfinding bug) or ensure all required building definitions exist.
@@ -128,6 +128,7 @@ The nudger tool can edit existing ambient objects but cannot create new ones. To
 ## Rotation Conventions
 
 All rotation values across buildings, unitstacks, and ambient objects use radians:
+
 - 0 = default orientation
 - Positive values = counter-clockwise rotation
 - Negative values = clockwise rotation  

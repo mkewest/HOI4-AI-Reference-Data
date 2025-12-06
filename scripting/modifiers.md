@@ -89,6 +89,7 @@ consumer_goods_factor = -0.5  # -50%
 ```
 
 This creates exponential scaling instead of linear. Commonly applies to:
+
 - `consumer_goods_factor`
 - `conscription_factor`
 - Various economy-related factors
@@ -207,6 +208,7 @@ add_dynamic_modifier = {
 ```
 
 Localization:
+
 ```yaml
 economy_modifier_tt:0 "Grants +[?factory_bonus|%0]% factory output"
 ```
@@ -242,6 +244,7 @@ my_static_modifier = {
 ```
 
 Applied via effects:
+
 - Country modifiers: Apply directly in modifier blocks
 - Province modifiers: `add_province_modifier` / `remove_province_modifier`
 - Relation modifiers: `add_relation_modifier` / `remove_relation_modifier`
@@ -259,6 +262,7 @@ at_peace = {
 ```
 
 Common global modifiers:
+
 - `at_peace` / `at_war`
 - `low_stability` / `high_stability`
 - `embargo` / `has_embargo`
@@ -357,6 +361,7 @@ trade_agreement = {
 > [!CRITICAL] Opinion modifiers are NOT actual gameplay modifiers - they only affect diplomacy and trade relations. They cannot be used in regular modifier blocks.
 
 Applied via:
+
 - `add_opinion_modifier` effect
 - `remove_opinion_modifier` effect
 
@@ -576,6 +581,7 @@ Applying modifiers in wrong scopes causes silent failures - no errors, but no ef
 For complete modifier enumeration by category, see [Modifiers List](/modifiers_list/00_overview.md).
 
 For specific modifier categories:
+
 - Intelligence and operations: See [Intelligence Modifiers](/modifiers_list/intelligence.md)
 - Land combat and units: See [Military Land Modifiers](/modifiers_list/military_land.md)
 - Leaders and experience: See [Military Leaders Modifiers](/modifiers_list/military_leaders.md)

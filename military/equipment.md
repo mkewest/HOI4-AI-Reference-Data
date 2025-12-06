@@ -68,6 +68,7 @@ infantry_equipment_2 = {
 This creates the chain: `infantry_equipment_0` → `infantry_equipment_1` → `infantry_equipment_2`
 
 Parent relationships enable:
+
 - Upgrade buttons in production screen
 - Technology unlock progression
 - Equipment conversion mechanics
@@ -249,6 +250,7 @@ interface_category = interface_category_land
 ```
 
 Interface categories group equipment in production menus:
+
 - `interface_category_land` - Ground equipment
 - `interface_category_air` - Aircraft  
 - `interface_category_naval` - Ships

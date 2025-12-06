@@ -198,6 +198,7 @@ Dual scopes work in both trigger and effect contexts and can serve as scope targ
 > [!CRITICAL] PREV chaining often causes broken tooltips where the shown scope doesn't match the execution scope. The tooltip system can't always track chained PREV references. Workaround: use `hidden_effect` for the actual execution and `custom_effect_tooltip` for the tooltip.
 
 **FROM:** A secondary hardcoded scope with context-dependent meaning:
+
 - Events: FROM is the country that sent the event
 - Targeted decisions: FROM is the target country/state
 - Diplomatic actions: FROM is the target of the action
@@ -232,6 +233,7 @@ When a scope has no valid target in the current context, the game logs "Invalid 
 - **Triggers:** Return neither true nor false - treated as non-evaluable
 
 Common causes:
+
 - Accessing `overlord` for independent countries
 - Accessing `faction_leader` for non-faction members  
 - Accessing `owner` for states with no owner
@@ -382,6 +384,7 @@ start_civil_war = {
 > [!CRITICAL] If the capital is included in the revolt states, the civil war will not fire at all. Workaround: use `set_capital` to move the capital before calling `start_civil_war`, then restore it in `on_civil_war_end`.
 
 Parameters:
+
 - `ideology`: Ideology of rebels
 - `ruling_party`: Ruling party of rebels
 - `size`: Percentage of states to revolt (0.0-1.0)

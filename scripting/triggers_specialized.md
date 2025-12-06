@@ -223,6 +223,7 @@ can_be_fired = yes                   # Can be removed/fired
 ### Version-Dependent Behavior
 
 Pre-1.12:
+
 ```hoi4
 is_air_chief = yes      # True if ever had role
 is_army_chief = yes
@@ -230,6 +231,7 @@ is_navy_chief = yes
 ```
 
 Post-1.12:
+
 ```hoi4
 is_air_chief = yes      # True if currently in role
 is_army_chief = yes

@@ -103,7 +103,7 @@ If the colormap is broken, the fix is to copy pixels from an RGB version into th
 
 Textures are stored in `map/terrain/atlas0.dds` as a 4×4 grid of 512×512px tiles. Tiles are indexed left-to-right, top-to-bottom starting from 0:
 
-```
+```text
  0  1  2  3
  4  5  6  7
  8  9 10 11

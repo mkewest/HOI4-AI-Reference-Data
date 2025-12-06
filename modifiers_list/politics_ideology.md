@@ -255,6 +255,7 @@ weekly_manpower:
 > [!CRITICAL] `<ideology>_drift` changes daily support (affects your country's internal politics). `<ideology>_acceptance` affects diplomatic actions WITH that ideology (external relations). These are independent systems - one does not imply the other.
 
 Examples:
+
 ```hoi4
 democratic_drift = 0.10        # +10% daily democratic support gain (internal politics)
 democratic_acceptance = 50     # +50 acceptance for diplomatic actions with democracies (external)

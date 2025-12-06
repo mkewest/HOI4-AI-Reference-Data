@@ -303,12 +303,14 @@ winter_attrition_factor:
 > [!CRITICAL] `special_forces_cap` is PERCENTUAL despite affecting slot count: `0.10 = +10% to special forces cap`, NOT +10 slots.
 
 Two modifiers control special forces capacity:
+
 - `special_forces_min`: Sets floor (minimum) capacity regardless of division count
 - `special_forces_cap`: Multiplies % of regular divisions that can be special forces
 
 Both can be active simultaneously. Game uses higher of the two values.
 
 Individual contribution factors also exist:
+
 ```hoi4
 paratroopers_special_forces_contribution_factor = 0.50  # +50% paratrooper cap contribution
 marines_special_forces_contribution_factor = 0.50       # +50% marine cap contribution
@@ -325,6 +327,7 @@ These scale how much each special forces battalion counts toward the cap.
 > [!CRITICAL] `dont_lose_dig_in_on_attack` is a boolean - either prevents loss or doesn't. No partial values. Any value >0 treats as true. Does not affect entrenchment gain speed, only prevents loss when attacking.
 
 Entrenchment modifiers:
+
 - `max_dig_in`: Maximum entrenchment level
 - `max_dig_in_factor`: Percentual modification to max entrenchment
 - `dig_in_speed_factor`: Speed of gaining entrenchment

@@ -43,7 +43,7 @@ Required integer value representing the base construction cost in industrial cap
 
 Optional integer that uses arithmetic progression for multi-level buildings:
 
-```
+```text
 Level 1 cost: base_cost
 Level 2 cost: base_cost + per_level_extra_cost
 Level 3 cost: base_cost + (per_level_extra_cost × 2)
@@ -51,6 +51,7 @@ Level n cost: base_cost + (per_level_extra_cost × (n-1))
 ```
 
 Example with `base_cost = 1000` and `per_level_extra_cost = 500`:
+
 - Level 1: 1000
 - Level 2: 1500
 - Level 3: 2000
@@ -161,6 +162,7 @@ Boolean. When `no`, hides the modifier in tooltips despite it being active. Usef
 ### value
 
 Affects three separate systems:
+
 1. **Base health:** Health for air bombing damage calculations
 2. **Peace conference cost:** Points required to take in peace deals  
 3. **PP occupation cost:** Political power needed to occupy states with these buildings
@@ -182,6 +184,7 @@ allied_build = yes
 ```
 
 Boolean. When `yes`, allows construction by:
+
 - Subjects (puppets, dominions, etc.)
 - Overlord (for their subjects)
 - Faction members
@@ -233,6 +236,7 @@ show_on_map = 2
 ```
 
 Integer. Controls how many 3D models appear on the map:
+
 - `0`: No models (building is invisible)
 - `1-5`: Number of models to spawn
 - Higher values spawn more models as the building level increases
@@ -273,6 +277,7 @@ spawn_point = {
 ```
 
 Version 1.16+ feature that controls spawning behavior:
+
 - `type`: `state` or `province`
 - `max`: Maximum number of spawn points
 - `only_costal`: Boolean, restricts to coastal provinces
@@ -281,12 +286,13 @@ Version 1.16+ feature that controls spawning behavior:
 
 The `map/buildings.txt` file defines 3D positions for buildings:
 
-```
+```text
 <state_id>;<building_id>;<x>;<y>;<z>;<rotation>;<sea_province>
 ```
 
 Example:
-```
+
+```text
 1;naval_base;2500.5;12.3;1800.2;1.57;3456
 ```
 
@@ -302,6 +308,7 @@ Example:
 Rotation in radians. Full rotation = 2π ≈ 6.28.
 
 Common values:
+
 - 0: North (0°)
 - 1.57: East (90°)  
 - 3.14: South (180°)
@@ -374,7 +381,7 @@ The `icon_frame` attribute references a frame in the `GFX_buildings_strip` sprit
 
 The `GFX_buildings_strip` is a horizontal spritesheet divided by `noOfFrames`. Frame indexing typically starts at 1:
 
-```
+```text
 Frame 1: Civilian factory
 Frame 2: Military factory
 Frame 3: Naval dockyard
@@ -393,6 +400,7 @@ Localisation keys for buildings:
 ### Auto-Generated Modifiers
 
 The game automatically creates modifier localisation for:
+
 - `production_speed_<building>_factor`: State production speed
 - `state_production_speed_<building>_factor`: State-specific production speed
 

@@ -82,6 +82,7 @@ right_side = {
 ```
 
 Each side requires:
+
 - `id`: Unique identifier for the side
 - `icon`: Sprite reference for UI display
 
@@ -130,6 +131,7 @@ This exception exists to ensure the maximum slider value (1.0) can activate a ra
 > [!CRITICAL] When multiple ranges share the same ID, the game displays ALL non-disabled ranges with that ID simultaneously. However, the trigger `is_power_balance_in_range` recognizes only the LEFTMOST duplicate (first defined range with that ID).
 
 This creates inconsistent behavior where:
+
 - Visual display shows all duplicates as active
 - Trigger checks only recognize the first occurrence
 - Modifiers from all duplicates stack
@@ -192,6 +194,7 @@ Executes when the BoP value leaves this range. Fires once per range exit.
 > [!CRITICAL] The BoP value is SHARED across all countries that have the same BoP ID assigned. When multiple countries have modifiers that affect the same BoP, their effects STACK.
 
 This creates interesting dynamics:
+
 - Multiple countries can collaboratively push the same BoP
 - Modifiers from different countries combine
 - The BoP represents a global relationship, not per-country state

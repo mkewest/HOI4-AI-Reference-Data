@@ -30,6 +30,7 @@ If `has_political_power` returns false, the remaining triggers are never evaluat
 The equality operator has two distinct behaviors in HOI4:
 
 **Strict equality comparison:**
+
 ```hoi4
 has_political_power = 100  # True only at exactly 100 PP
 ```
@@ -37,6 +38,7 @@ has_political_power = 100  # True only at exactly 100 PP
 > [!CRITICAL] Unlike older Paradox games where `=` meant "≥", HOI4 uses strict equality. `has_political_power = 100` is FALSE if you have 101 political power.
 
 **Trigger block introduction:**
+
 ```hoi4
 has_opinion = {
     target = GRE
@@ -314,12 +316,14 @@ The current scope receives a hidden +10% modifier if it has a stronger air force
 Pre-1.12 vs Post-1.12 for role-checking triggers:
 
 **Pre-1.12:**
+
 ```hoi4
 is_air_chief = yes  # True if character EVER HAD the role
 is_army_chief = yes
 ```
 
 **Post-1.12:**
+
 ```hoi4
 is_air_chief = yes  # True if character IS CURRENTLY SELECTED in role
 is_army_chief = yes
@@ -362,11 +366,13 @@ Railway connection can exist via naval crossings (straits, sea zones with naval 
 Resistance never auto-initiates unless explicitly configured:
 
 **Global setting:**
+
 ```hoi4
 should_initiate_resistance = yes  # In scripted trigger
 ```
 
 **State-specific:**
+
 ```hoi4
 should_initiate_resistance_<state_id>_<state_id> = yes
 ```
@@ -408,6 +414,7 @@ my_trigger_name = {
 ```
 
 Usage:
+
 ```hoi4
 my_trigger_name = yes
 my_trigger_name = no  # Inverted check

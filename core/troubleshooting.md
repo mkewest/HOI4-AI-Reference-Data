@@ -36,6 +36,7 @@ Crashes during main menu loading indicate fundamental content errors:
 **rocketsites.txt crash:** Caused by complete overwrite of `history/states/` or `common/unit_leader/` directories. Similar to cosmetic.txt, the game requires baseline content and crashes when completely empty.
 
 **railroad.shader crash:** BMP file format errors in map files. Occurs when:
+
 - Provinces.bmp dimensions are not multiples of 256
 - File size exceeds 40 MiB
 - Dimension mismatch between files that should share dimensions
@@ -62,6 +63,7 @@ Crashes when selecting a country indicate country-specific initialization issues
 **set_controller crash:** Country lacks a valid capital definition in its `history/countries/TAG*.txt` file. Every country must have a capital province assigned.
 
 **history/units crash:** Two primary causes:
+
 - Carrier with airwings directly inside (pre-1.12 format) rather than using the 1.12+ carrier air wing structure
 - Division template without matching entry in `common/ai_templates/`
 
@@ -74,6 +76,7 @@ Crashes when selecting a country indicate country-specific initialization issues
 Crashes during gameplay have different patterns than loading crashes:
 
 **client_ping_hourly crash:** AI-related issues, primarily:
+
 - Division template without `common/ai_templates/` entry added during gameplay
 - State with no owner (ownerless states are always unstable)
 - Incomplete `map/buildings.txt` missing required coastal connections

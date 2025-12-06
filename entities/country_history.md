@@ -14,7 +14,7 @@ Country history files define the starting state of nations including political s
 
 History files are located in `history/countries/` and must begin with the country's three-character tag. The remainder of the filename is cosmetic:
 
-```
+```text
 history/countries/TAG - Any Description.txt
 ```
 
@@ -81,6 +81,7 @@ Technology tokens reference definitions in `common/technologies/`. The value `1`
 Three methods exist for assigning order of battle files, with different timing and scoping behavior:
 
 **`oob` (argument syntax):**
+
 ```hoi4
 oob = "TAG_1936"
 ```
@@ -88,6 +89,7 @@ oob = "TAG_1936"
 This is an argument, not an effect. It cannot be used inside `if` statements or conditional blocks. The OOB file loads during country initialization.
 
 **`set_oob` (effect syntax):**
+
 ```hoi4
 set_oob = "TAG_1936"
 ```
@@ -95,6 +97,7 @@ set_oob = "TAG_1936"
 This is an effect that can be used in `if` statements and conditional logic. The OOB loads during country initialization.
 
 **`load_oob` (immediate effect):**
+
 ```hoi4
 load_oob = "TAG_1936"
 ```

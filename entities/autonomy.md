@@ -60,6 +60,7 @@ min_freedom_level = 0.4
 > [!CRITICAL] Never use identical `min_freedom_level` values across different autonomy states. Duplicate values cause unpredictable behavior in autonomy transitions and point calculations.
 
 Freedom levels range from 0.0 (complete integration) to 1.0 (full independence). The freedom level determines:
+
 - When subjects can request independence
 - Point thresholds for autonomy changes
 - AI autonomy management behavior
@@ -155,6 +156,7 @@ The `set_autonomy` effect establishes a subject relationship. The executing coun
 > [!CRITICAL] Setting autonomy resets the subject's party popularity and ruling party to match the overlord's ideology. Always place `set_autonomy` before `set_popularities` and `set_politics` in history files, or the political settings will be overwritten.
 
 **Example - incorrect order:**
+
 ```hoi4
 set_popularities = {
     democratic = 100
@@ -170,6 +172,7 @@ set_autonomy = {
 ```
 
 **Example - correct order:**
+
 ```hoi4
 set_autonomy = {
     target = TAG
@@ -262,6 +265,7 @@ allowed = {
 ```
 
 When an autonomy state has DLC requirements:
+
 - Subjects remain at that autonomy level if the DLC is disabled later
 - New autonomy assignments to that state are blocked without the DLC
 - Autonomy transitions skip that state when the DLC is not present
@@ -308,6 +312,7 @@ ai_overlord_wants_lower = {
 ```
 
 These MTTH blocks control AI desire to change autonomy levels:
+
 - `ai_subject_wants_higher`: Subject's desire to gain more freedom
 - `ai_overlord_wants_lower`: Overlord's desire to tighten control
 

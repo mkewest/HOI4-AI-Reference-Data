@@ -14,6 +14,7 @@ Map modding errors often manifest as crashes, visual glitches, or cryptic error 
 > [!CRITICAL] Debug mode is essential for map modding. Without it, many errors only appear after country selection, wasting significant testing time.
 
 Enable debug mode by launching the game with the `-debug` flag or adding it to the launch options. Debug mode provides:
+
 - MAP_ERROR visibility before country selection
 - Access to the nudger tool
 - Detailed error logging
@@ -28,15 +29,18 @@ BMP format requirements are strict and many image editors don't handle indexed B
 ### Compatible Editors
 
 **GIMP:** Reliable for all BMP types
+
 - Export settings: Check "do not write color space information"
 - Indexed BMP editing: Use "use custom palette" with base game file open
 - This preserves the colormap structure
 
 **Photoshop:** Can handle indexed BMPs with proper workflow
+
 - Save/load .ACT color table files to preserve colormaps
 - Greyscale mode internally saves as indexed with greyscale color table (acceptable)
 
 **Incompatible editors:**
+
 - Paint.net: Cannot edit indexed BMPs (regenerates colormap on save)
 - MS Paint: Cannot edit indexed BMPs (regenerates colormap on save)
 
@@ -54,6 +58,7 @@ The game reads colormap index values, not RGB values. Changing RGB values at the
 ### Detecting Wrong Bitdepth
 
 Wrong bitdepth is typically indicated by large filesize differences compared to base game files:
+
 - 24-bit RGB should be roughly 3× map dimensions in pixels
 - 8-bit indexed should be roughly 1× map dimensions in pixels
 - 32-bit RGBA is 4× and indicates an error (alpha channel present)
@@ -71,11 +76,13 @@ The BMP header must be BITMAPINFOHEADER, not BITMAPV5HEADER. GIMP's "do not writ
 **Symptom:** Game crashes immediately on launch with X4008 error.
 
 **Causes:**
+
 - provinces.bmp is 32-bit RGBA instead of 24-bit RGB (alpha channel present)
 - provinces.bmp exceeds 13,238,272 pixel maximum area
 - Wrong BITMAPINFOHEADER type (use GIMP export option)
 
 **Fix:**
+
 1. Open provinces.bmp in GIMP
 2. Image → Mode → RGB (not RGBA) - flatten any layers first
 3. Resize if area exceeds limit
@@ -97,6 +104,7 @@ The BMP header must be BITMAPINFOHEADER, not BITMAPV5HEADER. GIMP's "do not writ
 **Symptom:** MAP_ERROR reports province ID below minimum size (default 2 pixels).
 
 **Causes:**
+
 - Anti-aliasing created single-pixel provinces during editing
 - Color picker grabbed wrong RGB value, creating unintended province
 - Image manipulation left isolated pixels
@@ -104,6 +112,7 @@ The BMP header must be BITMAPINFOHEADER, not BITMAPV5HEADER. GIMP's "do not writ
 **Detection:** Use color select tool with 0% tolerance to find all instances of the province color. Global flood mode (GIMP) or magic wand (Paint.net) can highlight all pixels.
 
 **Fix:**
+
 1. Find the tiny province using color selection
 2. Flood fill with adjacent province color, or
 3. Manually paint over the artifact pixels
@@ -123,10 +132,12 @@ The game creates `definition.csv.fixed` in the user directory when auto-fixing. 
 **Symptom:** MAP_ERROR reports province exceeding size limits.
 
 **Causes:**
+
 - Single province exceeds 1/8 of total map size
 - Duplicate RGB colors for different province IDs creating very disjointed sections
 
 **Fix:**
+
 - Split large provinces into multiple smaller provinces
 - Check for duplicate colors in definition.csv
 - Verify no accidental color collisions in provinces.bmp
@@ -136,10 +147,12 @@ The game creates `definition.csv.fixed` in the user directory when auto-fixing. 
 **Symptom:** Borders don't render correctly between certain provinces.
 
 **Causes:**
+
 - definition.csv Type column doesn't match bitmap's water detection
 - Earlier province IDs are missing, causing property offset bug
 
 **Fix:**
+
 - Verify Type column matches actual province rendering (land/sea/lake)
 - Check for sequential province IDs with no gaps
 - Remember: bitmap coastal status always wins over definition.csv
@@ -149,10 +162,12 @@ The game creates `definition.csv.fixed` in the user directory when auto-fixing. 
 **Symptom:** Province ID exists in definition.csv but game reports no pixels found.
 
 **Causes:**
+
 - RGB color in definition.csv doesn't exist in provinces.bmp
 - Duplicate RGB colors assigned to multiple province IDs
 
 **Fix:**
+
 - Verify exact RGB match between definition.csv and provinces.bmp
 - Check for duplicate color definitions
 - Use color picker to confirm bitmap colors match definition
@@ -170,9 +185,9 @@ The nudger is accessed through debug mode and provides tools for editing map dat
 ### Limitations
 
 > [!CRITICAL] The nudger cannot create new ambient objects - it can only edit existing ones defined in ambient_object.txt.
-
+>
 > [!CRITICAL] The nudger removes ALL quotes from state history files. This breaks DLC checks like `has_dlc = "Waking the Tiger"`. You must manually restore quotes after using the nudger.
-
+>
 > [!CRITICAL] The nudger crashes if state names contain multi-byte UTF-8 characters (non-English alphabet characters like Chinese, Cyrillic, or accented letters).
 
 ### Output Location
@@ -180,6 +195,7 @@ The nudger is accessed through debug mode and provides tools for editing map dat
 The nudger outputs to the user directory: `Documents/Paradox Interactive/Hearts of Iron IV/`
 
 Files are organized in subdirectories:
+
 - `history/states/` - State files
 - `map/` - Map configuration files  
 - `localisation/` - Localization files
@@ -203,6 +219,7 @@ The `map/adjacency_rules.txt` file must be UTF-8 without BOM. Including the BOM 
 ### DDS Files
 
 When exporting DDS files from GIMP, check "do not write color space information" to avoid compatibility issues. The game expects specific DDS formats:
+
 - Atlas files: DXT5 compression with mipmaps
 - Colormap files: 8.8.8.8 ARGB 32-bit without mipmaps
 
@@ -217,6 +234,7 @@ Using replace_path on map folders can make nudger changes invisible if mod files
 ## Colormap Index Detection
 
 For indexed BMPs (rivers.bmp, terrain.bmp, trees.bmp), use the color select tool with 0% tolerance to find unintended index values. This reveals:
+
 - Anti-aliasing artifacts (unexpected intermediate colors)
 - Wrong color picker selection (grabbed wrong index)
 - Compression artifacts if file was saved as JPEG then converted
@@ -232,6 +250,7 @@ If the error prevents loading (rare), fix by hex editing addresses 0x2F and 0x33
 ## Related Systems
 
 Troubleshooting often requires understanding:
+
 - [Provinces](/map/provinces.md) - Definition format and ID constraints
 - [Terrain](/map/terrain.md) - Indexed BMP colormap preservation
 - [Heightmap](/map/heightmap.md) - Format requirements and coordinate mapping

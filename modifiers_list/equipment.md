@@ -33,11 +33,13 @@ Equipment modifiers affect equipment statistics, upgrades, conversions, and idea
 Two types control equipment capture rates from combat:
 
 **equipment_capture:** Flat addition to capture ratio (typically base 5%):
+
 ```hoi4
 equipment_capture = 0.10  # +0.10 to capture ratio (0.05 becomes 0.15)
 ```
 
 **equipment_capture_factor:** Percentual multiplication:
+
 ```hoi4
 equipment_capture_factor = 0.50  # +50% to capture ratio (0.05 becomes 0.075)
 ```

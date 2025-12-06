@@ -13,12 +13,14 @@ HOI4 uses a two-tier ideology system: ideology groups (broad political alignment
 ## Ideology Groups vs Ideology Types
 
 **Ideology groups** are the top-level political categories displayed prominently in the game interface:
+
 - `democratic`
 - `communism`
 - `fascism`
 - `neutrality`
 
 **Ideology types** are specific sub-ideologies within each group:
+
 - Democratic group: `liberalism`, `conservatism`, `socialism`
 - Communist group: `marxism`, `leninism`, `stalinism`, `maoism`
 - Fascist group: `nazism`, `fascism_ideology`, `falangism`, `rexism`
@@ -149,11 +151,13 @@ The game randomly selects from available names when creating a faction. This pro
 Common triggers and effects that interact with the ideology system:
 
 **Triggers:**
+
 - `has_government = ideology_group` (checks ruling party)
 - `has_idea_with_trait = ideology_group` (checks country leader traits)
 - `has_country_leader = { character = character_id }` (checks active leader)
 
 **Effects:**
+
 - `set_politics = { ruling_party = ideology_group }` (changes government)
 - `add_popularity = { ideology = ideology_group value = 0.1 }` (modifies support)
 - `set_party_name = { ideology = ideology_group name = "loc_key" }` (renames party)

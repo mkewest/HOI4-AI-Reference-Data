@@ -92,6 +92,7 @@ defense = 2.0
 ```
 
 These values are BASE stats. Actual combat values come from:
+
 1. Unit base stats (these values)
 2. Equipment stats (from equipped items)
 3. Terrain modifiers (see below)
@@ -193,6 +194,7 @@ The `carrier_capable` attribute only applies to air units and is meaningless for
 ## Unit Models and Visuals
 
 Model selection follows this priority order:
+
 1. `cosmetic_tag` (if defined)
 2. Country tag
 3. `graphical_culture`

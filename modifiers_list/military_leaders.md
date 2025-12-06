@@ -124,6 +124,7 @@ wounded_chance_factor:
 > [!CRITICAL] When both `army_leader_start_level` (total skill) and specific skill modifiers (`army_leader_start_attack_level`, etc.) are used, specific skills are set first, then remaining points distributed. Total level from specific skills can exceed start_level (specific takes priority).
 
 For example:
+
 ```hoi4
 army_leader_start_level = 3
 army_leader_start_attack_level = 2
@@ -139,6 +140,7 @@ Experience gain modifiers distinguish between training and combat:
 > [!CRITICAL] `experience_gain_<unit>_training_factor` affects XP during training ONLY. `experience_gain_<unit>_combat_factor` affects XP during combat ONLY. These are independent multipliers, not shared pools.
 
 Examples:
+
 ```hoi4
 experience_gain_army_unit_factor = 0.25        # +25% to division XP gain (both training and combat)
 experience_gain_army_training_factor = 0.50    # +50% to XP during training only

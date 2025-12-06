@@ -47,17 +47,17 @@ Files load in ASCII character order of filename, which determines namespace orde
 
 The game converts namespaced IDs to internal integers using the formula:
 
-```
+```text
 internal_id = (namespace_order * 100000) + numeric_id
 ```
 
 Where namespace_order starts at 10 for the first declared namespace. This means:
+
 - First namespace (order 10): IDs 1000000-1099999
 - Second namespace (order 11): IDs 1100000-1199999
 - And so on...
 
 > [!CRITICAL] Event IDs with numeric portions ≥100000 encroach into the next namespace's range, causing duplicate internal ID collisions. Keep numeric IDs between 0-99999.
-
 > [!CRITICAL] Non-integer values after the last dot convert to 0. This means `my_mod.test`, `my_mod.foo`, and `my_mod.0` all become the same internal ID, creating collision risks across multiple events.
 
 When the game reports "Duplicate internal ID error 50", the number 50 refers to the event type in the internal database (50 = country_event). Other numbers indicate different database entry types.
@@ -212,6 +212,7 @@ state_event = {
 Event scoping differs from normal effect scoping in important ways:
 
 When an effect block fires an event, scopes shift forward:
+
 - Effect's ROOT becomes event's FROM
 - Effect's FROM becomes event's FROM.FROM  
 - Effect's FROM.FROM becomes event's FROM.FROM.FROM

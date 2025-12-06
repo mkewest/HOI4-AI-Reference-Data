@@ -360,12 +360,14 @@ Ship role modifiers use pattern `navy_<role>_<stat>_factor`:
 > [!CRITICAL] Naval role modifiers are ship-type specific. Carrier aircraft use `navy_carrier_air_*` not standard `air_*` modifiers. Naval detection affects both spotting AND being spotted (asymmetric).
 
 **Available patterns:**
+
 - Submarine: attack, defence, detection
 - Screen: attack, defence  
 - Capital ship: attack, defence
 - Carrier air: attack, targetting, agility
 
 Examples:
+
 ```hoi4
 navy_submarine_attack_factor = 0.15       # +15% submarine attack
 navy_carrier_air_targetting_factor = 0.10 # +10% carrier aircraft targeting
@@ -376,6 +378,7 @@ navy_carrier_air_targetting_factor = 0.10 # +10% carrier aircraft targeting
 Three independent naval critical hit systems:
 
 > [!CRITICAL] Naval critical hits use three separate systems:
+>
 > - `critical_receive_chance`: Chance to receive crits when hit
 > - `naval_critical_score_chance_factor`: Chance to score crits when hitting
 > - `naval_critical_effect_factor`: Damage/effects of crits already received

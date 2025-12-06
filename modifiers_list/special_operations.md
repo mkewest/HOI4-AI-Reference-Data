@@ -34,6 +34,7 @@ State-specific control uses `disable_strategic_redeployment_for_controller` whic
 ## Exiled Divisions
 
 Exiled divisions are forces from occupied countries fighting alongside their host nation. Modifiers distinguish between:
+
 - **Your exiled divisions** (divisions you host): `own_exiled_divisions_*`
 - **Allied exiled divisions** (divisions others host): `exiled_divisions_*`
 

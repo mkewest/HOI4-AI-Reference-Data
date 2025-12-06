@@ -206,6 +206,7 @@ targeted_legitimacy_daily:
 > [!CRITICAL] `*_on_our_occupied_states` modifiers only affect YOUR states when occupied by enemy. They do NOT affect enemy states you occupy. For bidirectional effects, use separate modifiers with different naming.
 
 Examples:
+
 ```hoi4
 compliance_growth_on_our_occupied_states = 0.15  # +15% compliance growth when ENEMY occupies YOUR states
 # Does NOT affect states you occupy
@@ -221,6 +222,7 @@ Compliance and resistance operate on opposing scales (0-100):
 > [!CRITICAL] Compliance and resistance are opposing forces on the same scale. Higher compliance reduces resistance cap. `resistance_target` sets where resistance naturally trends toward. Garrison reduces resistance growth but doesn't directly increase compliance.
 
 Key modifiers:
+
 - `compliance_gain`: Rate of compliance increase
 - `compliance_growth`: Multiplier for compliance gain rate
 - `resistance_*`: Various resistance mechanics

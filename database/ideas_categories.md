@@ -130,6 +130,7 @@ This creates a problem with character slots because characters are loaded AFTER 
 Files load in Unicode sort order: CAPITALS < underscore (_) < lowercase
 
 This means:
+
 - `00_IDEAS.txt` loads before `ideas.txt`
 - `_ideas.txt` loads after `IDEAS.txt` but before `ideas.txt`
 - Character files typically load after idea files

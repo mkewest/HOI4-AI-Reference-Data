@@ -69,6 +69,7 @@ continents = { europe north_america south_america australia africa asia middle_e
 IDs are assigned in definition order starting from 1. All land provinces must have `continent > 0` in definition.csv. Value 0 is reserved for water provinces (sea and lake types).
 
 Base game continent IDs:
+
 - 1 = Europe
 - 2 = North America  
 - 3 = South America

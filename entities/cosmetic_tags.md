@@ -13,6 +13,7 @@ Cosmetic tags allow countries to change their display name, flag, map color, cha
 ## Scope of Changes
 
 Cosmetic tags modify:
+
 - Country flag sprites
 - Country display name
 - Map color (political and UI modes)
@@ -21,6 +22,7 @@ Cosmetic tags modify:
 - Unit entity models (visual appearance of units)
 
 Cosmetic tags do not affect:
+
 - Game mechanics or scripting logic
 - National focus trees
 - Event scripting and triggers
@@ -54,7 +56,8 @@ Cosmetic flags follow a specific priority when rendering:
 **Example:** Germany has `GER_democratic.tga`, `GER_communism.tga`, and `GER_fascism.tga` flags. If a cosmetic tag `WEIMAR` only provides `WEIMAR.tga`, the game still renders `GER_democratic.tga` when Germany is democratic because the ideology-specific base flag takes priority over the cosmetic fallback.
 
 **Solution:** Provide all ideology-specific variants:
-```
+
+```text
 WEIMAR.tga
 WEIMAR_democratic.tga
 WEIMAR_communism.tga
@@ -98,6 +101,7 @@ COSMETICTAG_ideology_DEF: "the Cosmetic Country"
 This means cosmetic tags can inadvertently break subject naming or autonomy-specific names if not carefully implemented with full localization coverage.
 
 **Automatic variations:** All automatic localization variations work with cosmetic tags:
+
 - Subject names (`COSMETICTAG_subject`, `COSMETICTAG_OVERLORD_subject`)
 - Autonomy names (`COSMETICTAG_autonomy_state`)
 - Ideology subtypes (`COSMETICTAG_ideology_type`)
@@ -164,7 +168,8 @@ Entity names must follow the format `COSMETICTAG_<unit_type>_entity`. Entities c
 > [!CRITICAL] There is no automatic fallback for missing entities. If a cosmetic tag is active but the required entity is undefined, the game uses the default engine entity, which may not match the intended visual style.
 
 Define all necessary entities for each unit type when creating cosmetic tags:
-```
+
+```text
 COSMETICTAG_infantry_entity
 COSMETICTAG_armor_entity
 COSMETICTAG_artillery_entity
@@ -178,6 +183,7 @@ The `on_ruling_party_change` on_action only fires after game start, not during i
 ### Puppeting Detection
 
 Cosmetic tags have limited automatic application for puppeting. The system only detects puppeting through:
+
 - Peace conference puppeting
 - The `release_country` effect
 

@@ -49,7 +49,7 @@ if = {
 
 When multiple files define the same scripted trigger name, the last evaluated file wins. Files load in ASCII filename order:
 
-```
+```text
 00_scripted_triggers.txt    # Loads first
 zz_scripted_triggers.txt    # Loads last - overrides earlier definitions
 ```
@@ -71,6 +71,7 @@ DIPLOMACY_<ACTION>_ENABLE_TRIGGER = {
 ```
 
 Example actions:
+
 - `DIPLOMACY_BOOST_PARTY_ENABLE_TRIGGER`
 - `DIPLOMACY_GUARANTEE_ENABLE_TRIGGER`  
 - `DIPLOMACY_MILITARY_ACCESS_ENABLE_TRIGGER`
@@ -82,6 +83,7 @@ These triggers directly control whether diplomatic options appear as available i
 Control resistance initiation in occupied states:
 
 **Global setting:**
+
 ```hoi4
 should_initiate_resistance = {
     # Conditions for any state
@@ -90,6 +92,7 @@ should_initiate_resistance = {
 ```
 
 **State-specific override:**
+
 ```hoi4
 should_initiate_resistance_42_116 = {
     # Specific rule for states 42-116
@@ -256,11 +259,13 @@ This helps debug complex dynamic localization where the final output isn't obvio
 ### Scripted Trigger/Effect Priority
 
 When the same name is defined multiple times:
+
 1. Files load in ASCII character order (00_ before ZZ_)
 2. Within files, last definition wins
 3. The final evaluated definition is used globally
 
 This enables:
+
 - Base game definitions in 00_filename.txt
 - Mod overrides in ZZ_filename.txt
 - Conditional loading via filename manipulation
@@ -373,6 +378,7 @@ defined_text = {
 ```
 
 Usage in state scope:
+
 ```yaml
 state_modifier_tt:0 "The situation is [THIS.get_state_situation]"
 ```

@@ -108,7 +108,8 @@ For each resource, two UI elements must exist:
 - `<resource>_value`: Displays the numeric value
 
 Example for oil resource:
-```
+
+```text
 oil_icon
 oil_value
 ```
@@ -125,6 +126,7 @@ Localisation keys for resources:
 - `<resource>_desc`: Resource description
 
 Example:
+
 ```yaml
 PRODUCTION_MATERIALS_OIL: "Oil"
 oil_desc: "Crude oil used for fuel and refinement"
@@ -145,6 +147,7 @@ Only ONE resource can be designated as fuel via the `FUEL_RESOURCE` define in `c
 > [!CRITICAL] If multiple resources are set as fuel, only the LAST defined resource wins. The game doesn't merge them - it simply overwrites previous fuel assignments.
 
 The fuel resource has special mechanics:
+
 - Used by vehicles, ships, and aircraft
 - Consumed during movement and combat
 - Stored in fuel silos
@@ -171,11 +174,13 @@ INFRASTRUCTURE_RESOURCE_BONUS = 0.2
 This define applies identically to ALL resources - infrastructure provides a production bonus regardless of resource type.
 
 The bonus is:
-```
+
+```text
 Resource production = base × (1 + infrastructure_level × INFRASTRUCTURE_RESOURCE_BONUS)
 ```
 
 With default value 0.2:
+
 - Infrastructure 0: ×1.0 (base)
 - Infrastructure 5: ×2.0 (+100%)
 - Infrastructure 10: ×3.0 (+200%)

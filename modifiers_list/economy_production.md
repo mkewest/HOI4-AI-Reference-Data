@@ -147,6 +147,7 @@ tech_air_damage_factor:
 Four independent efficiency modifiers control different aspects:
 
 > [!CRITICAL] Production efficiency modifiers are independent systems:
+>
 > - `production_factory_start_efficiency_factor`: Starting efficiency only (when production begins)
 > - `production_factory_max_efficiency_factor`: Maximum achievable efficiency cap
 > - `production_factory_efficiency_gain_factor`: Speed of gaining efficiency
@@ -159,6 +160,7 @@ All four can be modified separately. For example, high max efficiency with slow 
 > [!CRITICAL] `consumer_goods_factor` uses MULTIPLICATION, not addition. Multiple instances compound: `0.5 + (-0.5) = (1+0.5)(1-0.5) = 0.75`, NOT `0`. This creates exponential scaling.
 
 Example:
+
 ```hoi4
 # Two ideas:
 consumer_goods_factor = 0.5   # +50%

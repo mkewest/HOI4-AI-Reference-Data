@@ -39,6 +39,7 @@ dynamic_tags = yes
 ```
 
 The number of dynamic tags allocated affects certain visual systems:
+
 - Medium flags (41×26px) require approximately 10 dynamic tags or become transparent
 - Small flags (10×7px) require approximately 20 dynamic tags or become transparent
 
@@ -106,6 +107,7 @@ Country flags are stored as TGA image files in `gfx/flags/`.
 ### Flag Naming Convention
 
 Flags follow either ideology-specific or generic naming:
+
 - Ideology-specific: `TAG_ideology.tga` (e.g., `GER_democratic.tga`)
 - Generic fallback: `TAG.tga`
 

@@ -250,6 +250,7 @@ Air missions use pattern `air_<mission>_<stat>_factor` for mission-specific bonu
 > [!CRITICAL] Mission-specific stats (e.g., `air_interception_attack_factor`) only apply during that specific mission type. Mission efficiency modifiers (e.g., `air_superiority_efficiency`) multiply with mission-specific stats for multiplicative benefit, not additive.
 
 **Available patterns:**
+
 - Interception: attack, defence, agility, detect
 - Air superiority: attack, defence, agility, detect
 - Close air support: attack, defence, agility
@@ -261,6 +262,7 @@ Air missions use pattern `air_<mission>_<stat>_factor` for mission-specific bonu
 > [!CRITICAL] `air_paradrop_agility_factor` exists in localization and is recognized by the game, but does NOT actually do anything in game code. Only `air_paradrop_attack_factor` and `air_paradrop_defence_factor` are functional.
 
 Examples:
+
 ```hoi4
 air_interception_attack_factor = 0.15    # +15% attack during interception missions only
 air_intercept_efficiency = 0.10          # +10% overall interception effectiveness

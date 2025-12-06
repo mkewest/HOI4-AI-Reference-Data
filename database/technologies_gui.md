@@ -26,6 +26,7 @@ Graphics definitions are in `interface/countrytechtreeview.gfx`.
 > [!CRITICAL] Technologies without a `path` AND without a separate `gridboxType` definition never appear in the GUI. Even if a tech has coordinates in its `folder` attribute, it needs either a `path` parent or explicit gridbox assignment to display.
 
 A technology becomes visible when it has:
+
 1. At least one `path` parent (which assigns it to a gridbox), OR
 2. A separate `gridboxType` defined in the GUI file
 
@@ -62,10 +63,12 @@ The `folder` attribute assigns the technology to a specific GUI folder and posit
 Two coordinate formats exist, defined per-folder in the GUI file:
 
 **format="LEFT"** (horizontal layout):
+
 - x = up-to-down position
 - y = left-to-right position
 
 **format="UP"** (vertical layout):
+
 - x = left-to-right position  
 - y = up-to-down position
 
@@ -124,7 +127,7 @@ Both the tech definition AND the GUI folder configuration must specify doctrine 
 
 Technology icons use the sprite pattern `GFX_<tech_id>_medium`:
 
-```
+```text
 GFX_infantry_weapons_medium
 GFX_basic_light_tank_medium
 ```
@@ -133,7 +136,7 @@ GFX_basic_light_tank_medium
 
 Country-specific tech icons override the generic versions:
 
-```
+```text
 GFX_GER_infantry_weapons_medium  # Germany's infantry weapons icon
 GFX_SOV_tank_tech_medium         # Soviet tank tech icon
 ```
@@ -187,7 +190,7 @@ If a technology doesn't appear in the research GUI:
 
 ### Multiple Grid Boxes Error
 
-```
+```text
 Found multiple potential grid boxes for technology <tech_id>
 ```
 

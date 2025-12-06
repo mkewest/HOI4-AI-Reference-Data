@@ -19,7 +19,7 @@ The modern supply system uses two files to define supply infrastructure:
 
 The `map/supply_nodes.txt` file defines provinces with supply hubs. Format:
 
-```
+```text
 Level ProvinceID
 ```
 
@@ -33,7 +33,7 @@ Level ProvinceID
 
 The `map/railways.txt` file defines railway connections between provinces. Format:
 
-```
+```text
 Level ProvinceCount ProvinceID1 ProvinceID2 ProvinceID3 ...
 ```
 
@@ -44,9 +44,11 @@ Level ProvinceCount ProvinceID1 ProvinceID2 ProvinceID3 ...
 **ProvinceIDs:** Sequential list of connected provinces forming the railway path.
 
 Example:
-```
+
+```text
 3 4 123 124 125 126
 ```
+
 This creates a level 3 railway connecting provinces 123→124→125→126.
 
 > [!CRITICAL] Invalid railway definitions cause crashes when opening singleplayer games or accessing the Supply nudger. Very disjointed railways (connecting provinces across the map without continuous paths) are particularly prone to crashing.
@@ -94,6 +96,7 @@ Single-state supply areas technically worked but violated the intended design pa
 ## Migration Notes
 
 When converting pre-1.11 mods to 1.11+:
+
 1. Remove `map/supplyareas/*.txt` files or use `replace_path` to unload them
 2. Create `map/supply_nodes.txt` with supply hubs in major cities
 3. Create `map/railways.txt` connecting supply nodes to provinces

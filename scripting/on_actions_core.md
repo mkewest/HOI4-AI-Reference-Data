@@ -188,6 +188,7 @@ start_civil_war = {
 ### on_peaceconference_ended → Multiple Contexts
 
 Also triggered by:
+
 - `white_peace` effect
 - Conditional surrender (scripted peace)
 
@@ -295,11 +296,13 @@ Do not rely on these for scripting - they will never fire.
 Two on_actions fire during capitulation with different timing:
 
 **on_capitulation_immediate:** Fires at the START of capitulation:
+
 - Units still exist
 - Equipment not yet transferred
 - Territory not yet transferred
 
 **on_capitulation:** Fires MID-PROCESS:
+
 - Units deleted
 - Equipment transferred to captors
 - Territory being processed
