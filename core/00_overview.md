@@ -213,21 +213,23 @@ All files represent stable HOI4 systems as of version 1.14+. Version-specific fe
 ## Relationship to Other Domains
 
 ### Core → Map
+
 - nudger.md extensively references map systems (states, provinces, strategic regions, supply)
 - troubleshooting.md covers map-specific crashes (bitmap constraints, province definitions)
 
 ### Core → Military
+
 - troubleshooting.md covers AI template crashes
 - console_commands.md includes equipment and unit commands
 
 ### Core → Scripting
+
 - scripting_data_types.md provides foundation for all scripting domains
 - console_commands.md enables testing of scripted content
 
 ### Core → Assets
+
 - file_syntax.md covers sprite and localisation basics
 - mod_structure.md explains directory structure including gfx/ and interface/
 
 The core domain serves as the foundational layer that all other domains depend on.
-
-

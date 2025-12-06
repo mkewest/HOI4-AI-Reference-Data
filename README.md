@@ -1,17 +1,19 @@
-# **WIP!** Nowhere near complete.
-Inaccurate and poorly optimized
+# **WIP!** Nowhere near complete
 
+Inaccurate and poorly optimized
 
 ## HOI4 Modding AI Reference Database
 
 **HOI4-AI-Reference-Data** is a high-density, structured reference for Hearts of Iron IV modding, designed from the ground up for **LLMs and humans** to use together.
 
 Instead of being a loose wiki clone, this repo is a **Hybrid-RAG knowledge base**:
+
 - Markdown files are written for **semantic cohesion** (one complete concept per file).
 - Typed metadata and a **master JSON index** enable **graph-style routing** (intents → domains/files).
 - All important **edge cases and gotchas are inline**, right where they matter.
 
 If you only read this README, you should understand:
+
 - **How the repo is organized**
 - **How an AI or human should navigate it**
 - **How special domains (defines/modifiers) work**
@@ -129,6 +131,7 @@ relates: [terrain, strategic_regions, states]
   - **`conflicts`** – mutually exclusive or deprecated systems (e.g. pre-1.11 vs 1.11+ supply).
 
 An AI can use these to:
+
 - Plan multi-step reasoning (e.g. `events` → `scopes` → `triggers`).
 - Find which **other domains** matter for a given problem (e.g. map crashes often involve `core/debug_tools.md`).
 
@@ -193,6 +196,7 @@ There are three dedicated plan files for future work. Each assumes you have read
   - Uses a consolidated changelog to identify systems that changed and files that must be updated.
 
 Each plan file includes:
+
 - Scope and goals.
 - A concrete, step-by-step procedure.
 - Execution order relative to other domains.
@@ -215,4 +219,3 @@ An AI or human can pick **one of these plans + this README** and immediately sta
   - Follow its instructions, using per-domain overviews and the master index as guides.
 
 With just this README and the above files, a new human or AI agent should be able to understand **how the database works, how to navigate it, and how to extend or audit it safely**.
-
