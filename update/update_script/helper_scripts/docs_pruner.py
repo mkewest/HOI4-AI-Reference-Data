@@ -20,14 +20,28 @@ def _hash_file(path: Path) -> str:
 
 
 def _version_tuple(v: str) -> Tuple[int, ...]:
-    return tuple(int(x) for x in v.split(".") if x.strip().isdigit())
+    """
+    Parse a dotted version string into a tuple of ints, normalizing trailing zeros.
+    Examples:
+    - "1.14.0" -> (1, 14)
+    - "1.14.0.0" -> (1, 14)
+    - "1.14.3" -> (1, 14, 3)
+    """
+    nums = [int(x) for x in re.findall(r"\d+", v)]
+    while nums and nums[-1] == 0:
+        nums.pop()
+    return tuple(nums) if nums else (0,)
 
 
 def _crop_changelog(changelog: Path, last_version: str, out_path: Path) -> List[str]:
     """
     Keep only sections whose header version > last_version.
-    Header format example:
+    Header format example (descending order):
     ########           Update 1.17.2.0 "Musketeer"         #########
+    ########           Hotfix 1.17.1.1 "Musketeer"         #########
+
+    We stop scanning once we hit a version <= baseline, because the file is
+    ordered newest → oldest.
     """
     if not changelog.exists():
         return []
@@ -36,22 +50,26 @@ def _crop_changelog(changelog: Path, last_version: str, out_path: Path) -> List[
     keep_lines: List[str] = []
     current_block: List[str] = []
     current_ver: Tuple[int, ...] | None = None
-    header_re = re.compile(r"Update\s+([\d\.]+)")
+    header_re = re.compile(r"(?:Update|Hotfix)\s+([\d\.]+)")
 
     with changelog.open("r", encoding="utf-8", errors="ignore") as f:
         for line in f:
             m = header_re.search(line)
             if m:
-                # flush previous block
+                # flush previous block before starting a new one
                 if current_block and current_ver and current_ver > baseline:
                     keep_lines.extend(current_block)
                 # start new block
                 current_block = [line]
                 current_ver = _version_tuple(m.group(1))
+
+                # changelog is descending; once we hit <= baseline we can stop
+                if current_ver <= baseline:
+                    break
             else:
                 current_block.append(line)
 
-    # flush final block
+    # flush final block (only if we didn't break on <= baseline)
     if current_block and current_ver and current_ver > baseline:
         keep_lines.extend(current_block)
 
@@ -100,7 +118,13 @@ def _clean_dir(path: Path) -> None:
 
 def _archive_snapshot(archive_dir: Path, database_dir: Path, last_patch_dir: Path) -> None:
     archive_dir.mkdir(parents=True, exist_ok=True)
-    archive_name = archive_dir / f"{date.today()}.zip"
+    base_name = f"{date.today()}.zip"
+    archive_name = archive_dir / base_name
+    counter = 2
+    while archive_name.exists():
+        archive_name = archive_dir / f"{date.today()}({counter}).zip"
+        counter += 1
+
     with zipfile.ZipFile(archive_name, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         for root in [database_dir, last_patch_dir]:
             if not root.exists():
@@ -147,16 +171,16 @@ def prune_and_diff(
 
     # compute hashes for identical pruning
     changed: List[Tuple[str, Path, Path | None]] = []
-    for new_path in current_patch_dir.glob("*"):
+    for new_path in current_patch_dir.rglob("*"):
         if not new_path.is_file():
             continue
-        name = new_path.name
-        old_path = last_patch_dir / name
+        rel_name = str(new_path.relative_to(current_patch_dir)).replace("\\", "/")
+        old_path = last_patch_dir / new_path.relative_to(current_patch_dir)
         if old_path.exists() and _hash_file(new_path) == _hash_file(old_path):
             # identical; discard
             new_path.unlink()
             continue
-        changed.append((name, new_path, old_path if old_path.exists() else None))
+        changed.append((rel_name, new_path, old_path if old_path.exists() else None))
 
     if not changed and not cropped:
         print("[docs_pruner] No changes detected; skipping archive and rotation.")
@@ -170,9 +194,11 @@ def prune_and_diff(
 
     # rotate: replace last_patch with current_patch contents
     _clean_dir(last_patch_dir)
-    for src in current_patch_dir.glob("*"):
+    for src in current_patch_dir.rglob("*"):
         if src.is_file():
-            shutil.copy2(src, last_patch_dir / src.name)
+            dest = last_patch_dir / src.relative_to(current_patch_dir)
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dest)
 
     # clear current_patch after move
     _clean_dir(current_patch_dir)
@@ -181,7 +207,8 @@ def prune_and_diff(
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) != 6:
+    # Expect 6 positional args + script name = len(sys.argv) == 7
+    if len(sys.argv) != 7:
         print(
             "Usage: python docs_pruner.py <current_patch_dir> <last_patch_dir> "
             "<changes_dir> <archive_dir> <database_dir> <master_index_path>"

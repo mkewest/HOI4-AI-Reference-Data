@@ -1,0 +1,36 @@
+# Link Suggestions (per AI_beta_report_instructions.md)
+
+- Add crosslinks from `content/ai_strategy.md` to new/updated AI system pages for bonus weights, equipment designs, naval goals, faction theaters, and peace conference desires once added.
+- When adding the AI peace conference update, link to peace-conference trigger reference (if present) and to `defines_list/NAI.md` for related defines.
+- Link equipment-market strategy tokens to the relevant market/economy docs (if present) when updating `content/ai_strategy.md`.
+- Link the new scientist role section from `entities/characters.md` to any scientist traits/organizations docs once added.
+- Add links from the new collections page to triggers/effects that consume collections, and back-links from scripting triggers/effects pages.
+- Update `core/console_commands.md` with anchors so other pages (debug tools, scripting data types) can deep-link to specific command categories.
+- When adding peace cost modifiers, crosslink with the AI peace doc and any peace-conference trigger reference.
+- Add links from the decisions page to targeted decision examples and to performance guidance sections if present elsewhere.
+- When adding doctrines coverage, link from modifiers (doctrine mastery) and research/docs referencing doctrine systems.
+- Add links from a future dynamic variables page to scripting data types and to sections that use these variables (AI strategies, power balance, intel).
+- Expand effects page anchors so triggers/effects crossrefs and script docs can deep-link to specific effect categories.
+- Add equipment page links to module docs, archetype/type enums, and AI production references.
+- Add equipment group page links to MIOS and equipment_bonus usage examples.
+- Add links from expanded faction goals/rules/templates to related effects/triggers in `entities/factions.md` and to peace cost modifiers where referenced.
+ - Add doctrine folders page links from doctrines overview and doctrine UI references.
+- Add grand doctrines page links from doctrine overviews, tracks, and milestones.
+- Add agency upgrades page links from intel/agency docs and related modifiers/effects.
+- Add localization formatters page links from localisation guides and scripting examples.
+- Add localization objects page links from localisation docs and formatter references.
+- Add AI templates page links from `content/ai_strategy.md` and division template/OOB guidance.
+- Add modifiers structure page links to modifiers_list overview and scripting/modifiers crossrefs.
+- Add updated on_actions reference anchors and link from events/effects guidance.
+- Link operation phases/tokens/operations pages from intel/operations docs and effects/triggers using them.
+- Link MIO organization/policy pages to equipment, defines (`NIndustrialOrganisation`), and relevant modifiers.
+- Link raids page from intel/raid systems, defines, and triggers/effects using raids.
+- Add link from resources doc to defines (`NAI::MIN_FACTORIES_TO_WANT_TO_IMPORT`) and trade/import guidance.
+- Link scientist traits coverage from characters, special projects, and scientist role references.
+- Link collections inputs/operators/concepts from scripting triggers/effects using collections, and back from localisation/loc objects where collections appear.
+- Link scripted GUIs page from interface/scripting references and debugging guides.
+- Link subdoctrines/tracks/grand doctrines/folders pages together and from doctrine overviews.
+- Link taskforce composition page from naval AI/OOB/taskforce goal docs.
+- Link triggers reference updates from scripting triggers_core/specialized overviews and on_actions/effects pages.
+- For pages already partially covered (AI equipment/templates/peace, console commands, effects, factions, MIO orgs/policies, loc formatters, on_actions, modifiers), add deep links/anchors into existing DB sections and ensure back-links from the new/expanded sections.
+
