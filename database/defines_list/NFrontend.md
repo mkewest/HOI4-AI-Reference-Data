@@ -1,7 +1,7 @@
 ---
 domain: defines_list
 concept: NFrontend
-version: 1.14+
+version: 1.17.2
 requires: [defines]
 relates: [frontend]
 ---

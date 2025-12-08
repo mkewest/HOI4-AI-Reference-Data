@@ -1,402 +1,895 @@
 ---
 domain: defines_list
 concept: NIntel
-version: 1.14+
+version: 1.17.2
 requires: [defines]
 relates: [intelligence]
 ---
 
 ```yaml
 COUNTRY_LEVEL_INTEL_MAXIMUMS:
-  def: '{ 100.0, 100.0, 100.0, 100.0 }'
-  type: array
-  cmt: The maximum intel a country can have over another Civilian Army Navy Airforce
+  def:
+    - [100.0]  # Civilian
+    - [100.0]  # Army
+    - [100.0]  # Navy
+    - [100.0]  # Airforce
+  type: table
+  cmt: The maximum intel a country can have over another
+STATIC_INTEL_SOURCE_OPERATION_TOKENS_MAXIMUMS:
+  def: ''
+  type: table
 STATIC_INTEL_SOURCE_BROKEN_CYPHER_MAXIMUMS:
-  def: '{ 60.0, 60.0, 60.0, 60.0 }'
-  type: array
+  def:
+    - [60.0, 60.0, 60.0, 60.0]
+  type: table
+STATIC_INTEL_SOURCE_RADAR_MAXIMUMS:
+  def:
+    - [10.0, 10.0, 20.0, 20.0]
+  type: table
 STATIC_INTEL_SOURCE_INTEL_NETWORK_MAXIMUMS:
-  def: '{ 30.0, 30.0, 40.0, 30.0 }'
-  type: array
+  def:
+    - [30.0, 30.0, 40.0, 30.0]
+  type: table
+DYNAMIC_INTEL_SOURCE_EVENT_FLAT_DECAY:
+  def: '0.0'
+  type: float
 DYNAMIC_INTEL_SOURCE_EVENT_MULT_DECAY:
   def: '0.985'
   type: float
+DYNAMIC_INTEL_SOURCE_EVENT_AGGREGAT_LOG_FACTOR:
+  def: '0'
+  type: int
 DYNAMIC_INTEL_SOURCE_EVENT_AGGREGAT_DIVISOR:
   def: '1'
   type: int
+DYNAMIC_INTEL_SOURCE_EVENT_MAXIMUMS:
+  def:
+    - [40, 40, 40, 40]
+  type: table
 DYNAMIC_INTEL_SOURCE_EVENT_ABSOLUTE_MAXIMUMS:
-  def: '{ 50, 50, 50, 50 }'
-  type: array
+  def:
+    - [50, 50, 50, 50]
+  type: table
+DYNAMIC_INTEL_SOURCE_LAND_COMBAT_FLAT_DECAY:
+  def: '0.0'
+  type: float
 DYNAMIC_INTEL_SOURCE_LAND_COMBAT_MULT_DECAY:
   def: '0.985'
+  type: float
+DYNAMIC_INTEL_SOURCE_LAND_COMBAT_AGGREGAT_LOG_FACTOR:
+  def: '0.25'
   type: float
 DYNAMIC_INTEL_SOURCE_LAND_COMBAT_AGGREGAT_DIVISOR:
   def: '10'
   type: int
+DYNAMIC_INTEL_SOURCE_LAND_COMBAT_MAXIMUMS:
+  def:
+    - [0, 30, 5, 10]
+  type: table
 DYNAMIC_INTEL_SOURCE_LAND_COMBAT_ABSOLUTE_MAXIMUMS:
-  def: '{ 0, 40, 10, 15 }'
-  type: array
+  def:
+    - [0, 40, 10, 15]
+  type: table
+DYNAMIC_INTEL_SOURCE_NAVAL_COMBAT_FLAT_DECAY:
+  def: '0.0'
+  type: float
 DYNAMIC_INTEL_SOURCE_NAVAL_COMBAT_MULT_DECAY:
   def: '0.985'
+  type: float
+DYNAMIC_INTEL_SOURCE_NAVAL_COMBAT_AGGREGAT_LOG_FACTOR:
+  def: '0.02'
   type: float
 DYNAMIC_INTEL_SOURCE_NAVAL_COMBAT_AGGREGAT_DIVISOR:
   def: '200'
   type: int
+DYNAMIC_INTEL_SOURCE_NAVAL_COMBAT_MAXIMUMS:
+  def:
+    - [10, 0, 40, 20]
+  type: table
 DYNAMIC_INTEL_SOURCE_NAVAL_COMBAT_ABSOLUTE_MAXIMUMS:
-  def: '{ 15, 0, 45, 25 }'
-  type: array
+  def:
+    - [15, 0, 45, 25]
+  type: table
+DYNAMIC_INTEL_SOURCE_AIR_COMBAT_FLAT_DECAY:
+  def: '0.0'
+  type: float
 DYNAMIC_INTEL_SOURCE_AIR_COMBAT_MULT_DECAY:
   def: '0.985'
   type: float
+DYNAMIC_INTEL_SOURCE_AIR_COMBAT_AGGREGAT_LOG_FACTOR:
+  def: '1'
+  type: int
 DYNAMIC_INTEL_SOURCE_AIR_COMBAT_AGGREGAT_DIVISOR:
   def: '2'
   type: int
+DYNAMIC_INTEL_SOURCE_AIR_COMBAT_MAXIMUMS:
+  def:
+    - [0, 0, 0, 25]
+  type: table
 DYNAMIC_INTEL_SOURCE_AIR_COMBAT_ABSOLUTE_MAXIMUMS:
-  def: '{ 0, 0, 0, 30 }'
-  type: array
+  def:
+    - [0, 0, 0, 30]
+  type: table
+DYNAMIC_INTEL_SOURCE_AIR_RECON_FLAT_DECAY:
+  def: '0.0'
+  type: float
 DYNAMIC_INTEL_SOURCE_AIR_RECON_MULT_DECAY:
   def: '0.995'
+  type: float
+DYNAMIC_INTEL_SOURCE_AIR_RECON_AGGREGAT_LOG_FACTOR:
+  def: '0.05'
   type: float
 DYNAMIC_INTEL_SOURCE_AIR_RECON_AGGREGAT_DIVISOR:
   def: '200'
   type: int
+DYNAMIC_INTEL_SOURCE_AIR_RECON_MAXIMUMS:
+  def:
+    - [25, 20, 30, 20]
+  type: table
 DYNAMIC_INTEL_SOURCE_AIR_RECON_ABSOLUTE_MAXIMUMS:
-  def: '{ 30, 25, 35, 25 }'
-  type: array
+  def:
+    - [30, 25, 35, 25]
+  type: table
+DYNAMIC_INTEL_SOURCE_CAPTURED_OPERATIVE_FLAT_DECAY:
+  def: '0.0'
+  type: float
 DYNAMIC_INTEL_SOURCE_CAPTURED_OPERATIVE_MULT_DECAY:
   def: '0.95'
   type: float
+DYNAMIC_INTEL_SOURCE_CAPTURED_OPERATIVE_AGGREGAT_LOG_FACTOR:
+  def: '1'
+  type: int
 DYNAMIC_INTEL_SOURCE_CAPTURED_OPERATIVE_AGGREGAT_DIVISOR:
   def: '2'
   type: int
+DYNAMIC_INTEL_SOURCE_CAPTURED_OPERATIVE_MAXIMUMS:
+  def:
+    - [50, 40, 40, 30]
+  type: table
 DYNAMIC_INTEL_SOURCE_CAPTURED_OPERATIVE_ABSOLUTE_MAXIMUMS:
-  def: '{ 50, 40, 40, 30 }'
-  type: array
+  def:
+    - [50, 40, 40, 30]
+  type: table
+LAND_COMBAT_ARMY_INTEL_OVER_OPPONENT_PER_INSTANCE:
+  def: '1.0'
+  type: float
+  cmt: if the opponent has any division present, flat intel value generated py a
+    participant against an opponent
 LAND_COMBAT_ARMY_INTEL_OVER_OPPONENT_PER_COMITTED_DIVISIONS:
   def: '0.5'
   type: float
   cmt: multiplied to the number of comitted divisions of the opponent
+LAND_COMBAT_ARMY_INTEL_OVER_OPPONENT_PER_RESERVE_DIVISIONS:
+  def: '0.1'
+  type: float
+  cmt: same for divisions in reserve
 LAND_COMBAT_ARMY_INTEL_OVER_OPPONENT_PER_RETREATING_DIVISIONS:
   def: '0.2'
   type: float
   cmt: same for retreating divisions
+LAND_COMBAT_ARMY_INTEL_FACTOR:
+  def: '0.01'
+  type: float
+  cmt: factor applied once all values have been added together
 LAND_COMBAT_AIR_INTEL_OVER_OPPONENT_PER_INSTANCE:
   def: '1.0'
   type: float
-  cmt: if the opponent has any plane active in the, flat intel value generated by
-    a participant against that opponent
+  cmt: if the opponent has any plane active in the, flat intel value generated by a
+    participant against that opponent
+LAND_COMBAT_AIR_INTEL_OVER_OPPONENT_PER_PLANE:
+  def: '0.1'
+  type: float
+  cmt: multiplied to the number of plane that opponent has in the combat
 LAND_COMBAT_AIR_INTEL_FACTOR:
   def: '0.01'
   type: float
   cmt: factor applied once all values have been added together
+RECON_INTEL_BONUS:
+  def: '0.075'
+  type: float
+  cmt: each recon gives this bonus to overall gathered land intel in combat
 NAVAL_COMBAT_NAVY_INTEL_OVER_OPPONENT_PER_INSTANCE:
   def: '1.0'
+  type: float
+NAVAL_COMBAT_NAVY_INTEL_OVER_OPPONENT_PER_SUBMARINE:
+  def: '0.2'
   type: float
 NAVAL_COMBAT_NAVY_INTEL_OVER_OPPONENT_PER_SCREEN_SHIP:
   def: '0.5'
   type: float
+NAVAL_COMBAT_NAVY_INTEL_OVER_OPPONENT_PER_CAPITAL_SHIP:
+  def: '1.0'
+  type: float
 NAVAL_COMBAT_NAVY_INTEL_OVER_OPPONENT_PER_INTERNAL_PLANES:
   def: '0.05'
+  type: float
+NAVAL_COMBAT_NAVY_INTEL_FACTOR:
+  def: '1.0'
   type: float
 NAVAL_COMBAT_CIVILIAN_INTEL_OVER_OPPONENT_PER_INSTANCE:
   def: '0.0'
   type: float
+NAVAL_COMBAT_CIVILIAN_INTEL_OVER_OPPONENT_PER_TRADE_CONVOY:
+  def: '1.0'
+  type: float
 NAVAL_COMBAT_CIVILIAN_INTEL_FACTOR:
   def: '1.0'
   type: float
+NAVAL_COMBAT_ARMY_INTEL_OVER_OPPONENT_PER_INSTANCE:
+  def: '0.0'
+  type: float
 NAVAL_COMBAT_ARMY_INTEL_OVER_OPPONENT_PER_TRANSFER_CONVOY:
+  def: '1.0'
+  type: float
+NAVAL_COMBAT_ARMY_INTEL_FACTOR:
   def: '1.0'
   type: float
 NAVAL_COMBAT_AIR_INTEL_OVER_OPPONENT_PER_INSTANCE:
   def: '1.0'
   type: float
+NAVAL_COMBAT_AIR_INTEL_OVER_OPPONENT_PER_INTERNAL_PLANES:
+  def: '0.0'
+  type: float
 NAVAL_COMBAT_AIR_INTEL_OVER_OPPONENT_PER_EXTERNAL_PLANES:
   def: '0.01'
+  type: float
+NAVAL_COMBAT_AIR_INTEL_FACTOR:
+  def: '1.0'
   type: float
 NAVY_INTEL_BASE_SPOTTING_BONUS_MIN_INTEL_FOR_BONUS:
   def: '5'
   type: int
-  cmt: at least this intel diff is needed for start applying BASE_SPOTTING_FROM_DECRYPTION
-    bonus
+  cmt: at least this intel diff is needed for start applying
+    BASE_SPOTTING_FROM_DECRYPTION bonus
+NAVY_INTEL_BASE_SPOTTING_BONUS_MAX_INTEL_FOR_BONUS:
+  def: '40'
+  type: int
+  cmt: at this intel BASE_SPOTTING_FROM_DECRYPTION will be applied fully
 NAVY_INTEL_MINE_DAMAGE_REDUCTION_FACTOR_MIN_INTEL_FOR_BONUS:
   def: '5'
   type: int
-  cmt: at least this intel diff is needed for start applying NAVAL_MINES_INTEL_DIFF_FACTOR
-    bonus
+  cmt: at least this intel diff is needed for start applying
+    NAVAL_MINES_INTEL_DIFF_FACTOR bonus
+NAVY_INTEL_MINE_DAMAGE_REDUCTION_FACTOR_MAX_INTEL_FOR_BONUS:
+  def: '40'
+  type: int
+  cmt: t this intel NAVAL_MINES_INTEL_DIFF_FACTOR will be applied fully
 AIR_COMBAT_AIR_INTEL_PER_INSTANCE:
   def: '1.0'
+  type: float
+AIR_COMBAT_AIR_INTEL_PER_OPPONENT_PLANE:
+  def: '0.0'
   type: float
 AIR_COMBAT_AIR_INTEL_FACTOR:
   def: '0.2'
   type: float
+INTEL_NETWORK_NATIONAL_COVERAGE_FACTOR:
+  def: '2.0'
+  type: float
+  cmt: multiplied to the national coverage to deduce the fraction of the maximum value
+    listed below that will be added to the intel against the network's target
 INTEL_NETWORK_NATIONAL_COVERAGE_NAVAL_BASE_FACTOR:
   def: '15.0'
   type: float
   cmt: factor used instead of above in case you dont cover naval bases etc
+INTEL_NETWORK_MAX_CIVILIAN_INTEL:
+  def: '20.0'
+  type: float
 INTEL_NETWORK_MAX_ARMY_INTEL:
   def: '20.0'
   type: float
+INTEL_NETWORK_MAX_NAVY_INTEL:
+  def: '25.0'
+  type: float
+  cmt: only apply if the network encompass a naval base controlled by the network's
+    target
 INTEL_NETWORK_MAX_AIRFORCE_INTEL:
   def: '15.0'
   type: float
+RADAR_LEVEL_INTEL_FACTOR:
+  def: '1.25'
+  type: float
+  cmt: Multiplied to the radar level to tell the fraction of intel per covered province
+    we get. The radar level is computed as BuildingLevel / MaxBuildingLevel.
 RADAR_INTEL_STACKING_FACTOR:
   def: '0.5'
   type: float
   cmt: Used when multiple radars cover the same province
+RADAR_BASE_INTEL_VALUES_FOR_COUNTRY_COVERAGE_PERCENTAGE:
+  def:
+    - [9.0]
+    - [9.0]
+    - [0.0]
+    - [18.0]
+  type: table
 RADAR_BASE_INTEL_VALUES_FOR_COVERED_LAND_PROVINCES:
-  def: '{ 5.0, 5.0, 0.0, 12.0 }'
-  type: array
-  cmt: Values are the same order as in COUNTRY_LEVEL_INTEL_MAXIMUMS Multiplied by
-    the total radar efficiency of the provinces of a specific country divided by the
-    individual radar's percentage of covered provinces.
+  def:
+    - [5.0]
+    - [5.0]
+    - [0.0]
+    - [12.0]
+  type: table
+RADAR_BASE_INTEL_VALUES_FOR_COVERED_SEA_PROVINCES:
+  def:
+    - [0.0]
+    - [0.0]
+    - [280.0]
+    - [0.0]
+  type: table
 RADAR_NAVY_INTEL_FACTOR_PER_SHIP_TYPE:
-  def: '{ 5.0, 10.0, 20.0, 30.0 }'
-  type: array
-  cmt: Navy intel value factored to the fraction of the country's ships in the sea
-    zone covered by the radar, by ship type Submarine Screen ship Capital ship Carrier
-    ship
+  def:
+    - [5.0]  # Submarine
+    - [10.0]  # Screen ship
+    - [20.0]  # Capital ship
+    - [30.0]  # Carrier ship
+  type: table
+CAPTURED_OPERATIVE_MAX_FACTOR:
+  def: '35.0'
+  type: float
+  cmt: Define the maximum of the randomized factor, before the factor from operative is
+    applied
 CAPTURED_OPERATIVE_MIN_FACTOR:
   def: '10.0'
   type: float
-  cmt: Define the minimum of the randomized factor, before the factor from operative
-    is applied
+  cmt: Define the minimum of the randomized factor, before the factor from operative is
+    applied
+CAPTURED_OPERATIVE_INTEL_YIELD:
+  def:
+    - [0.3]
+    - [0.3]
+    - [0.3]
+    - [0.3]
+  type: table
 RECON_PLANE_INTEL_BASE:
   def: '0.02'
   type: float
   cmt: intel base amount for a strategic area per plane
+RECON_PLANE_LAND_DISTRIBUTION:
+  def:
+    - [10.0, 6.0, 0.0, 3.0]
+  type: table
+  cmt: controls for land and sea zones how much of each intel typee is given (civ, army,
+    navy, air)
 RECON_PLANE_SEA_DISTRIBUTION:
-  def: '{ 0.0, 0.0, 10.0, 0.0 }'
-  type: array
+  def:
+    - [0.0, 0.0, 10.0, 0.0]
+  type: table
+LAND_SPOT_DECAY:
+  def: '0.05'
+  type: float
 NAVAL_SPOT_DECAY:
   def: '1'
   type: int
+ENCRYPTION_DECRYPTION_INTEL_FACTORS:
+  def:
+    - [15.0, 15.0, 15.0, 15.0]
+  type: table
 CIVILIAN_PRODUCTION_RANGE_INTEL_MIN:
   def: '0.1'
   type: float
-  cmt: intel ledger defines minimum value to show fuzzy factory counts below this
-    you will get ???
+  cmt: minimum value to show fuzzy factory counts below this you will get ???
+CIVILIAN_PRODUCTION_RANGE_INTEL_MAX:
+  def: '0.5'
+  type: float
+  cmt: maximum value to show fuzzy factory counts. above this you will get full count
 CIVILIAN_PRODUCTION_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
   cmt: range of intel values at lowest intel
+CIVILIAN_FUEL_RANGE_INTEL_MIN:
+  def: '0.3'
+  type: float
+  cmt: minimum value to show fuzzy factory counts below this you will get ???
 CIVILIAN_FUEL_RANGE_INTEL_MAX:
   def: '0.7'
   type: float
   cmt: maximum value to show fuzzy factory counts. above this you will get full count
+CIVILIAN_FUEL_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
+  type: float
+  cmt: range of intel values at lowest intel
 CIVILIAN_MANPOWER_RANGE_INTEL_MIN:
   def: '0.1'
   type: float
   cmt: minimum value to show fuzzy factory counts below this you will get ???
+CIVILIAN_MANPOWER_RANGE_INTEL_MAX:
+  def: '0.7'
+  type: float
+  cmt: maximum value to show fuzzy factory counts. above this you will get full count
 CIVILIAN_MANPOWER_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
   cmt: range of intel values at lowest intel
+CIVILIAN_CONVOYS_RANGE_INTEL_MIN:
+  def: '0.1'
+  type: float
+  cmt: minimum value to show fuzzy factory counts below this you will get ???
 CIVILIAN_CONVOYS_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
   cmt: range of intel values at lowest intel
+CIVILIAN_TRUCKS_RANGE_INTEL_MIN:
+  def: '0.1'
+  type: float
+  cmt: minimum value to show fuzzy factory counts below this you will get ???
 CIVILIAN_TRUCKS_RANGE_INTEL_MAX:
   def: '0.5'
   type: float
   cmt: maximum value to show fuzzy factory counts. above this you will get full count
+CIVILIAN_TRUCKS_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
+  type: float
+  cmt: range of intel values at lowest intel
 CIVILIAN_TRAINS_RANGE_INTEL_MIN:
   def: '0.1'
   type: float
   cmt: minimum value to show fuzzy factory counts below this you will get ???
+CIVILIAN_TRAINS_RANGE_INTEL_MAX:
+  def: '0.5'
+  type: float
+  cmt: maximum value to show fuzzy factory counts. above this you will get full count
 CIVILIAN_TRAINS_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
   cmt: range of intel values at lowest intel
+CIVILIAN_SUPPLY_RANGE_INTEL_MIN:
+  def: '0.1'
+  type: float
+  cmt: minimum value to show fuzzy factory counts below this you will get ???
 CIVILIAN_SUPPLY_RANGE_INTEL_MAX:
   def: '0.5'
   type: float
   cmt: maximum value to show fuzzy factory counts. above this you will get full count
+CIVILIAN_SUPPLY_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
+  type: float
+  cmt: range of intel values at lowest intel
 CIVILIAN_TRADE_SHOW_TRADE_AMOUNTS:
   def: '0.0'
   type: float
   cmt: minimum value to show how much a country trades a resource
+CIVILIAN_TRADE_SHOW_TRADE_PARTNERS:
+  def: '0.1'
+  type: float
+  cmt: minimum value to show who a country trades with
 CIVILIAN_MIN_INTEL_FOR_RESOURCE_ROUTES_TOOLTIPS:
   def: '0.9'
   type: float
   cmt: minimum value to show convoy routes for resource transfer
+CIVILIAN_MIN_INTEL_FOR_TRADE_ROUTES:
+  def: '0.7'
+  type: float
+  cmt: minimum value to show trade routes on map
 CIVILIAN_MIN_INTEL_FOR_RESOURCE_ORIGIN_ROUTES:
   def: '0.5'
   type: float
   cmt: minimum value to show resource transfers to mainland on map
+ARMY_MIN_INTEL_FOR_SUPPLY_ROUTES:
+  def: '0.5'
+  type: float
+  cmt: minimum value to show convoy routes for supply transfer
 ARMY_MIN_INTEL_FOR_SUPPLY_ROUTES_TOOLTIPS:
   def: '0.7'
   type: float
   cmt: minimum value to show convoy route tooltips for supply transfer
+CIVILIAN_INTEL_NEEDED_TO_SHOW_ANTI_AIR_REDUCTION:
+  def: '0.3'
+  type: float
+  cmt: minimum value to show anti air damage reduction
 CIVILIAN_INTEL_NEEDED_TO_SHOW_FOCUS_TREE:
   def: '0.5'
   type: float
   cmt: min required intel to focus tree with taken focuses
+CIVILIAN_INTEL_NEEDED_TO_SHOW_CURRENT_FOCUS:
+  def: '0.7'
+  type: float
+  cmt: min required intel to show currently focus
 CIVILIAN_INTEL_NEEDED_TO_SHOW_CURRENT_FOCUS_PROGRESS:
   def: '0.7'
   type: float
   cmt: min required intel to show current focus progress
+CIVILIAN_MIN_INTEL_TO_SHOW_INDUSTRY_GRAPH:
+  def: '0.30'
+  type: float
 CIVILIAN_MIN_INTEL_TO_SHOW_CONVOYS_GRAPH:
   def: '0.70'
   type: float
+CIVILIAN_MIN_INTEL_TO_SHOW_BOMBERS_GRAPH:
+  def: '0.8'
+  type: float
 CIVILIAN_MIN_INTEL_TO_SHOW_TRUCKS_GRAPH:
+  def: '0.5'
+  type: float
+CIVILIAN_MIN_INTEL_TO_SHOW_TRAINS_GRAPH:
   def: '0.5'
   type: float
 CIVILIAN_MIN_INTEL_TO_SHOW_RAIL_STAUS:
   def: '0.4'
   type: float
   cmt: when mousing over supply map mode, shows damage/construction status
+OLD_TECH_COUNT_NUM_DAYS:
+  def: '180'
+  type: int
+  cmt: num days after researched to consider a tech as "old"
 INTEL_TO_SHOW_TECH_COUNT:
-  def: '{ 0.5, 0.3, 0.3, 0.3 }'
-  type: array
-  cmt: minimum value to show current tech count and current doctrine
+  def:
+    - [0.5, 0.3, 0.3, 0.3]
+  type: table
+  cmt: minimum value to show current tech count
+INTEL_TO_SHOW_PREVIOUSLY_RESEARCHED:
+  def:
+    - [0.7, 0.7, 0.7, 0.7]
+  type: table
+  cmt: minimum value to show previously researched tech
 INTEL_TO_SHOW_CURRENTLY_RESEARCHED:
-  def: '{ 0.8, 0.8, 0.8, 0.8 }'
-  type: array
+  def:
+    - [0.8, 0.8, 0.8, 0.8]
+  type: table
   cmt: minimum value to show currently being researched tech
+INTEL_TO_SHOW_GRAND_DOCTRINE:
+  def:
+    - [0.3, 0.3, 0.3]
+  type: table
+  cmt: minimum value to show grand doctrine { army, navy, air }
+INTEL_TO_SHOW_SUBDOCTRINES:
+  def:
+    - [0.5, 0.5, 0.5]
+  type: table
+  cmt: minimum value to show subdoctrines { army, navy, air }
+INTEL_TO_SHOW_MASTERY:
+  def:
+    - [0.7, 0.7, 0.7]
+  type: table
+  cmt: minimum value to show mastery levels { army, navy, air }
+INTEL_TO_SHOW_IDEAS:
+  def:
+    - [0.0, 0.0, 0.0, 0.0]
+  type: table
 ARMY_ARMY_COUNT_RANGE_INTEL_MIN:
   def: '0.05'
+  type: float
+ARMY_ARMY_COUNT_RANGE_INTEL_MAX:
+  def: '0.7'
   type: float
 ARMY_ARMY_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.8'
   type: float
+ARMY_SPECIAL_FORCES_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.7'
+  type: float
 ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MIN:
   def: '0.1'
+  type: float
+ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MAX:
+  def: '0.7'
   type: float
 ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
+ARMY_MIN_INTEL_TO_SHOW_EQUIPMENT_RATIO:
+  def: '0.7'
+  type: float
 ARMY_MIN_INTEL_TO_SHOW_BASIC_TEMPLATE_INFO:
   def: '0.3'
+  type: float
+ARMY_TEMPLATE_UNIT_COUNT_INTEL_MIN:
+  def: '0.5'
   type: float
 ARMY_TEMPLATE_UNIT_COUNT_INTEL_MAX:
   def: '0.7'
   type: float
+ARMY_TEMPLATE_UNIT_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '1.0'
+  type: float
 ARMY_MIN_INTEL_TO_SHOW_EXACT_TEMPLATE_INFO:
   def: '0.8'
+  type: float
+ARMY_STOCKPILE_COUNT_INTEL_MIN:
+  def: '0.3'
   type: float
 ARMY_STOCKPILE_COUNT_INTEL_MAX:
   def: '0.7'
   type: float
+ARMY_STOCKPILE_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
+  type: float
 ARMY_MIN_INTEL_TO_SHOW_EQUIPMENT_DESIGN_DETAILS:
   def: '0.8'
+  type: float
+ARMY_MIN_INTEL_RATIO_NEEDED_FOR_DISPLAYING_FAKE_ENEMY_INTEL_IN_LEDGER:
+  def: '0.9'
   type: float
 ARMY_MIN_INTEL_RATIO_NEEDED_FOR_REVEALING_FAKE_ENEMY_INTEL:
   def: '0.9'
   type: float
+ARMY_INTEL_COMBAT_BONUS_MAX_BONUS:
+  def: '0.15'
+  type: float
+  cmt: max combat bonus that will apply when intel is high enough
 ARMY_INTEL_COMBAT_BONUS_FACTOR_ATTACK:
   def: '1.0'
   type: float
   cmt: multiplier for attack value of intel combat bonus
+ARMY_INTEL_COMBAT_BONUS_FACTOR_DEFENSE:
+  def: '1.0'
+  type: float
+  cmt: multiplier for defense value of intel combat bonus
 ARMY_INTEL_COMBAT_BONUS_MIN_INTEL_FOR_BONUS:
   def: '5'
   type: int
   cmt: min intel needed to start applying ARMY_INTEL_COMBAT_BONUS_MAX_BONUS
-NAVAL_SUPREMACY_INTEL_LOW:
+ARMY_INTEL_COMBAT_BONUS_MAX_INTEL_FOR_BONUS:
+  def: '50'
+  type: int
+  cmt: intel needed to fully apply ARMY_INTEL_COMBAT_BONUS_MAX_BONUS
+NAVAL_DOMINANCE_INTEL_LOW:
   def: '0.4'
   type: float
-  cmt: we need more intel than this to get any supremacy
-NAVAL_SUPREMACY_INTEL_LOW_SUPREMACY_MIN_PENALTY:
+  cmt: we need more intel than this to get any dominance
+NAVAL_DOMINANCE_INTEL_LOW_DOMINANCE_PENALTY_START:
+  def: '0.1'
+  type: float
+  cmt: dominance is reduced to NAVAL_DOMINANCE_INTEL_LOW_DOMINANCE_MIN_PENALTY at or
+    below this intel
+NAVAL_DOMINANCE_INTEL_LOW_DOMINANCE_MIN_PENALTY:
   def: '0.5'
   type: float
-  cmt: you get this much supremacy at NAVAL_SUPREMACY_INTEL_LOW_SUPREMACY_PENALTY_START
-    and scales up to 1 at NAVAL_SUPREMACY_INTEL_LOW
+  cmt: you get this much dominance at NAVAL_DOMINANCE_INTEL_LOW_DOMINANCE_PENALTY_START
+    and scales up to 1 at NAVAL_DOMINANCE_INTEL_LOW
+NAVY_FLEET_COUNT_INTEL_MIN:
+  def: '0.1'
+  type: float
 NAVY_FLEET_COUNT_INTEL_MAX:
   def: '0.3'
+  type: float
+NAVY_FLEET_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
   type: float
 NAVY_TASKFORCE_COUNT_INTEL_MIN:
   def: '0.3'
   type: float
+NAVY_TASKFORCE_COUNT_INTEL_MAX:
+  def: '0.7'
+  type: float
 NAVY_TASKFORCE_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
+NAVY_SHIP_COUNT_INTEL_MIN:
+  def: '0.1'
+  type: float
 NAVY_SHIP_COUNT_INTEL_MAX:
   def: '0.8'
+  type: float
+NAVY_SHIP_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
   type: float
 NAVY_MIN_INTEL_TO_SHOW_EXISTING_CATEGORY_TYPES:
   def: '0.1'
   type: float
   cmt: this is about disaplying ships by class category
+NAVY_SHIP_TYPE_COUNT_INTEL_MIN:
+  def: '0.3'
+  type: float
+  cmt: this range is used both when for disaplying counts by class and counts by variant
 NAVY_SHIP_TYPE_COUNT_INTEL_MAX:
   def: '0.7'
+  type: float
+NAVY_SHIP_TYPE_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
   type: float
 NAVY_MIN_INTEL_TO_SHOW_SHIP_CLASSES:
   def: '0.5'
   type: float
   cmt: this unclocks the display of a given variant
+NAVY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MIN:
+  def: '0.05'
+  type: float
 NAVY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MAX:
   def: '0.7'
+  type: float
+NAVY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
   type: float
 NAVY_MIN_INTEL_TO_SHOW_SHIP_DESIGN_DETAILS:
   def: '0.8'
   type: float
+AIR_AIRWING_COUNT_INTEL_MIN:
+  def: '0.0'
+  type: float
 AIR_AIRWING_COUNT_INTEL_MAX:
   def: '0.7'
+  type: float
+AIR_AIRWING_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
   type: float
 AIR_MIN_INTEL_TO_SHOW_AIRWING_CLASSES:
   def: '0.3'
   type: float
+AIR_WING_TYPE_COUNT_INTEL_MIN:
+  def: '0.5'
+  type: float
 AIR_WING_TYPE_COUNT_INTEL_MAX:
   def: '0.7'
+  type: float
+AIR_WING_TYPE_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.5'
   type: float
 AIR_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MIN:
   def: '0.1'
   type: float
+AIR_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MAX:
+  def: '0.7'
+  type: float
 AIR_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL:
   def: '0.5'
   type: float
+RAID_MIN_INTEL_FOR_WARNING_ON_LAUNCH:
+  def: '0.1'
+  type: float
+  cmt: how much intel (of the relevant type) is needed to show a warning when raid is
+    launched
+RAID_MIN_INTEL_FOR_WARNING_HALFWAY_TO_LAUNCH:
+  def: '0.5'
+  type: float
+  cmt: how much intel (of the relevant type) is needed to show a warning halfway through
+    preparation
+RAID_MIN_INTEL_FOR_WARNING_EARLY_PREPARATION:
+  def: '0.8'
+  type: float
+  cmt: how much intel (of the relevant type) is needed to show a warning early in the
+    preparation
+CIVILIAN_MAPICON_INDUSTRY_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
+  def: '0.7'
+  type: float
 MAP_INTEL_VISIBILITY_CUTOFFS:
-  def: '{ 0.1, -50, 0.4, 0, 0.6, 50, 1.0, 100 }'
-  type: array
-  cmt: how much map intel is gained with intel over a country. first number is threshold,
-    second is amount of intel map intel gained
+  def:
+    - [0.1, -50]
+    - [0.4, 0]
+    - [0.6, 50]
+    - [1.0, 100]
+  type: table
+  cmt: how much map intel is gained with intel over a country. first number is
+    threshold, second is amount of intel map intel gained
+ARMY_AVG_ARMOR_INTEL_MIN:
+  def: '0.0'
+  type: float
 ARMY_AVG_ARMOR_INTEL_MAX:
   def: '0.5'
+  type: float
+ARMY_AVG_ARMOR_RANGE_AT_LOWEST_INTEL:
+  def: '1.0'
   type: float
 ARMY_MAX_ARMOR_INTEL_MIN:
   def: '0.0'
   type: float
+ARMY_MAX_ARMOR_INTEL_MAX:
+  def: '0.5'
+  type: float
 ARMY_MAX_ARMOR_RANGE_AT_LOWEST_INTEL:
   def: '1.0'
+  type: float
+ARMY_AVG_PIERCING_INTEL_MIN:
+  def: '0.0'
   type: float
 ARMY_AVG_PIERCING_INTEL_MAX:
   def: '0.5'
   type: float
+ARMY_AVG_PIERCING_RANGE_AT_LOWEST_INTEL:
+  def: '1.0'
+  type: float
 ARMY_MAX_PIERCING_INTEL_MIN:
   def: '0.0'
+  type: float
+ARMY_MAX_PIERCING_INTEL_MAX:
+  def: '0.5'
   type: float
 ARMY_MAX_PIERCING_RANGE_AT_LOWEST_INTEL:
   def: '1.0'
   type: float
+NAVY_MAPICON_MISSION_COUNT_INTEL_MIN:
+  def: '0.5'
+  type: float
+  cmt: min intel to show assigned naval missions
 NAVY_MAPICON_MISSION_COUNT_INTEL_MAX:
   def: '0.8'
   type: float
   cmt: min intel to show assigned naval missions with perfect accuracy, and taskforces
     count
+NAVY_MAPICON_SHOW_ALL_NAVAL_PORTS:
+  def: '0.3'
+  type: float
+  cmt: min intel to show all naval ports (otherwise you will only see nearby ones)
 NAVY_MAPICON_NAVAL_PORT_VISIBILITY_DETAIL_THRESHOLDS:
-  def: '{ 0.0, 0.1, 0.3, 0.7, 0.8 }'
-  type: array
-  cmt: how detailed the post tooltips will be for no intel show port level show fuzzy
-    taskforce count show full taskforce count show taskforce details
+  def:
+    - [0.0]  # for no intel
+    - [0.1]  # show port level
+    - [0.3]  # show fuzzy taskforce count
+    - [0.7]  # show full taskforce count
+    - [0.8]  # show taskforce details
+  type: table
+  cmt: how detailed the post tooltips will be
+NAVY_MAPICON_NAVAL_PORT_TASKFORCE_FUZZY_THRESHOLD:
+  def: '0.5'
+  type: float
 AIR_MAPICON_MISSION_COUNT_INTEL_MIN:
-  def: '{ 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3,
-    0.3 }'
-  type: array
-  cmt: AIR_SUPERIORITY CAS INTERCEPTION STRATEGIC_BOMBER NAVAL_BOMBER DROP_NUKE PARADROP
-    NAVAL_KAMIKAZE PORT_STRIKE ATTACK_LOGISTICS AIR_SUPPLY TRAINING NAVAL_MINES_PLANTING
-    NAVAL_MINES_SWEEPING RECON NAVAL_PATROL
+  def:
+    - [0.3]  # AIR_SUPERIORITY
+    - [0.3]  # CAS
+    - [0.3]  # INTERCEPTION
+    - [0.3]  # STRATEGIC_BOMBER
+    - [0.3]  # NAVAL_BOMBER
+    - [0.3]  # DROP_NUKE
+    - [0.3]  # PARADROP
+    - [0.3]  # NAVAL_KAMIKAZE
+    - [0.3]  # PORT_STRIKE
+    - [0.3]  # ATTACK_LOGISTICS
+    - [0.3]  # AIR_SUPPLY
+    - [0.3]  # TRAINING
+    - [0.3]  # NAVAL_MINES_PLANTING
+    - [0.3]  # NAVAL_MINES_SWEEPING
+    - [0.3]  # RECON
+    - [0.3]  # NAVAL_PATROL
+    - [0.3]  # BARRAGE
+    - [0.3]  # SAM
+  type: table
+AIR_MAPICON_MISSION_COUNT_INTEL_MAX:
+  def:
+    - [0.6]  # AIR_SUPERIORITY
+    - [0.6]  # CAS
+    - [0.6]  # INTERCEPTION
+    - [0.6]  # STRATEGIC_BOMBER
+    - [0.6]  # NAVAL_BOMBER
+    - [0.6]  # DROP_NUKE
+    - [0.6]  # PARADROP
+    - [0.6]  # NAVAL_KAMIKAZE
+    - [0.6]  # PORT_STRIKE
+    - [0.6]  # ATTACK_LOGISTICS
+    - [0.6]  # AIR_SUPPLY
+    - [0.6]  # TRAINING
+    - [0.6]  # NAVAL_MINES_PLANTING
+    - [0.6]  # NAVAL_MINES_SWEEPING
+    - [0.6]  # RECON
+    - [0.6]  # NAVAL_PATROL
+    - [0.6]  # BARRAGE
+    - [0.6]  # SAM
+  type: table
 AIR_MAPICON_MISSION_COUNT_INTEL_RANGE_AT_LOWEST_INTEL:
-  def: '{ 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
-    0.5 }'
-  type: array
-  cmt: AIR_SUPERIORITY CAS INTERCEPTION STRATEGIC_BOMBER NAVAL_BOMBER DROP_NUKE PARADROP
-    NAVAL_KAMIKAZE PORT_STRIKE ATTACK_LOGISTICS AIR_SUPPLY TRAINING NAVAL_MINES_PLANTING
-    NAVAL_MINES_SWEEPING RECON NAVAL_PATROL
+  def:
+    - [0.5]  # AIR_SUPERIORITY
+    - [0.5]  # CAS
+    - [0.5]  # INTERCEPTION
+    - [0.5]  # STRATEGIC_BOMBER
+    - [0.5]  # NAVAL_BOMBER
+    - [0.5]  # DROP_NUKE
+    - [0.5]  # PARADROP
+    - [0.5]  # NAVAL_KAMIKAZE
+    - [0.5]  # PORT_STRIKE
+    - [0.5]  # ATTACK_LOGISTICS
+    - [0.5]  # AIR_SUPPLY
+    - [0.5]  # TRAINING
+    - [0.5]  # NAVAL_MINES_PLANTING
+    - [0.5]  # NAVAL_MINES_SWEEPING
+    - [0.5]  # RECON
+    - [0.5]  # NAVAL_PATROL
+    - [0.5]  # BARRAGE
+    - [0.5]  # SAM
+  type: table
+AIR_MAPICON_SHOW_ALL_AIR_PORTS:
+  def: '0.3'
+  type: float
+  cmt: min intel to show all air ports (otherwise you will only see nearby ones)
 AIR_MAPICON_AIR_PORT_VISIBILITY_DETAIL_THRESHOLDS:
-  def: '{ 0.0, 0.3, 0.7, 0.8 }'
-  type: array
-  cmt: how detailed the post tooltips will be for no intel show fuzzy air plane count
-    show full air count show air plane details
+  def:
+    - [0.0]  # for no intel
+    - [0.3]  # show fuzzy air plane count
+    - [0.7]  # show full air count
+    - [0.8]  # show air plane details
+  type: table
+  cmt: how detailed the post tooltips will be
+AIR_MAPICON_AIR_PORT_PLANE_FUZZY_THRESHOLD:
+  def: '0.5'
+  type: float
 AIR_MIN_INTEL_TO_SHOW_EQUIPMENT_DESIGN_DETAILS:
   def: '0.8'
   type: float
-  cmt: ~intel ledger defines
 ```

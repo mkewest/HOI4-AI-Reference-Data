@@ -23,11 +23,18 @@ DEFINE_FILES = ["00_defines.lua", "00_graphics.lua"]
 
 
 @dataclass
+class TableItem:
+    values: List[str]
+    comment: Optional[str] = None
+
+
+@dataclass
 class DefineEntry:
     key: str
     value: str
     dtype: str
     comment: Optional[str] = None
+    table_items: Optional[List[TableItem]] = None
 
 
 def prompt_root() -> Path:
@@ -82,13 +89,18 @@ def wrap_comment(comment: str) -> List[str]:
 
 
 def parse_defines_file(path: Path) -> Dict[str, List[DefineEntry]]:
-    """Parse a defines lua file into category -> entries."""
+    """Parse a defines lua file into category -> entries (supports multi-line tables)."""
     categories: Dict[str, List[DefineEntry]] = {}
     current: Optional[str] = None
     in_root = False
 
-    for raw_line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    i = 0
+    while i < len(lines):
+        raw_line = lines[i]
         line = raw_line.strip()
+        i += 1
+
         if not line or line.startswith("--"):
             continue
 
@@ -126,6 +138,66 @@ def parse_defines_file(path: Path) -> Dict[str, List[DefineEntry]]:
             comment = comment.strip().rstrip(",")
 
         value = remainder.strip()
+
+        # Handle multi-line tables
+        if "{" in value:
+            table_lines: List[tuple[str, Optional[str]]] = []
+            after_open = value.split("{", 1)[1]
+
+            close_found = False
+            if "}" in after_open:
+                before_close, _after = after_open.split("}", 1)
+                if before_close.strip():
+                    table_lines.append((before_close, None))
+                close_found = True
+
+            if not close_found and after_open.strip():
+                table_lines.append((after_open, None))
+
+            while not close_found and i < len(lines):
+                next_raw = lines[i]
+                i += 1
+                next_line = next_raw.strip()
+                if not next_line:
+                    continue
+
+                line_comment: Optional[str] = None
+                if "--" in next_line:
+                    body, line_comment = next_line.split("--", 1)
+                    body = body.strip()
+                    line_comment = line_comment.strip().rstrip(",")
+                else:
+                    body = next_line
+
+                if "}" in body:
+                    before_close, _after = body.split("}", 1)
+                    if before_close.strip():
+                        table_lines.append((before_close, line_comment))
+                    if line_comment and comment is None:
+                        comment = line_comment
+                    close_found = True
+                else:
+                    if body.strip():
+                        table_lines.append((body, line_comment))
+
+            items: List[TableItem] = []
+            for body, item_comment in table_lines:
+                body = re.sub(r",\s*$", "", body)
+                parts = [p.strip() for p in body.split(",") if p.strip()]
+                if parts:
+                    items.append(TableItem(values=parts, comment=item_comment))
+
+            categories[current].append(
+                DefineEntry(
+                    key=key,
+                    value="",
+                    dtype="table",
+                    comment=comment or None,
+                    table_items=items or None,
+                )
+            )
+            continue
+
         if value.endswith(","):
             value = value[:-1].rstrip()
 
@@ -144,10 +216,22 @@ def build_yaml_block(entries: Iterable[DefineEntry]) -> str:
     lines: List[str] = []
     for entry in entries:
         lines.append(f"{entry.key}:")
-        lines.append(f"  def: '{entry.value}'")
-        lines.append(f"  type: {entry.dtype}")
-        if entry.comment:
-            lines.extend(wrap_comment(entry.comment))
+        if entry.table_items:
+            lines.append("  def:")
+            for item in entry.table_items:
+                arr = ", ".join(item.values)
+                if item.comment:
+                    lines.append(f"    - [{arr}]  # {item.comment}")
+                else:
+                    lines.append(f"    - [{arr}]")
+            lines.append("  type: table")
+            if entry.comment:
+                lines.extend(wrap_comment(entry.comment))
+        else:
+            lines.append(f"  def: '{entry.value}'")
+            lines.append(f"  type: {entry.dtype}")
+            if entry.comment:
+                lines.extend(wrap_comment(entry.comment))
     return "\n".join(lines) + "\n"
 
 

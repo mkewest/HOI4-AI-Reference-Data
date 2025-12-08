@@ -1,7 +1,7 @@
 ---
 domain: defines_list
 concept: overview
-version: 1.14+
+version: 1.17.2
 requires: [defines]
 relates: []
 ---
@@ -27,7 +27,9 @@ Each file corresponds to one `NDefines` category:
 ├── NGame.md
 ├── NGeography.md
 ├── NDiplomacy.md
+├── NDoctrines.md
 ├── NCountry.md
+├── NFactions.md
 ├── NResistance.md
 ├── NProduction.md
 ├── NMarket.md
@@ -79,9 +81,17 @@ NDiplomacy:
   entries: 102
   lines: 507
   depth: 2
+NDoctrines:
+  entries: 17
+  lines: 74
+  depth: 2
 NCountry:
   entries: 88
   lines: 439
+  depth: 2
+NFactions:
+  entries: 81
+  lines: 368
   depth: 2
 NResistance:
   entries: 30

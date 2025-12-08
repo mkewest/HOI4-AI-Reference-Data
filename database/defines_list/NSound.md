@@ -1,7 +1,7 @@
 ---
 domain: defines_list
 concept: NSound
-version: 1.14+
+version: 1.17.2
 requires: [defines]
 relates: [sound]
 ---
