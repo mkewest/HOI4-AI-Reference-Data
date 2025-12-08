@@ -179,43 +179,11 @@ An AI can use these to:
 
 ---
 
-## Maintenance and Deferred Tasks
-
-There are three dedicated plan files for future work. Each assumes you have read this `README.md` first:
-
-- **Crosslink audit** – `crosslink_audit_plan.md`  
-  - Goal: verify and improve all markdown links and frontmatter relationships once the structure is stable.
-  - Scope: all domain `.md` files and all `00_overview.md` files.
-
-- **In-game documentation sync** – `game_docs_audit_plan.md`  
-  - Goal: cross-check Paradox’s bundled documentation (and true explanatory comments) against this repo.
-  - Ensures no important concept exists only in vanilla docs and not here.
-
-- **Patch sync** – `patch_sync_plan.md`  
-  - Goal: ensure behavior and version notes in this repo match **post-1.13+** patches.
-  - Uses a consolidated changelog to identify systems that changed and files that must be updated.
-
-Each plan file includes:
-
-- Scope and goals.
-- A concrete, step-by-step procedure.
-- Execution order relative to other domains.
-
-An AI or human can pick **one of these plans + this README** and immediately start structured maintenance work.
-
----
-
 ## Quick Start Checklist for New Agents
 
 - **Step 1** – Read this `README.md` fully.
 - **Step 2** – Skim `index_master_plan.md` for the high-level indexing strategy and the current **intent taxonomy**.
 - **Step 3** – For answering user queries:
   - Use `master_index.json` → find **intent** → domain → `00_overview.md` → specific file.
-- **Step 4** – For infrastructure tasks:
-  - Pick one of:
-    - `crosslink_audit_plan.md`
-    - `game_docs_audit_plan.md`
-    - `patch_sync_plan.md`
-  - Follow its instructions, using per-domain overviews and the master index as guides.
 
 With just this README and the above files, a new human or AI agent should be able to understand **how the database works, how to navigate it, and how to extend or audit it safely**.
