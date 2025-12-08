@@ -287,6 +287,15 @@ trait = {
 
 > [!CRITICAL] Mutual exclusion must be defined in ALL traits in the exclusion set. If only one trait has it, players can pick the non-exclusive trait first, then bypass the exclusion by selecting the exclusive trait afterward.
 
+## Organization Schema Notes (1.14+)
+
+- **Identity**: `name`, `icon`, `background` must point to valid GFX; missing assets break UI rendering.
+- **Allowed/visible/available**: Evaluate in MIO scope with country in FROM; gate DLC/content cleanly.
+- **Equipment scope**: Use `equipment_type`/`research_categories` consistently across traits and policies so bonuses apply to intended equipment groups.
+- **Hooks**: `on_add`, `on_remove`, and other `on_*` callbacks execute in MIO scope; wrap country effects inside `owner` if needed.
+- **ai_will_do**: Weight organization selection; keep ranges stable to avoid oscillation between organizations.
+- **Layout**: `relative_position_id` controls tree layout; ensure uniqueness to avoid overlap.
+
 ## Policy System
 
 Policies are temporary modifiers activated through decisions:
@@ -325,6 +334,14 @@ policy = {
 Policy visibility and availability are evaluated during policy screen display in MIO scope with country in FROM scope.
 
 Policies have costs (political power) and durations. They can trigger effects on activation, timeout, or cancellation.
+
+### Policy schema notes
+- **Costs/cooldowns**: `cost`, `timeout`, and any cooldown effects should reflect balance; missing costs default to 0.
+- **Allowed/visible/available**: Evaluate in MIO scope; use FROM for country conditions. Keep DLC gates explicit.
+- **equipment_bonus / production_bonus**: Key by equipment groups/categories/archetypes; `same_as_mio` can mirror organization scope—use carefully to avoid leaking bonuses to unintended equipment.
+- **organization_modifier**: For org-level tweaks; keep separate from per-equipment bonuses.
+- **Callbacks**: `on_add`, `on_remove`, `on_timeout_effect` run in MIO scope; wrap country effects in `owner`.
+- **ai_will_do**: Weight AI policy selection; prevent rapid flip-flopping by keeping factors moderate.
 
 ## Name Resolution
 

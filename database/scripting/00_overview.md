@@ -9,7 +9,7 @@ relates: [core, modifiers_list, defines_list, content, military]
 
 ## Overview
 
-The scripting domain contains 9 markdown files covering HOI4's core scripting systems: scopes, triggers, effects, on_actions, scripted triggers/effects/localization, defines, and modifiers. Files are organized by functional boundaries and usage patterns.
+The scripting domain contains 11 markdown files covering HOI4's core scripting systems: scopes, triggers, effects, on_actions, scripted triggers/effects/localization, collections, script concepts, defines, and modifiers. Files are organized by functional boundaries and usage patterns.
 
 ## File Structure
 
@@ -22,6 +22,8 @@ The scripting domain contains 9 markdown files covering HOI4's core scripting sy
 ├── on_actions_core.md             - On_actions mechanisms and patterns
 ├── on_actions_reference.md        - Complete on_actions enumeration
 ├── scripted_triggers_effects.md   - Reusable scripting components
+├── collections.md                 - Collections inputs/operators and usage
+├── script_concepts.md             - Foundational scripting patterns and localization concepts
 ├── defines.md                     - Lua defines system
 └── modifiers.md                   - Modifier application and types
 ```
@@ -78,6 +80,18 @@ The scripting domain contains 9 markdown files covering HOI4's core scripting sy
 **Covers**: Scripted triggers, scripted effects, scripted localization, special patterns (diplomacy, resistance), meta triggers, override behavior  
 **Key concepts**: Filename load order, diplomacy trigger patterns, resistance initiation control, variable-based parameterization, localization evaluation order  
 **Enables**: Code abstraction and maintainability
+
+### collections.md (~900 tokens)
+
+**Purpose**: Collections inputs, operators, and iteration patterns  
+**Covers**: Built-in collections, named collections, collection_size, every_collection_element, limit usage, scope alignment, localization behavior  
+**Key concepts**: Scope safety, performance via early filtering, deterministic iteration order
+
+### script_concepts.md (~800 tokens)
+
+**Purpose**: Foundational scripting patterns for maintainable content  
+**Covers**: Bindable/formatted localization, collections structure/shorthand, script constants reload, contextual localization patterns  
+**Key concepts**: Scope-aware localization, reuse via named collections, guarding constants, fallback handling
 
 ### defines.md (~4800 tokens)
 

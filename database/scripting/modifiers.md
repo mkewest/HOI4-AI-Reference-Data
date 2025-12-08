@@ -94,6 +94,42 @@ This creates exponential scaling instead of linear. Commonly applies to:
 - `conscription_factor`
 - Various economy-related factors
 
+## Structure and Categories (1.14+)
+
+- **Static vs dynamic vs targeted vs opinion**: Static apply globally; dynamic attach to scopes via add/remove; targeted attach to a source-target pair; opinion modifiers attach between countries.
+- **Percent vs flat vs multiplicative**: Match semantics to the modifier token; check `modifiers_list` pages for expected units.
+- **Variable-based modifiers**: Some tokens accept variable references (`var:foo`); ensure variable scope matches the target scope to avoid silent no-ops.
+- **Schema references**: Use `modifiers_list/*.md` for per-category schemas and token lists; keep names synchronized to avoid ignored modifiers.
+- **Integration**: Effects/triggers should use the correct block (e.g., `targeted_modifier = { }` for country-to-country, `dynamic_modifier = { }` for scoped, `opinion_modifier = { }` for bilateral).
+
+## Dynamic modifiers
+
+Dynamic modifiers are defined in `common/dynamic_modifiers/*.txt` and applied via effects.
+
+Definition fields:
+- `icon` (optional): Shown in GUIs if provided.
+- `enable` (optional): Gate; modifier does not apply when false.
+- `remove_trigger` (optional): Removes the modifier when true.
+- `attacker_modifier = yes` (optional): Also read in combat for attackers even if not in the state.
+- Standard modifier list inside the definition; supports variable-based values (e.g., `max_fuel = var_max_fuel`).
+
+Application:
+```hoi4
+add_dynamic_modifier = {
+    modifier = example_dynamic_modifier
+    scope = GER    # optional; overrides ROOT
+    days = 14      # optional; auto-removal after N days
+}
+```
+- Scopes: country, state, unit_leader, special_project.
+- Evaluated daily; force refresh with `force_update_dynamic_modifier`.
+- Removal: via `remove_trigger`, `remove_dynamic_modifier`, or `days` expiry.
+
+Guidelines:
+- Keep `remove_trigger` lightweight when applied broadly.
+- Use `scope` to target specific entities; omit for ROOT.
+- Provide `icon` when player-visible; omit for hidden/internal modifiers.
+
 ## Application Methods
 
 ### Ideas and National Spirits

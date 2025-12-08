@@ -219,6 +219,43 @@ task_force = {
 
 Task force composition affects combat performance and AI behavior. Properly organized fleets with screens and capital ships perform better than mixed compositions.
 
+### AI Task Force Templates (composition/mission)
+
+Define AI task force templates to steer naval composition and mission usage:
+
+```hoi4
+generic_taskforce_1 = {
+    allowed = { original_tag = ENG }   # gate template
+
+    ai_will_do = { factor = 1 }        # MTTH-style weight; <=0 disables template
+
+    mission = { naval_patrol }         # list of missions this template can perform
+
+    min_composition = {                # minimum to field
+        carrier = 1
+        battleship = 1
+        heavy_cruiser = 1
+        light_cruiser = 1
+        destroyer = 1
+    }
+
+    optimal_composition = {            # upper target
+        carrier = 2
+        battleship = 2
+        heavy_cruiser = 5
+        light_cruiser = 3
+        destroyer = 6
+        submarine = 2
+    }
+}
+```
+
+Guidelines:
+- Use `allowed` to restrict templates by tag/DLC/conditions; keep `ai_will_do` > 0 for active use.
+- `mission` scopes the template to intended roles; avoid over-broad mission sets that dilute composition goals.
+- `min_composition` is the floor to field; `optimal_composition` is the cap. Keep categories aligned with naval unit types.
+- Tune factors and mission lists to avoid the AI overproducing niche mixes; pair with naval AI strategy pages/defines as needed.
+
 ## Related Systems
 
 See [Equipment](/military/equipment.md) for ship equipment definitions and variant requirements.  

@@ -81,6 +81,29 @@ strategy_type = {
 
 **enable**: Trigger checked continuously during gameplay. Controls strategy activation.
 
+## AI Bonus Weights
+
+AI bonus weights live in `common/ai_bonus_weights/*.txt` and layer multiplicative or additive factors on AI choices (research, production, decisions, peace, naval priorities, etc.). Keep naming consistent with the consuming systems to avoid silent zeros.
+
+> [!NOTE] Missing or malformed weights are treated as zero. Provide defensive defaults for DLC-gated or optional content so AI behaviors do not collapse when data is absent.
+
+### Common fields
+- **enable**: Trigger gating the weight entry.
+- **weights**: Named weights used downstream (e.g., research_air, production_navy). Units should match the consumer (usually multipliers).
+- **fallbacks**: Explicit neutral weights (1.0 for multipliers, 0 for additive) to prevent unintended suppression.
+
+### Small example
+
+```hoi4
+ai_bonus_weight_example = {
+    enable = { has_dlc = "By Blood Alone" }
+    weights = {
+        research_air = 1.25
+        research_navy = 0.9
+    }
+}
+```
+
 ### AI Areas
 
 AI areas define geographic regions for strategic planning:
@@ -93,6 +116,19 @@ ai_area_my_region = {
 ```
 
 Provinces qualify for an AI area if they are in any specified continent OR any specified strategic region (OR logic, not AND). Multiple AI areas can contain the same province - they are not mutually exclusive. Debug mode hover displays all AI areas containing a province.
+
+## AI Faction Theaters
+
+Faction theaters (`common/ai_faction_theaters/*.txt`) partition strategic regions into AI-manageable buckets shared across a faction.
+
+Key fields:
+- **regions**: Strategic region list defining the theater footprint.
+- **preferred_countries**: Countries the theater is optimized around to prioritize allied fronts.
+- **can_skip_first_region**: Allows starting from later regions when the first is invalid or already secured.
+- **ai_will_do / cancel**: MTTH-style blocks controlling adoption or abandonment.
+- **connectivity**: Hints for linking adjacent theaters for fronts/naval presence.
+
+Debugging: `imgui ai theaters` and aiview overlays surface membership and weight decisions.
 
 ### Common Strategy Types
 
@@ -121,6 +157,24 @@ Provinces qualify for an AI area if they are in any specified continent OR any s
 ### Reversed Strategies
 
 Some strategy types support `reversed = yes`, which inverts their logic. Reversed strategies have no default scope and must specify targets explicitly.
+
+## Naval AI Objectives
+
+Naval AI objectives live in `common/ai_navy/*.txt` (1.14+) and drive fleet assignment and mission weighting.
+
+Key fields:
+- **enable**: Gating trigger (checked continuously).
+- **objective_type**: Objective category (e.g., convoy_raiding, naval_supremacy, invasion_support).
+- **priority**: MTTH block; higher values win. Keep ranges stable across objectives to avoid oscillation.
+- **regions / target**: Strategic regions or scripted targets for the objective scope.
+- **ai_will_do**: Additional weighting hooks for situational boosts or suppression.
+
+Debugging:
+- `imgui show ai_navy` to inspect objective scores and assignments.
+- Check that naval supremacy targets align with invasion paths; mismatched regions produce idle fleets.
+
+Links:
+- Uses defines in `defines_list/NAI.md` and `defines_list/NNavy.md` for thresholds and weighting.
 
 ## AI Focus Modifiers
 
@@ -218,6 +272,12 @@ my_template_role = {
 
 The same role can have multiple target templates. The highest priority template determines AI build choices.
 
+### 2024-11 template notes
+- **Role-level entries first**: The AI picks a role, then a template; keep role coverage complete to avoid empty production.
+- **upgrade_prio / enable / replace_with**: Use to guide field upgrades; `target_template` plus `replace_at_match`/`target_min_match` control when swaps occur.
+- **Field upgrades**: `can_upgrade_in_field` gates upgrades in active divisions; avoid triggers that constantly flip states.
+- **Debugging**: `imgui show ai templates` surfaces role matches and template scores; keep priorities stable to avoid churn.
+
 ## AI Equipment
 
 Equipment designs guide AI variant creation for ships, planes, and tanks. Defined in `common/ai_equipment/*.txt`:
@@ -306,35 +366,45 @@ my_equipment_role = {
 
 **role_icon_index**: Only functions for naval equipment. Controls ship role icon display.
 
+### 2024-11 equipment notes
+- **priority blocks**: Use MTTH blocks for both design-level `priority` and per-variant `priority` to create clear ordering; avoid overlapping wide ranges that cause oscillation.
+- **target_variant/modules**: Prefer explicit module slots with year-based guards (`>MODULE`, `<MODULE`, `>empty`) to steer upgrades; avoid ambiguous `any_of` unless necessary.
+- **requirements vs allowed_modules**: Requirements are must-have checks; allowed_modules define ordered preference. Keep them in sync to avoid generating illegal designs.
+- **enable / available_for / blocked_for**: Gate designs and variants cleanly; DLC-gated modules should be paired with enable triggers to prevent null designs.
+- **New tokens**: `allowed_modules` plus `requirements` should reflect current module sets (including post-1.14 modules). Use `upgrade = current` / `>current` to lock or force upgrades during iterative variant improvements.
+- **Debugging**: `imgui show ai equipment` to inspect role matches, selected modules, and priority scores; ensure categories match `ai_type` expectations.
+
 ## AI Peace Conference (1.14+)
 
-Peace conference AI is defined in `common/peace_conference/ai_peace/*.txt` for version 1.14 and later:
+Peace conference AI lives in `common/peace_conference/ai_peace/*.txt` (1.14+). Entries use `peace_ai_desires` with action-level weights.
 
 ```hoi4
 my_peace_ai = {
-    enable = {
-        # Multiple enable blocks can be true simultaneously
-    }
+    enable = { }  # multiple enables can be true
     
     peace_action_type = {
-        # liberate, puppet, take_states, force_government, take_navy
+        action = take_states
+        desire = 500        # -1000..1000
+        zero_disables = yes # if desire sums to 0, disable the action
     }
-    
-    ai_desire = 500  # Range: -1000 to 1000
 }
 ```
 
-**Scopes**:
+Action types: `liberate`, `puppet`, `take_states`, `force_government`, `take_navy` (no AI modding support), and others introduced post-1.14 as applicable.
 
+Scopes:
 - ROOT = winner country
-- FROM = country undergoing the action (may be non-existent for liberation/puppeting)
+- FROM = country undergoing the action (can be non-existent for liberation/puppeting)
 - FROM.FROM.FROM = state being affected
 
-> [!CRITICAL] Controller refers to the pre-conference occupier, not current owner. Owner refers to the original pre-war owner, not current controller. FROM can represent a non-existent country about to be created through liberation or puppeting.
+Behavior:
+- Multiple `peace_action_type` blocks can be active; desires are summed. Use `zero_disables` to explicitly disable an action when total desire is 0.
+- Keep desires comparable across actions; wide ranges cause unstable selection.
+- Controller refers to pre-conference occupier; owner is the original pre-war owner.
 
-Multiple enable blocks can evaluate true simultaneously. The AI weights all enabled options and selects based on desire values.
-
-**take_navy** peace action has zero AI modding support - only player cost modifiers are available with the BBA DLC.
+Debug/links:
+- Uses defines in `defines_list/NAI.md` for base weights; reference peace cost modifiers where applicable.
+* `take_navy` still lacks AI hooks; only player cost modifiers apply (BBA).
 
 ## AI Peace Conference (Pre-1.12)
 
@@ -372,6 +442,17 @@ Event options use probability-proportional-to-size sampling with d100 rolls. Ope
 Temp variables in MTTH blocks require the value-modifying argument to come after the variable definition for proper evaluation.
 
 All MTTH blocks start at value 1 before any modifications apply.
+
+## AI Strategy Tokens (2024-11)
+
+Recent tokens (1.14+/2024-11) expand AI knobs:
+- **Equipment market / raid targets**: New strategy tokens for buying/selling and selecting raid targets; align with raid/market systems and ensure region/target scopes are valid.
+- **Naval dominance / convoy raiding**: Separate weights for dominance vs raiding; keep consistent with naval objective priorities.
+- **Research weighting**: Finer-grained category weights; ensure category names match tech folders to avoid zeroed research.
+- **Production minimums**: Tokens enforcing floor production for critical roles; set conservative minimums to avoid starving niche equipment.
+- **unit_ratio updates**: Behavior now influences both templates and equipment; keep ratios aligned so production matches desired force mix.
+
+> [!TIP] When adding new tokens, keep default values neutral and gate with enable triggers to avoid sudden AI swings in mods without supporting data.
 
 ## Related Defines
 

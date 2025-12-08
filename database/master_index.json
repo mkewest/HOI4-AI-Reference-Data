@@ -543,6 +543,48 @@
           ]
         },
         {
+          "intent": "operations_help",
+          "description": "Configuring espionage operations, tokens, and phases.",
+          "signals": {
+            "keywords": [
+              "operation",
+              "operation token",
+              "operation phase",
+              "network strength",
+              "civilian_factories",
+              "operation outcome"
+            ]
+          },
+          "primary_targets": [
+            "military/operations.md"
+          ],
+          "secondary_targets": [
+            "military/raids.md",
+            "military/intel_agencies.md"
+          ]
+        },
+        {
+          "intent": "raids_help",
+          "description": "Setting up raids, categories, targeting, and success/cooldown rules.",
+          "signals": {
+            "keywords": [
+              "raid",
+              "raids",
+              "raid target",
+              "raid cooldown",
+              "raid success",
+              "raid intel"
+            ]
+          },
+          "primary_targets": [
+            "military/raids.md"
+          ],
+          "secondary_targets": [
+            "military/operations.md",
+            "military/intel_agencies.md"
+          ]
+        },
+        {
           "intent": "equipment_database_help",
           "description": "Defining equipment archetypes/variants and their stats (not individual division templates).",
           "signals": {
@@ -887,6 +929,48 @@
       "overview": "00_overview.md",
       "routes": [
         {
+          "intent": "collections_help",
+          "description": "Using collections inputs/operators and iterating safely in triggers/effects/localization.",
+          "signals": {
+            "keywords": [
+              "collection_size",
+              "every_collection_element",
+              "named collection",
+              "game:all_countries",
+              "faction_members",
+              "owned_states",
+              "country_and_all_subjects"
+            ]
+          },
+          "primary_targets": [
+            "scripting/collections.md"
+          ],
+          "secondary_targets": [
+            "scripting/scopes.md",
+            "scripting/triggers_specialized.md"
+          ]
+        },
+        {
+          "intent": "script_concepts_help",
+          "description": "Foundational scripting patterns: bindable/formatted localization, collections structure/shorthand, constants reload, contextual localization.",
+          "signals": {
+            "keywords": [
+              "bindable localization",
+              "formatted localization",
+              "contextual localization",
+              "script constants",
+              "collections structure"
+            ]
+          },
+          "primary_targets": [
+            "scripting/script_concepts.md"
+          ],
+          "secondary_targets": [
+            "scripting/collections.md",
+            "assets/localisation.md"
+          ]
+        },
+        {
           "intent": "oob_help",
           "description": "Creating or debugging OOB files and initial force setups.",
           "signals": {
@@ -972,6 +1056,72 @@
           "secondary_targets": [
             "military/units.md",
             "military/mios.md"
+          ]
+        },
+        {
+          "intent": "peace_cost_modifiers_help",
+          "description": "Peace conference cost modifiers and peace_action_modifiers schema.",
+          "signals": {
+            "keywords": [
+              "peace_action_modifiers",
+              "peace cost",
+              "cost_multiplier",
+              "peace action type",
+              "pc_",
+              "take_states cost",
+              "puppet cost",
+              "force_government cost",
+              "liberate cost"
+            ]
+          },
+          "primary_targets": [
+            "content/peace_cost_modifiers.md"
+          ],
+          "secondary_targets": [
+            "content/decisions.md"
+          ]
+        },
+        {
+          "intent": "equipment_groups_help",
+          "description": "Defining and using equipment group tokens for bonuses/policies/modifiers.",
+          "signals": {
+            "keywords": [
+              "equipment group",
+              "equipment_group",
+              "equipment bonus",
+              "production bonus",
+              "same_as_mio",
+              "group token",
+              "equipment category"
+            ]
+          },
+          "primary_targets": [
+            "military/equipment_groups.md"
+          ],
+          "secondary_targets": [
+            "military/mios.md",
+            "military/equipment.md"
+          ]
+        },
+        {
+          "intent": "doctrine_system_help",
+          "description": "Designing doctrine folders, grand doctrines, tracks, and subdoctrines, including mastery and rewards.",
+          "signals": {
+            "keywords": [
+              "doctrine",
+              "grand doctrine",
+              "doctrine track",
+              "subdoctrine",
+              "mastery",
+              "doctrine rewards"
+            ]
+          },
+          "primary_targets": [
+            "military/doctrines.md"
+          ],
+          "secondary_targets": [
+            "database/technologies_core.md",
+            "database/technologies_gui.md"
           ]
         },
         {

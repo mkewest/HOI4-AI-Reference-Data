@@ -44,6 +44,13 @@ The faction system uses multiple file types in `common/factions/`:
 **Member Upgrades** (`member_upgrades/*.txt`): Allow member countries to gain bonuses
 **Icons** (`icons/*.txt`): Specify faction UI icons and symbols
 
+### Goals, Rules, and Progress (1.14+)
+
+- **Goals**: Define objectives with ranges/progress tracking and optional AI spending knobs; ensure scopes match (ROOT usually faction leader, FROM often member/target).
+- **Rules**: Gate actions like inviting/kicking members, expelling puppets, or sharing wars; use explicit `allow`/`forbid` style triggers.
+- **Templates**: Bundle goals, rules, upgrades, and UI into reusable packages; keep template name and icon references consistent.
+- **AI spending**: Goals can expose AI spending/priority; maintain balanced ranges so AI doesn’t overspend on a single long-shot goal.
+
 ## Faction Membership
 
 ### Adding Members

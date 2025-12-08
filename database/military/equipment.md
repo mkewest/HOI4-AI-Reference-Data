@@ -157,6 +157,15 @@ upgrades = {
 
 Each upgrade level applies its bonuses cumulatively. Level 3 tank_gun_upgrade applies the bonuses three times.
 
+## AI and Module Design (1.14+)
+
+- **ai_type / categories**: Keep `type`, `group_by`, and `interface_category` aligned with unit needs so AI production and role matching function correctly.
+- **Module slots & limits**: Define slot counts and allowed modules per hull; enforce limits for turrets/engines/armor where applicable to avoid invalid variants.
+- **default_modules**: Provide safe defaults for spawned or auto-generated variants; missing defaults can create unusable variants for AI and OOB spawns.
+- **Resources / stats**: Keep resource blocks (`resources = { }`) and key stats (defense/breakthrough/HP/speed) consistent with archetype expectations so conversions and upgrades balance correctly.
+- **Production limits**: Use `max_conversion_cost`, `build_cost_ic`, and category-appropriate caps to prevent runaway costs or negative conversions.
+- **Equipment groups linkage**: When grouping equipment for bonuses or AI priorities, keep group tokens in sync with any `equipment_groups` reference pages.
+
 ## Production System
 
 Equipment production is initiated via effects or OOB files:

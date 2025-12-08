@@ -10,6 +10,8 @@ relates: [events, on_actions_reference]
 
 On actions are hooks that execute effects when specific game events occur. They enable automatic script responses to game state changes without manual triggers.
 
+> [!NOTE] Coverage reflects 1.14+/2024-11 on_actions. Keep scope expectations aligned (ROOT/FROM/other temp scopes) and add new hooks from patches to the reference list to avoid silent omissions.
+
 ## Basic Structure
 
 On actions are defined in `common/on_actions/*.txt` within a root `on_actions` block:

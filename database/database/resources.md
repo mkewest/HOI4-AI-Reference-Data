@@ -207,6 +207,10 @@ Resources can be traded between countries through:
 
 Insufficient convoys or naval supremacy disrupts resource flow, creating shortages even when production exists.
 
+### AI Import Desire (Defines)
+
+> [!IMPORTANT] When adding or reordering resources, adjust AI import desire gates. The define `NAI::MIN_FACTORIES_TO_WANT_TO_IMPORT` (see `defines_list/NAI.md`) controls the minimum number of civilian factories an AI needs before it considers importing specific resources. Keep this aligned with new resources or factory-economy changes so AI does not refuse to import newly added resources.
+
 ## Common Issues
 
 ### Missing Resource Icons

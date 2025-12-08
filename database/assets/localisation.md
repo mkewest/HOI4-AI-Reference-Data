@@ -211,6 +211,48 @@ Conditional syntax: `[(Object ? TRUE_TEXT : FALSE_TEXT)]` evaluates object exist
 
 Formatters apply specialized formatting using `<formatter>|<token>` syntax. Available formatters: `character_name`, `country_culture`, `idea_name`, `advisor_desc`, `tech_effect`, `idea_desc`, `building_state_modifier`.
 
+### Formatter details (1.14+)
+- **advisor_desc / idea_desc / idea_name**: Expect advisor/idea tokens; pull name/description with current modifiers applied. Keep tokens valid to avoid blank strings.
+- **building_state_modifier**: Formats state-scoped building modifiers; ensure state scope when calling or pass a State object via contextual loc.
+- **character_name**: Resolves character display name; pairs well with loc objects (Character) for contextual loc.
+- **country_culture**: Prints culture string for country; requires Country scope or Country loc object.
+- **country_leader_desc**: Uses leader description; ensure ruling party leader exists in scope or provide fallback.
+- **tech_effect**: Renders technology effect text; expects tech token.
+
+> [!TIP] Cross-reference with `localisation/loc_objects.md` (once added) for supported object properties when mixing formatters and contextual localization.
+
+## Localization Objects (Loc Objects)
+
+Localization objects expose scoped properties and promotions for contextual localization using `[(Object.Property)]` syntax. Common objects include:
+- Ace
+- Building
+- Character
+- Country
+- Faction
+- IndustrialOrg
+- LocalizationEnvironment
+- Operation
+- Province
+- PurchaseContract
+- Scope
+- SpecialProject
+- State
+- Terrain
+- UnitLeader
+
+Example usage:
+```yaml
+state_info:0 "State: [(State.GetName)], Owner: [(State.Owner.GetName)]"
+ace_call:0 "Ace [(Ace.GetCallsign)] from wing [(Ace.GetWingShort)]"
+```
+
+Object properties are evaluated in the current scope unless you qualify with an object (e.g., `State.Owner`). For each object, properties generally include:
+- Names and display variants (`GetName`, `GetNameWithFlag`, etc.)
+- Pronoun helpers (`GetSheHe`, `GetHerHis`, capitalized variants)
+- Context-specific fields (e.g., ace wing/mission, country parties/power balance, character ideology)
+
+> [!NOTE] Properties differ per object; consult the in-game docs or object definitions when adding new loc strings. Ensure the object exists in scope to avoid empty output.
+
 ## Scripted Localization
 
 Scripted localization enables conditional text selection through trigger evaluation in `common/scripted_localisation/*.txt`:

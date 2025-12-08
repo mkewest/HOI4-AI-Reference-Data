@@ -150,6 +150,12 @@ upgrade = {
 
 Upgrades provide permanent modifiers to agency capabilities and are purchased with political power. Each upgrade can have visibility and availability conditions to gate progression.
 
+### Upgrade schema notes (1.14+)
+- **Media fields**: `picture`, `frame`, `sound` must be valid; missing assets silently drop UI feedback.
+- **Progress modifiers**: Use `modifiers_during_progress` for effects that apply while upgrading (e.g., temp debuffs or buffs).
+- **Multi-level**: Higher-level upgrades can reuse the same token with increased `cost` and additive modifiers; keep ordering and visibility clear.
+- **ai_will_do**: Weight AI selection per upgrade; combine with state-based modifiers (operatives count, agency level) to prevent over-investment.
+
 ## Multiple Default Names
 
 When multiple country entries exist without TAG-specific identifiers:

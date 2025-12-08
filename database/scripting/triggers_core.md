@@ -10,6 +10,8 @@ relates: [effects, scripted_triggers_effects, on_actions_core]
 
 Triggers check game state without modifying it. They return boolean values and control conditional logic throughout HOI4's scripting system.
 
+> [!NOTE] Updated for 1.14+/2024-11 scopes and triggers. New scopes include `industrial_org`, `raid_instance`, `special_project`, `purchase_contract`, and `operation`; ensure scripts use valid scope when calling specialized triggers.
+
 ## Fundamental Behavior
 
 Triggers evaluate game conditions and return true or false. They never modify game state - that's the role of effects. The default logic is AND with short-circuit evaluation: execution stops at the first false trigger.

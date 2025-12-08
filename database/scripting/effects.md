@@ -10,6 +10,8 @@ relates: [on_actions_core, scripted_triggers_effects, events, decisions]
 
 Effects modify game state by changing variables, adding resources, triggering events, and manipulating game objects. Unlike triggers which check conditions, effects perform actions.
 
+> [!NOTE] Coverage reflects 1.14+/2024-11 effects across operations/espionage, supply/logistics, MIO/industry, localisation/UI, and specialised scopes. When adding new effects from patches, mirror parameter names and required scopes from the in-game documentation to avoid silent no-ops.
+
 ## Basic Structure
 
 Effects are commands that execute sequentially:
@@ -369,6 +371,32 @@ force_update_dynamic_modifier = yes
 add_province_modifier = { modifier = name province = id }
 remove_province_modifier = { modifier = name province = id }
 ```
+
+### Supply, Logistics, and Movement
+
+Supply/logistics effects are scope-sensitive (typically state or strategic region) and can impact trade and convoy pathing when routes are blocked or modified. Always confirm required scope and parameters from the current in-game documentation before use.
+
+Examples:
+
+```hoi4
+add_supply_node = { state = 123 }                     # Adds a supply node in the state
+add_railway_connection = { from = 123 to = 456 level = 3 }  # Builds/raises rail between two states
+set_naval_route_status = { route = "route_token" status = blocked }  # Blocks/unblocks a named naval route
+```
+
+> [!NOTE] `add_supply_node` and `add_railway_connection` expect valid state IDs in scope or via parameters; `set_naval_route_status` uses defined route tokens from naval route definitions and affects convoy/supply pathing.
+
+### Espionage and Operations (Agency/Operatives)
+
+Operative/agency effects require correct scopes (country for agency creation, operative scope for missions). Examples include creating an agency, adding operative slots, recruiting operatives, assigning missions, and managing operation progress/tokens/phases. Use the operations/espionage docs for scope details and required parameters.
+
+### MIOs and Industry
+
+Military-Industrial Organization effects manipulate organizations, traits, and policies. Ensure you set the MIO scope and check visibility/availability before applying bonuses. When assigning production or research bonuses, constrain to the intended equipment groups/categories to avoid no-op bonuses.
+
+### Localization and UI
+
+Effects that alter scripted GUIs or localization (e.g., scripted tooltips) must keep scope and parameters aligned with formatter requirements. Use `custom_effect_tooltip` or scripted loc to avoid leaking implementation details to players.
 
 ## Tooltip Management
 

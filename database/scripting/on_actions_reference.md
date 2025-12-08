@@ -10,6 +10,8 @@ relates: [events, effects]
 
 Complete enumeration of all on_actions with scope mappings and triggering conditions. For mechanisms and best practices, see [On Actions Core](/scripting/on_actions_core.md).
 
+> [!NOTE] Updated for 1.14+/2024-11 hooks. When adding new on_actions from patches, document scope defaults and temp variables to avoid mis-scoping in scripts.
+
 ## Periodic On Actions
 
 Execute at regular intervals during gameplay.

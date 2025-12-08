@@ -182,6 +182,15 @@ my_targeted_decision = {
 
 **target_non_existing**: Boolean allowing targeting of non-existent countries.
 
+### Polling cadence and performance
+
+- **allowed**: Checked once at game start/load. Use to hard-filter decisions (and heavy targeted decisions) that should never apply to most countries.
+- **visible**: Checked each frame (if allowed). Keep lightweight; expensive targeted logic should move into target_root/target triggers.
+- **available**: Checked each frame (if visible). Should not contain impossible conditions; keep concise.
+- **target_root_trigger**: Checked once per day (if allowed). Subset of visible in ROOT; use to prefilter targets for performance.
+- **target_trigger**: Checked once per day per target (if allowed and target_root_trigger). Subset of visible in FROM; avoid frame-by-frame global scans.
+- **state_target / targets**: Prefer explicit `targets`, `target_array`, or scoped `state_target` filters (owned/controlled/continent) over `any` to reduce per-frame checks.
+
 ### State Targeting
 
 For state-targeted decisions, icons appear over states when the decision menu is open. Continent values for filtering are: `europe`, `africa`, `north_america`, `south_america`, `asia`, `oceania`, `middle_east`.

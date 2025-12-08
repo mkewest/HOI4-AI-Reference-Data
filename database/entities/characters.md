@@ -402,6 +402,55 @@ The `gain_xp` trigger checks in combatant scope (during combat), while `gain_xp_
 
 The `trait_xp_factor` modifier is multiplicative: a value of `0.1` means +10% more XP (not 10% of XP).
 
+### Scientist Role
+
+Scientists attach to characters to drive Special Projects.
+
+```hoi4
+my_character_token = {
+    scientist = {
+        desc = desc_loc_key            # optional flavor description
+        traits = { trait_token }       # scientist trait DB (or country leader traits until DB exists)
+        skills = { specialization = 2 }# per-specialization skill overrides (default 1)
+        visible = { ... }              # optional trigger to gate visibility; ROOT = character
+    }
+}
+```
+
+- **desc**: Localisation key for flavor.
+- **traits**: Scientist-specific or shared traits.
+- **skills**: Per-specialization starting levels; unspecified default to 1.
+- **visible**: Optional trigger controlling whether the scientist role is shown/usable.
+
+### Scientist Traits
+
+Scientist traits are defined in the scientist trait database and apply to Special Projects only.
+
+Example:
+
+```hoi4
+my_scientist_trait_token = {
+    name = name_loc_key        # optional; otherwise uses the token loc key
+    icon = GFX_icon            # optional; otherwise uses GFX_<token>
+
+    modifier = {               # applies to the special project the scientist is attached to
+        special_project_prototype_speed_factor = 0.5
+    }
+
+    specialization = { specialization_land }  # optional: restrict to specializations; omit for all
+
+    available = {              # optional availability trigger; FROM/ROOT/PREV in country scope
+        has_dlc = "No Step Back"
+        ROOT = { has_tech = tech_engineers }
+    }
+}
+```
+
+Guidelines:
+- Use modifiers relevant to Special Projects.
+- Gate via `available` when DLC/tech/theme restrictions apply.
+- Provide icons/names or rely on token defaults (`GFX_<token>`, `<token>` loc key).
+
 ## Legacy Systems
 
 ### Legacy ID

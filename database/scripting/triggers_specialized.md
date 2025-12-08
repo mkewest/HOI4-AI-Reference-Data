@@ -10,6 +10,8 @@ relates: [effects, on_actions_core, scopes]
 
 Domain-specific triggers for particular game systems. For core trigger logic and operators, see [Core Triggers](/scripting/triggers_core.md).
 
+> [!NOTE] Includes 1.14+/2024-11 additions. New scopes such as `industrial_org`, `raid_instance`, `special_project`, `purchase_contract`, and `operation` have dedicated triggers—ensure the calling scope matches or provide an explicit scope switch.
+
 ## Global Scope Triggers
 
 Valid in any scope context:

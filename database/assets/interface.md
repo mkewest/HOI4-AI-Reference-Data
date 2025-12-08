@@ -219,6 +219,30 @@ Elements render in file definition order creating a z-ordering system. This orde
 
 Elements inherit container orientation unless the element specifies its own `orientation` attribute. This inheritance creates consistent positioning across nested containers but can be overridden per-element when needed.
 
+## Scripted GUI Integration (contexts, bindings, dynamics)
+
+Scripted GUIs attach GUI containers to game contexts:
+
+- **context_type**: `player_context`, `selected_country_context`, `selected_state_context`, `diplomacy_target_context`, `decision_category`, `diplomatic_action`, `national_focus_context`, `country_mapicon`, `state_mapicon`.
+- **window_name**: Name of the container defined in `.gui`.
+- **parent binding**: `parent_window_token` (common tokens: top_bar, decision_tab, tech folders, diplomacy_tab, etc.), or `parent_window_window` (container name), or `parent_scripted_gui`.
+- **visibility / map_mode**: `visible = { }` for show/hide; `map_mode` for map-icon contexts; `mapicon_targets` (targeting like decisions) for mapicon guis.
+
+### Interactive wiring
+- **effects**: Bind button clicks (supports modifiers like `_alt_right_click`).
+- **triggers**: Enable/visible checks per element (`button_name_click_enabled`, `icon_name_visible`).
+- **properties**: Dynamically set textures/frames/positions (`image`, `frame`, `x`, `y`).
+- **dynamic_lists**: Populate entries from arrays; optional `change_scope`, `entry_container`, `ai_weights`.
+- **dirty**: Optional variable name to throttle updates—GUI refreshes only when the variable changes.
+
+### AI fields
+- `ai_enabled`: One-time gate (use tag/original_tag checks here).
+- `ai_test_interval` / `ai_test_variance`: Hours between AI evaluations.
+- `ai_check`: Per-tick gate for AI using the GUI.
+- `ai_test_scopes`: Target sets to evaluate (self/enemy/ally/neighbouring countries/states variants).
+- `ai_check_scope`: Per-target gate.
+- `ai_weights`: Per-action weights (`ai_will_do` style) with `ignore_lower_weights`, `weight`, and `ai_max_weight_taken_per_test` cap.
+
 ## Related Systems
 
 Containers and elements integrate with scripted GUI for dynamic behavior, localization for text content, and sprite definitions for visual assets. See [Scripted GUI](/assets/scripted_gui.md) for event handling and dynamic element control.

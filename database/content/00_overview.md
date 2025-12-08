@@ -9,18 +9,19 @@ relates: [scripting, database, military, assets]
 
 ## Overview
 
-The content domain contains 6 markdown files covering all scripted game content systems in Hearts of Iron IV. Files are organized by semantic cohesion, grouping interdependent mechanics that share evaluation systems and scoping rules.
+The content domain contains 7 markdown files covering all scripted game content systems in Hearts of Iron IV. Files are organized by semantic cohesion, grouping interdependent mechanics that share evaluation systems and scoping rules.
 
 ## File Structure
 
 ```text
 /content/
-├── events.md           - Event system and firing mechanics
-├── national_focus.md   - National focus trees and progression
-├── decisions.md        - Decision categories and types
-├── ai_strategy.md      - AI behavior and automation
-├── achievements.md     - Custom achievement system
-└── bookmarks.md        - Game start scenarios and configuration
+├── events.md                 - Event system and firing mechanics
+├── national_focus.md         - National focus trees and progression
+├── decisions.md              - Decision categories and types
+├── peace_cost_modifiers.md   - Peace conference cost modifiers schema and usage
+├── ai_strategy.md            - AI behavior and automation
+├── achievements.md           - Custom achievement system
+└── bookmarks.md              - Game start scenarios and configuration
 ```
 
 ## File Descriptions
@@ -45,6 +46,13 @@ The content domain contains 6 markdown files covering all scripted game content 
 **Covers**: Decision categories, standard decisions, targeted decisions (country/state), missions, cost systems (standard and custom), timer mechanics, war warnings, random seed control  
 **Key relationships**: Requires triggers, effects, and modifiers; relates to states, events, and national_focus  
 **Note**: Three distinct decision types with different evaluation rules
+
+### peace_cost_modifiers.md (~600 tokens)
+
+**Purpose**: Peace conference cost modifier schemas  
+**Covers**: Scopes (ROOT/FROM/FROM.FROM/FROM.FROM.FROM), peace_action_types, `peace_action_modifiers` schema (category, peace_action_type, enable, cost_multiplier), guidance on trigger use and multiplier ranges  
+**Key relationships**: Relates to decisions (peace actions), modifiers, and peace conference triggers  
+**Note**: Keep `enable` lightweight and use `pc_*` triggers for conference-specific checks
 
 ### ai_strategy.md (~2400 tokens)
 
@@ -105,13 +113,14 @@ These handle game setup and meta-level progression outside normal gameplay.
 
 | File | Token Count | Percentage |
 |------|-------------|------------|
-| events.md | ~2800 | 23.7% |
-| national_focus.md | ~2600 | 22.0% |
-| ai_strategy.md | ~2400 | 20.3% |
-| decisions.md | ~2200 | 18.6% |
-| bookmarks.md | ~1200 | 10.2% |
-| achievements.md | ~600 | 5.1% |
-| **Total** | **~11,800** | **100%** |
+| events.md | ~2800 | 22.6% |
+| national_focus.md | ~2600 | 21.0% |
+| ai_strategy.md | ~2400 | 19.3% |
+| decisions.md | ~2200 | 17.8% |
+| bookmarks.md | ~1200 | 9.7% |
+| peace_cost_modifiers.md | ~600 | 4.8% |
+| achievements.md | ~600 | 4.8% |
+| **Total** | **~12,400** | **100%** |
 
 Average: ~1,967 tokens per file  
 All files remain well under the 4000 token threshold for optimal RAG chunking.

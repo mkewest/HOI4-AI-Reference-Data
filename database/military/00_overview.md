@@ -9,16 +9,20 @@ relates: [core, scripting, database, modifiers_list]
 
 ## Overview
 
-The military domain contains 8 markdown files covering all aspects of military force organization, equipment systems, and industrial capabilities in Hearts of Iron IV. Files are organized by functional subsystem rather than strict technical hierarchy.
+The military domain contains 12 markdown files covering all aspects of military force organization, doctrine systems, operations/raids, equipment systems, and industrial capabilities in Hearts of Iron IV. Files are organized by functional subsystem rather than strict technical hierarchy.
 
 ## File Structure
 
 ```text
 /military/
+├── doctrines.md            - Doctrine folders, grand doctrines, tracks, subdoctrines
+├── operations.md           - Espionage operations (tokens, phases)
+├── raids.md                - Raids system
 ├── oob.md                  - Organization of Battle loading system
 ├── division_template.md    - Division composition and naming
 ├── units.md                - Battalion and support company definitions
 ├── equipment.md            - Equipment archetypes and variants
+├── equipment_groups.md     - Equipment group tokens for bonuses/policies
 ├── air_wings.md            - Air force instantiation
 ├── navies.md               - Naval fleet organization
 ├── mios.md                 - Military-Industrial Organizations (NSB DLC)
@@ -26,6 +30,27 @@ The military domain contains 8 markdown files covering all aspects of military f
 ```
 
 ## File Descriptions
+
+### doctrines.md (~700 tokens)
+
+**Purpose**: Consolidated doctrine system (folders, grand doctrines, tracks, subdoctrines)  
+**Covers**: Folder UI/allowed, grand doctrine anchors, track activation/mastery, subdoctrine rewards, mastery/reward visuals, trigger/effect/modifier integration  
+**Key relationships**: Relates to research/tech UI, modifiers (doctrine mastery), and military systems consuming doctrine effects  
+**Critical edge cases**: Keep track ordering/layout consistent; scope rewards correctly (country/unit); align XP cost/type with branch
+
+### operations.md (~700 tokens)
+
+**Purpose**: Espionage operations, tokens, and phases in one reference  
+**Covers**: Operation fields (scopes, visuals, duration/danger, ai_will_do), tokens (unique per country pair, targeted modifiers), phases (requirements, outcomes, equipment incl. civilian_factories, reseeding)  
+**Key relationships**: Ties to intel agencies, raids, modifiers_list, and scripting hooks  
+**Critical edge cases**: Enforce token uniqueness/cleanup; align network/equipment requirements with phase gating; keep phase weights balanced
+
+### raids.md (~400 tokens)
+
+**Purpose**: Raids system reference  
+**Covers**: Categories/targeting, UI/icons/arrows, command power/cooldowns, allowed/visible/available/launchable/launchable_from, unit/equipment expectations, success levels, intel source  
+**Key relationships**: Relates to operations/intel systems and defines  
+**Critical edge cases**: Validate targeting and starting_point logic; set non-zero cooldowns to prevent spam
 
 ### oob.md (~900 tokens)
 
@@ -54,6 +79,13 @@ The military domain contains 8 markdown files covering all aspects of military f
 **Covers**: Archetype hierarchy (inheritance), parent relationships (upgrade paths), equipment stats, variants, variant requirements by DLC, upgrade modules, production system, production efficiency, equipment behavior in OOB, factory assignment, categories, lend-lease and gifting  
 **Key relationships**: Requires units for type matching; relates to units, oob, and mios  
 **Critical edge cases**: Efficiency as 0-100 not 0.0-1.0, progress as single unit completion, variant name requirements by DLC (NSB/MTG/BBA mandatory), start_equipment_factor spawning from nothing, force_equipment_variants leaving empty slots, ship production efficiency factors having no effect
+
+### equipment_groups.md (~400 tokens)
+
+**Purpose**: Equipment group tokens for scoping bonuses/policies  
+**Covers**: Group definition (types/archetypes/categories), nested groups, usage in MIO policies/traits and modifiers, maintenance guidance  
+**Key relationships**: Used by mios, modifiers_list, and any system scoping equipment bonuses  
+**Critical edge cases**: Avoid circular inclusion; keep tokens consistent and aligned with equipment definitions to prevent no-ops
 
 ### air_wings.md (~500 tokens)
 

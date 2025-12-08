@@ -66,8 +66,6 @@ Each file corresponds to one `NDefines` category:
 
 ## Category Summary
 
-The `Structures/defines_list_structure.md` file summarizes how many entries each category contains and their approximate size:
-
 ```yaml
 NGame:
   entries: 15

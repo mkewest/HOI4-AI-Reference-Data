@@ -293,6 +293,19 @@ Documentation exists at `documentation/dynamic_variables_documentation` in the g
 
 See the scripting.json reference for complete listings of available game variables.
 
+### Dynamic variables (read-only, scope-specific)
+
+Dynamic variables are precomputed, read-only values exposed per scope and usable wherever variables are accepted. They do not need prior definition and cannot be written to. Examples by scope (non-exhaustive):
+
+- **global**: `countries`, `majors`, `states`, `operations`, `ideology_groups`, `province_controllers`, `date`, `year`, `num_days`, `difficulty`, `global_resource_extracted[@resource]`, `power_balance_value/daily_change/weekly_change`, `pc_turn`, `threat`.
+- **country**: AI attitudes (`ai_attitude_*`@TARGET), AI strategies (`ai_strategy_*`@TARGET), `ai_wants_divisions`, `air_intel`@TARGET, alliance strength ratios, resource/stockpile/production/convoy counts, factories, manpower, intel values, agency upgrades, war scores, supply, command power, fuel, PP/XP, various counts (`num_*` for units, operatives, subjects, templates), victory points, war support/stability, resistance/compliance snapshots, operations/decisions/missions in progress, power balance values, occupations, divisions in training/queue, research/tech categories.
+- **state**: Resistance/compliance values, owner/controller data, supply/railway/infra values, victory points, resources, building counts, population, manpower, weather/terrain info.
+- **unit_leader**: XP, stats, traits, command, combat data; counts of assigned/commanded units.
+- **military_industrial_organization**: Funds, size, policies/traits, capacity, task status.
+- **special_project**: Phase/progress, costs, assigned scientists, requirements/results.
+
+Use the in-game `dynamic_variables_documentation` for the full, versioned list; the above captures the key categories and examples without duplication.
+
 ## Game Arrays
 
 The game provides built-in arrays:

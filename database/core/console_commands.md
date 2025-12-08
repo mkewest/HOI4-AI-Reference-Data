@@ -79,6 +79,18 @@ Experience (xp) grants are limited to once per 24-hour in-game period. Repeated 
 
 **add_latest_equipment (ale) [<amount>] [<type>]:** Add latest variant of equipment archetype
 
+## MIO, Market, Special Projects, and Debug Expansions (1.14+)
+
+Recent builds added many commands for Military Industrial Organisations, the International Market, and Special Projects, plus release-build gating for some debug tools. Common groups:
+
+- **MIO funds/capacity/size**: `AddFunds`, `AddSize`, `AddTaskCapacity` (aliases: `mio.*`, `IndustrialOrganisation.*`) with optional org token and amounts.
+- **Market**: `InternationalMarket.*` commands for subsidies, requests, reservations, pricing, and automation toggles.
+- **Special Projects**: `sp_add_scientist`, `sp_add_scientist_level`, `sp_add_scientist_trait`, `sp_fast`, `sp_instant`, `sp_unlock_all`, etc., for scientist roles and project pacing.
+- **Agency/Operations**: `Agency.Instant`, `Operation.Instant`, `operation_start`, `operation_test_phase_selection`, `endrids/prepareraids` for raids.
+- **Debug/tweakables**: Many commands are unavailable in release builds; check in-game availability. Tweakable variables can be toggled/set directly (see in-game `trigger_docs`/`effect_docs`/`docs`).
+
+> [!NOTE] Keep alias awareness (e.g., `AddFunds`, `mio.AddFunds`) and argument order. Release builds may hide certain debug commands; verify before documenting for players.
+
 The `add_equipment` command does not support naval equipment except `convoy_1`. For equipment variants, use the exact given name as it appears in the definition file.
 
 ## Construction and Research
